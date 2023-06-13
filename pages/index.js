@@ -27,7 +27,7 @@ export default function LandingPage() {
   return (
     <MainLayout>
       <RootStyle
-        title='The starting point for your next project | Minimal-UI'
+        title='Kitchen'
         id='move_top'
       >
         <LandingHero />
@@ -40,6 +40,7 @@ export default function LandingPage() {
           
           <LandingPricingPlans />
           <LandingAdvertisement /> */}
+          
           <LandingOfferedSolutions />
         </ContentStyle>
       </RootStyle>

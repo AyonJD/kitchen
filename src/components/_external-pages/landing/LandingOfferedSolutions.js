@@ -3,6 +3,7 @@ import { Icon } from '@iconify/react';
 import checkmarkFill from '@iconify/icons-eva/checkmark-fill';
 import chevronRightFill from '@iconify/icons-eva/chevron-right-fill';
 import { motion } from 'framer-motion';
+import NextLink from 'next/link';
 // material
 import { useTheme, styled, alpha } from '@mui/material/styles';
 import {
@@ -24,15 +25,18 @@ import {
     MotionInView,
     varFadeInDown,
 } from '../../animate';
+import CustomCard from 'src/components/card/CustomCard';
 
 // ----------------------------------------------------------------------
 
 const SOLUTIONTITLE = ['Demo One', 'Demo Two', 'Demo Three', 'Demo Four'];
 const SOLUTIONICON = ['/static/brand/logo.png', '/static/brand/logo.png', '/static/brand/logo.png', '/static/brand/logo.png',];
+const SOLUTION_URL = ['/demo-one', '/demo-two', '/demo-three', '/demo-four'];
 
 const SOLUtION_ITEMS = [...Array(4)].map((_, index) => ({
     title: SOLUTIONTITLE[index],
     icon: SOLUTIONICON[index],
+    url: SOLUTION_URL[index],
 }));
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -63,47 +67,48 @@ const LeftLogoStyle = styled((props) => <Stack spacing={5} {...props} />)(
 
 // ----------------------------------------------------------------------
 
-function SolutionsCard({ solution, cardIndex }) {
-    const theme = useTheme();
-    const { title, icon } = solution;
+// function SolutionsCard({ solution, cardIndex }) {
+//     const theme = useTheme();
+//     const { title, icon } = solution;
 
-    const isLight = theme.palette.mode === 'light';
+//     const isLight = theme.palette.mode === 'light';
 
-    return (
-        <Card
-            sx={{
-                cursor: 'pointer',
-                p: 5,
-                boxShadow: (theme) =>
-                    `0px 48px 80px ${alpha(
-                        isLight ? theme.palette.grey[500] : theme.palette.common.black,
-                        0.12
-                    )}`,
-                ...(cardIndex === 1 && {
-                    boxShadow: (theme) =>
-                        `0px 48px 80px ${alpha(
-                            isLight ? theme.palette.grey[500] : theme.palette.common.black,
-                            0.48
-                        )}`,
-                }),
-            }}
-        >
-            <Stack spacing={5}>
-                <div>
-                    <Typography
-                        variant='overline'
-                        sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
-                    >
-                        LICENSE
-                    </Typography>
-                    <Typography variant='h4'>{title}</Typography>
-                </div>
-            </Stack>
-        </Card>
-    );
-}
+//     return (
+//         <Card
+//             sx={{
+//                 cursor: 'pointer',
+//                 p: 5,
+//                 boxShadow: (theme) =>
+//                     `0px 48px 80px ${alpha(
+//                         isLight ? theme.palette.grey[500] : theme.palette.common.black,
+//                         0.12
+//                     )}`,
+//                 ...(cardIndex === 1 && {
+//                     boxShadow: (theme) =>
+//                         `0px 48px 80px ${alpha(
+//                             isLight ? theme.palette.grey[500] : theme.palette.common.black,
+//                             0.48
+//                         )}`,
+//                 }),
+//             }}
+//         >
+//             <Stack spacing={5}>
+//                 <div>
+//                     <Typography
+//                         variant='overline'
+//                         sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
+//                     >
+//                         LICENSE
+//                     </Typography>
+//                     <Typography variant='h4'>{title}</Typography>
+//                 </div>
+//             </Stack>
+//         </Card>
+//     );
+// }
 
 export default function LandingOfferedSolutions() {
+    
     return (
         <RootStyle>
             <Container>
@@ -122,14 +127,14 @@ export default function LandingOfferedSolutions() {
 
                         {/* Main heading */}
                         <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                            <Typography variant='h1' sx={{ color: 'common.white' }}>
+                            <Typography variant='h1' >
                                 Kitchen
                             </Typography>
                         </MotionInView>
 
                         {/* Sub heaing */}
                         <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                            <Typography variant='h4' sx={{ color: 'common.white' }}>
+                            <Typography variant='h4'>
                                 Cafe & Restaurant
                             </Typography>
                         </MotionInView>
@@ -162,13 +167,27 @@ export default function LandingOfferedSolutions() {
 
                 <Grid container spacing={5}>
                     {SOLUtION_ITEMS.map((item, index) => (
-                        <Grid key={index} item xs={12} md={6}>
-                            <MotionInView
-                                variants={index === 0 || index === 1 ? varFadeInDown : varFadeInUp}
-                            >
-                                <SolutionsCard solution={item} cardIndex={index} />
-                            </MotionInView>
-                        </Grid>
+                        <NextLink href={item.url} passHref key={index}>
+                            <Grid item xs={12} md={6}>
+                                <MotionInView
+                                    variants={index === 0 || index === 1 ? varFadeInDown : varFadeInUp}
+                                >
+                                    <CustomCard cardIndex={index}>
+                                        <Stack spacing={5}>
+                                            <div>
+                                                <Typography
+                                                    variant='overline'
+                                                    sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
+                                                >
+                                                    LICENSE
+                                                </Typography>
+                                                <Typography variant='h4'>{item.title}</Typography>
+                                            </div>
+                                        </Stack>
+                                    </CustomCard>
+                                </MotionInView>
+                            </Grid>
+                        </NextLink>
                     ))}
                 </Grid>
             </Container>
