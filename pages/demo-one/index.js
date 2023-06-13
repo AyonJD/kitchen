@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import MainNavbar from 'src/layouts/main/MainNavbar';
 import { Box, Container, Typography } from '@mui/material';
 import { alpha, useTheme, styled } from '@mui/material/styles';
@@ -19,10 +19,12 @@ const RootStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function DemoOne() {
+    const [slidesToShow, setSlidesToShow] = useState(3);
+
     const settings = {
         dots: true,
         infinite: true,
-        slidesToShow: 3,
+        slidesToShow: slidesToShow,
         slidesToScroll: 1,
         autoplay: true,
         speed: 2000,
@@ -53,6 +55,25 @@ export default function DemoOne() {
         }
     ]
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth < 600) {
+                setSlidesToShow(1);
+            } else if (window.innerWidth < 960) {
+                setSlidesToShow(2);
+            } else {
+                setSlidesToShow(3);
+            }
+        };
+
+        window.addEventListener('resize', handleResize);
+        handleResize();
+
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
     return (
         <>
             <MainNavbar />
@@ -60,44 +81,20 @@ export default function DemoOne() {
                 <Container>
                     <MotionInView variants={varFadeInUp}>
                         <Slider {...settings}>
-                            {
-                                cardData.map((item, index) => (
-                                    <CustomCard cardIndex={index} sx={{ marginRight: 2, marginLeft: 2 }}>
-                                        <Box>
-                                            <Typography sx={{ textAlign: 'center' }} variant="h4">{item.title}</Typography>
-                                            <img src={item.image} alt="" />
-                                        </Box>
-                                    </CustomCard>
-                                ))
-                            }
-
-                            {/* <Box>
-                                <h3>2</h3>
-                                <img src='/static/mock-images/demo-one-1.jpg' alt="" />
-                            </Box>
-                            <Box>
-                                <h3>3</h3>
-                                <img src='/static/mock-images/demo-one-1.jpg' alt="" />
-                            </Box>
-                            <Box>
-                                <h3>4</h3>
-                                <img src='/static/mock-images/demo-one-1.jpg' alt="" />
-                            </Box>
-                            <Box>
-                                <h3>5</h3>
-                                <img src='/static/mock-images/demo-one-1.jpg' alt="" />
-                            </Box>
-                            <Box>
-                                <h3>6</h3>
-                                <img src='/static/mock-images/demo-one-1.jpg' alt="" />
-                            </Box> */}
+                            {cardData.map((item, index) => (
+                                <CustomCard key={index} cardIndex={index} sx={{ marginRight: 2, marginLeft: 2 }}>
+                                    <Box>
+                                        <Typography sx={{ textAlign: 'center' }} variant="h4">
+                                            {item.title}
+                                        </Typography>
+                                        <img src={item.image} alt="" />
+                                    </Box>
+                                </CustomCard>
+                            ))}
                         </Slider>
                     </MotionInView>
                 </Container>
             </RootStyle>
-            {/* Add more components or content as needed */}
-
-
         </>
     );
 }
