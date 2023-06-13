@@ -1,13 +1,9 @@
 import PropTypes from 'prop-types';
 import { Link as ScrollLink } from 'react-scroll';
-// next
-import { useRouter } from 'next/router';
 // material
 import { Box, Link, Container, Typography } from '@mui/material';
 // components
 import Logo from '../../components/Logo';
-//
-import MainFooter from './MainFooter';
 
 // ----------------------------------------------------------------------
 
@@ -16,8 +12,6 @@ MainLayout.propTypes = {
 };
 
 export default function MainLayout({ children }) {
-  const { pathname } = useRouter();
-  const isHome = pathname === '/';
 
   return (
     <>

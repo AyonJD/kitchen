@@ -57,21 +57,6 @@ const HeroOverlayStyle = styled(motion.img)({
   position: 'absolute',
 });
 
-const HeroImgStyle = styled(motion.img)(({ theme }) => ({
-  top: 0,
-  right: 0,
-  bottom: 0,
-  zIndex: 8,
-  width: '100%',
-  margin: 'auto',
-  position: 'absolute',
-  [theme.breakpoints.up('lg')]: {
-    right: '8%',
-    width: 'auto',
-    height: '48vh',
-  },
-}));
-
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
@@ -199,14 +184,14 @@ export default function LandingHero() {
             />
 
             {/* Main heading */}
-            <motion.div variants={varFadeInRight} style={{marginTop: 0}}>
+            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
               <Typography variant='h1' sx={{ color: 'common.white' }}>
                 Kitchen
               </Typography>
             </motion.div>
 
             {/* Sub heaing */}
-            <motion.div variants={varFadeInRight} style={{marginTop: 0}}>
+            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
               <Typography variant='h4' sx={{ color: 'common.white' }}>
                 Cafe & Restaurant
               </Typography>

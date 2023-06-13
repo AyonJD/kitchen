@@ -5,15 +5,9 @@ import { styled } from '@mui/material/styles';
 // components
 import Page from 'src/components/Page';
 import {
-  LandingHero,
-  LandingMinimal,
-  LandingDarkMode,
-  LandingThemeColor,
-  LandingPricingPlans,
-  LandingAdvertisement,
-  LandingCleanInterfaces,
-  LandingHugePackElements,
+  LandingHero
 } from 'src/components/_external-pages/landing';
+import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions';
 
 // ----------------------------------------------------------------------
 
@@ -37,15 +31,17 @@ export default function LandingPage() {
         id='move_top'
       >
         <LandingHero />
-        {/* <ContentStyle>
-          <LandingMinimal />
+        <ContentStyle>
+          {/* <LandingMinimal />
           <LandingHugePackElements />
           <LandingDarkMode />
           <LandingThemeColor />
           <LandingCleanInterfaces />
+          
           <LandingPricingPlans />
-          <LandingAdvertisement />
-        </ContentStyle> */}
+          <LandingAdvertisement /> */}
+          <LandingOfferedSolutions />
+        </ContentStyle>
       </RootStyle>
     </MainLayout>
   );
