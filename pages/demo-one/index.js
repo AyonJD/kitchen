@@ -96,7 +96,7 @@ export default function DemoOne() {
                     </MotionInView>
 
                     <MotionInView variants={varFadeInUp}>
-                        <NextLink href='/demo-one/one' passHref>
+                        <NextLink href='/demo-one/order-selection' passHref>
                             <Button
                                 sx={{ marginTop: 5, marginBottom: 2 }}
                                 variant='contained'>

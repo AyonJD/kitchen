@@ -20,18 +20,18 @@ const ICONS = {
 const demoOneSidebarConfig =
     [
         {
-            title: "One",
-            path: '/demo-one/one',
+            title: "Order Selection",
+            path: '/demo-one/order-selection',
             icon: ICONS.dashboard,
         },
         {
-            title: "Two",
-            path: '/demo-one/two',
+            title: "Table Dashboard",
+            path: '/demo-one/table-dashboard',
             icon: ICONS.ecommerce,
         },
         {
-            title: "Three",
-            path: '/demo-one/three',
+            title: "Feedback",
+            path: '/demo-one/feedback',
             icon: ICONS.analytics,
         },
     ]
