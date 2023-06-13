@@ -19,6 +19,8 @@ function responsiveFontSizes({ sm, md, lg }) {
 }
 
 const FONT_PRIMARY = 'Public Sans, sans-serif'; // Google Font
+const FONT_SECONDARY = 'Teko, sans-serif'; // Google Font
+const FONT_MONO = 'Saira Condensed, sans-serif'; // Google Font
 // const FONT_SECONDARY = 'CircularStd, sans-serif'; // Local Font
 
 const typography = {
@@ -27,6 +29,7 @@ const typography = {
   fontWeightMedium: 600,
   fontWeightBold: 700,
   h1: {
+    fontFamily: FONT_MONO,
     fontWeight: 700,
     lineHeight: 80 / 64,
     fontSize: pxToRem(40),
@@ -45,6 +48,7 @@ const typography = {
     ...responsiveFontSizes({ sm: 26, md: 30, lg: 32 }),
   },
   h4: {
+    fontFamily: FONT_MONO,
     fontWeight: 700,
     lineHeight: 1.5,
     fontSize: pxToRem(20),

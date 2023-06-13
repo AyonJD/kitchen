@@ -23,6 +23,8 @@ import RtlLayout from 'src/components/RtlLayout';
 import ProgressBar from 'src/components/ProgressBar';
 import LoadingScreen from 'src/components/LoadingScreen';
 import ThemePrimaryColor from 'src/components/ThemePrimaryColor';
+// Global css
+import '../styles/global.css'
 
 // ----------------------------------------------------------------------
 

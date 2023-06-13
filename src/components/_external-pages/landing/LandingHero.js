@@ -190,12 +190,27 @@ export default function LandingHero() {
           <ContentStyle
             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
+            {/* Logo */}
             <motion.img
-              style={{ width: 100, height: 100, cursor: 'pointer' }}
+              style={{ width: 200, height: 200, cursor: 'pointer' }}
               variants={varZoomIn}
               src='/static/brand/logo.png'
               alt='hero'
             />
+
+            {/* Main heading */}
+            <motion.div variants={varFadeInRight} style={{marginTop: 0}}>
+              <Typography variant='h1' sx={{ color: 'common.white' }}>
+                Kitchen
+              </Typography>
+            </motion.div>
+
+            {/* Sub heaing */}
+            <motion.div variants={varFadeInRight} style={{marginTop: 0}}>
+              <Typography variant='h4' sx={{ color: 'common.white' }}>
+                Cafe & Restaurant
+              </Typography>
+            </motion.div>
 
           </ContentStyle>
         </Container>
