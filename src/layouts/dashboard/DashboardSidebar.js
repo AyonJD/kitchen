@@ -22,7 +22,6 @@ import Scrollbar from '../../components/Scrollbar';
 import NavSection from '../../components/NavSection';
 //
 import { MHidden } from '../../components/@material-extend';
-import sidebarConfig from './SidebarConfig';
 
 // ----------------------------------------------------------------------
 
@@ -96,9 +95,9 @@ DashboardSidebar.propTypes = {
   onCloseSidebar: PropTypes.func,
 };
 
-export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
+export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onCloseSidebar }) {
   const { pathname } = useRouter();
-
+  console.log('sideBarConfig', sideBarConfig)
   const {
     isCollapse,
     collapseClick,
@@ -118,9 +117,9 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
   const renderContent = (
     <Scrollbar
       sx={{
-        height: '100%',
+        height: '80%',
         '& .simplebar-content': {
-          height: '100%',
+          height: '80%',
           display: 'flex',
           flexDirection: 'column',
         },
@@ -158,7 +157,7 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
           </MHidden>
         </Stack>
 
-        {isCollapse ? (
+        {/* {isCollapse ? (
           <Avatar
             alt='My Avatar'
             src='/static/mock-images/avatars/avatar_default.jpg'
@@ -181,10 +180,10 @@ export default function DashboardSidebar({ isOpenSidebar, onCloseSidebar }) {
               </Box>
             </AccountStyle>
           </NextLink>
-        )}
+        )} */}
       </Stack>
 
-      <NavSection navConfig={sidebarConfig} isShow={!isCollapse} />
+      <NavSection navConfig={sideBarConfig} isShow={!isCollapse} />
     </Scrollbar>
   );
 

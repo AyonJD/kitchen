@@ -38,7 +38,7 @@ DashboardLayout.propTypes = {
   children: PropTypes.node,
 };
 
-export default function DashboardLayout({ children }) {
+export default function DashboardLayout({ sideBarConfig, children }) {
   const theme = useTheme();
   const { collapseClick } = useCollapseDrawer();
   const [open, setOpen] = useState(false);
@@ -47,6 +47,7 @@ export default function DashboardLayout({ children }) {
     <RootStyle>
       <DashboardNavbar onOpenSidebar={() => setOpen(true)} />
       <DashboardSidebar
+        sideBarConfig={sideBarConfig}
         isOpenSidebar={open}
         onCloseSidebar={() => setOpen(false)}
       />

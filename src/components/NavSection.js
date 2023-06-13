@@ -188,20 +188,21 @@ NavSection.propTypes = {
   navConfig: PropTypes.array,
 };
 
-export default function NavSection({ navConfig, isShow = true, ...other }) {
+export default function NavSection({ navConfig, isShow = true, }) {
+  console.log('navConfig', navConfig)
   return (
-    <Box {...other}>
-      {navConfig.map((list) => {
-        const { subheader, items } = list;
-        return (
-          <List key={subheader} disablePadding>
-            {isShow && <ListSubheaderStyle>{subheader}</ListSubheaderStyle>}
-            {items.map((item) => (
-              <NavItem key={item.title} item={item} isShow={isShow} />
-            ))}
-          </List>
-        );
-      })}
-    </Box>
+    <>
+      {
+        navConfig.map((list, index) => {
+          const { title } = list;
+          return (
+            <List key={index} disablePadding>
+              <NavItem key={title} item={list} isShow={isShow} />
+
+            </List>
+          );
+        })
+      }
+    </>
   );
 }

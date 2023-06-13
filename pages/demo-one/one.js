@@ -5,15 +5,16 @@ import DashboardLayout from 'src/layouts/dashboard';
 import useSettings from 'src/hooks/useSettings';
 // components
 import Page from 'src/components/Page';
-
+// Config
+import demoOneSidebarConfig from './demoOneSidebarConfig';
 // ----------------------------------------------------------------------
 
 export default function PageOne() {
     const { themeStretch } = useSettings();
 
     return (
-        <DashboardLayout>
-            <Page title='Page One | Minimal-UI'>
+        <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
+            <Page title='Page One'>
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Typography variant='h3' component='h1' paragraph>
                         Page One

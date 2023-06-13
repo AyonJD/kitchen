@@ -108,7 +108,7 @@ const LeftLogoStyle = styled((props) => <Stack spacing={5} {...props} />)(
 // }
 
 export default function LandingOfferedSolutions() {
-    
+
     return (
         <RootStyle>
             <Container>
@@ -179,7 +179,7 @@ export default function LandingOfferedSolutions() {
                                                     variant='overline'
                                                     sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
                                                 >
-                                                    LICENSE
+                                                    Iocn here
                                                 </Typography>
                                                 <Typography variant='h4'>{item.title}</Typography>
                                             </div>

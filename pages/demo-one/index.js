@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
+import NextLink from 'next/link';
 import MainNavbar from 'src/layouts/main/MainNavbar';
-import { Box, Container, Typography } from '@mui/material';
+import { Box, Button, Container, Typography } from '@mui/material';
 import { alpha, useTheme, styled } from '@mui/material/styles';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
@@ -82,7 +83,7 @@ export default function DemoOne() {
                     <MotionInView variants={varFadeInUp}>
                         <Slider {...settings}>
                             {cardData.map((item, index) => (
-                                <CustomCard key={index} cardIndex={index} sx={{ marginRight: 2, marginLeft: 2 }}>
+                                <CustomCard key={index} cardIndex={index} sx={{ margin: 2 }}>
                                     <Box>
                                         <Typography sx={{ textAlign: 'center' }} variant="h4">
                                             {item.title}
@@ -92,6 +93,16 @@ export default function DemoOne() {
                                 </CustomCard>
                             ))}
                         </Slider>
+                    </MotionInView>
+
+                    <MotionInView variants={varFadeInUp}>
+                        <NextLink href='/demo-one/one' passHref>
+                            <Button
+                                sx={{ marginTop: 5, marginBottom: 2 }}
+                                variant='contained'>
+                                See Demo
+                            </Button>
+                        </NextLink>
                     </MotionInView>
                 </Container>
             </RootStyle>
