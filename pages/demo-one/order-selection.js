@@ -9,6 +9,7 @@ import Page from 'src/components/Page';
 // Config
 import demoOneSidebarConfig from './demoOneSidebarConfig';
 import TableWithChairs from 'src/components/_external-pages/table-with-chair';
+import SelectionForm from 'src/components/_external-pages/selection-form';
 // ----------------------------------------------------------------------
 
 export default function OrderSelection() {
@@ -23,11 +24,10 @@ export default function OrderSelection() {
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
             <Page title='Page One'>
                 <Container maxWidth={themeStretch ? false : 'xl'}>
-                    <Box sx={{ display: 'flex' }}>
-                        <Typography variant='h4' sx={{ flexGrow: 1 }}>
-                            Page One
-                        </Typography>
+                    <Box sx={{ display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                         <TableWithChairs tableBackground={tableBackground} />
+
+                        <SelectionForm />
                     </Box>
                 </Container>
             </Page>

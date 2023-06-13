@@ -189,7 +189,6 @@ NavSection.propTypes = {
 };
 
 export default function NavSection({ navConfig, isShow = true, }) {
-  console.log('navConfig', navConfig)
   return (
     <>
       {

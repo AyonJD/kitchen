@@ -96,8 +96,8 @@ DashboardSidebar.propTypes = {
 };
 
 export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onCloseSidebar }) {
+  console.log('--------------')
   const { pathname } = useRouter();
-  console.log('sideBarConfig', sideBarConfig)
   const {
     isCollapse,
     collapseClick,
@@ -156,31 +156,6 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
             )}
           </MHidden>
         </Stack>
-
-        {/* {isCollapse ? (
-          <Avatar
-            alt='My Avatar'
-            src='/static/mock-images/avatars/avatar_default.jpg'
-            sx={{ mx: 'auto', mb: 2 }}
-          />
-        ) : (
-          <NextLink href='#'>
-            <AccountStyle>
-              <Avatar
-                alt='My Avatar'
-                src='/static/mock-images/avatars/avatar_default.jpg'
-              />
-              <Box sx={{ ml: 2 }}>
-                <Typography variant='subtitle2' sx={{ color: 'text.primary' }}>
-                  displayName
-                </Typography>
-                <Typography variant='body2' sx={{ color: 'text.secondary' }}>
-                  role
-                </Typography>
-              </Box>
-            </AccountStyle>
-          </NextLink>
-        )} */}
       </Stack>
 
       <NavSection navConfig={sideBarConfig} isShow={!isCollapse} />
