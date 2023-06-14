@@ -1,4 +1,4 @@
-import { Container, useTheme } from "@mui/material";
+import { Container, Typography, useTheme } from "@mui/material";
 import Page from "src/components/Page";
 import useSettings from "src/hooks/useSettings";
 import demoThreeSidebarConfig from "src/layouts/config/demoThreeSidebarConfig";
