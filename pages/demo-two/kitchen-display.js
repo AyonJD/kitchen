@@ -66,7 +66,7 @@ export default function KitchenDisplay() {
 
     return (
         <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
-            <Page title="Kitchen | Order Input">
+            <Page title="Kitchen | Kitchen Display">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Grid container spacing={3}>
                         {
