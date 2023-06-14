@@ -60,9 +60,10 @@ export default function OrderSelection() {
                             <Typography variant="small" gutterBottom sx={{ textAlign: 'center', marginTop: '-30px', display: 'block' }}>
                                 Order Id: 123456
                             </Typography>
-                            <Typography variant="small" sx={{ textAlign: 'center', display: 'block' }}>
-                                Order Time: {new Date().toLocaleTimeString()}
+                            <Typography variant="small" sx={{ textAlign: 'center', display: 'block', marginBottom: 1 }}>
+                                Order Time: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </Typography>
+
                         </Box>
 
                         <CustomCard sx={{
