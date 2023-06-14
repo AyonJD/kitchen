@@ -50,7 +50,7 @@ export default class MyDocument extends Document {
             name='keywords'
             content='react,material,kit,application,dashboard,admin,template'
           />
-          <meta name='author' content='Minimal UI Kit' />
+          <meta name='author' content='Syntax System' />
         </Head>
         <body>
           <Main />
