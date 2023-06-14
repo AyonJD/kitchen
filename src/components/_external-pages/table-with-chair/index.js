@@ -6,7 +6,7 @@ export default function TableWithChairs({ tableBackground }) {
     const isLight = theme.palette.mode === 'light';
 
     return (
-        <Box sx={{ position: 'relative', height: 400, width: 400, margin: 'auto' }}>
+        <Box sx={{ position: 'relative', height: 400, width: 400}}>
             <Box
                 sx={{
                     position: 'absolute',
