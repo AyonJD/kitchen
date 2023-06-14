@@ -8,6 +8,7 @@ import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
 import { varFadeInUp, MotionInView } from '../../src/components/animate';
 import CustomCard from 'src/components/card/CustomCard';
+import Page from 'src/components/Page';
 
 const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -78,34 +79,36 @@ export default function DemoTwo() {
     return (
         <>
             <MainNavbar />
-            <RootStyle>
-                <Container>
-                    <MotionInView variants={varFadeInUp}>
-                        <Slider {...settings}>
-                            {cardData.map((item, index) => (
-                                <CustomCard key={index} cardIndex={index} sx={{ margin: 2 }}>
-                                    <Box>
-                                        <Typography sx={{ textAlign: 'center' }} variant="h4">
-                                            {item.title}
-                                        </Typography>
-                                        <img src={item.image} alt="" />
-                                    </Box>
-                                </CustomCard>
-                            ))}
-                        </Slider>
-                    </MotionInView>
+            <Page title="Kitchen | Demo Two">
+                <RootStyle>
+                    <Container>
+                        <MotionInView variants={varFadeInUp}>
+                            <Slider {...settings}>
+                                {cardData.map((item, index) => (
+                                    <CustomCard key={index} cardIndex={index} sx={{ margin: 2 }}>
+                                        <Box>
+                                            <Typography sx={{ textAlign: 'center' }} variant="h4">
+                                                {item.title}
+                                            </Typography>
+                                            <img src={item.image} alt="" />
+                                        </Box>
+                                    </CustomCard>
+                                ))}
+                            </Slider>
+                        </MotionInView>
 
-                    <MotionInView variants={varFadeInUp}>
-                        <NextLink href='/demo-two/order-input' passHref>
-                            <Button
-                                sx={{ marginTop: 5, marginBottom: 2 }}
-                                variant='contained'>
-                                See Demo
-                            </Button>
-                        </NextLink>
-                    </MotionInView>
-                </Container>
-            </RootStyle>
+                        <MotionInView variants={varFadeInUp}>
+                            <NextLink href='/demo-two/order-input' passHref>
+                                <Button
+                                    sx={{ marginTop: 5, marginBottom: 2 }}
+                                    variant='contained'>
+                                    See Demo
+                                </Button>
+                            </NextLink>
+                        </MotionInView>
+                    </Container>
+                </RootStyle>
+            </Page>
         </>
     );
 }

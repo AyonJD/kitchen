@@ -68,7 +68,7 @@ export default function Feedback() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Feedback">
+            <Page title="Kitchen | Feedback">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box
                         sx={{

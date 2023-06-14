@@ -81,7 +81,7 @@ export default function TableDashboard() {
 
     return (
         <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
-            <Page title="Table Dashboard">
+            <Page title="Kitchen | Table Dashboard">
                 <Container >
                     <Grid container spacing={3} >
                         {
