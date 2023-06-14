@@ -39,9 +39,10 @@
     "simplebar-react": "^2.3.5",
     "slick-carousel": "^1.8.1",
     "stylis": "^4.0.10",
-    "stylis-plugin-rtl": "^2.0.2"
+    "stylis-plugin-rtl": "^2.0.2",
+    "swiper": "^9.4.1"
   },
   "engines": {
     "node": "16.20.0"
-  }  
+  }
 }

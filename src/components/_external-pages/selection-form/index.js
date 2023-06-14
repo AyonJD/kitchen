@@ -1,7 +1,7 @@
 import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
 import { useState } from 'react';
 
-export default function SelectionForm() {
+export default function SelectionForm({ dynamicField, header }) {
     const [formData, setFormData] = useState({
         category: '',
         product: '',
@@ -25,8 +25,8 @@ export default function SelectionForm() {
 
     return (
         <Paper sx={{ p: 0 }}>
-            <Typography variant="h5" mb={4}>
-                Form
+            <Typography variant="h5" mb={4} sx={header && { textAlign: 'center' }}>
+                {header || 'Form'}
             </Typography>
             <Box sx={{ maxWidth: '100%' }}>
                 <form onSubmit={handleSubmit}>
@@ -78,16 +78,16 @@ export default function SelectionForm() {
                         </Grid>
                         <Grid item xs={12}>
                             <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                                <InputLabel>Staff</InputLabel>
+                                <InputLabel>{dynamicField}</InputLabel>
                                 <Select
                                     name="staff"
                                     value={formData.staff}
                                     onChange={handleChange}
-                                    label="Staff"
+                                    label={dynamicField}
                                 >
-                                    <MenuItem value="staff1">Staff 1</MenuItem>
-                                    <MenuItem value="staff2">Staff 2</MenuItem>
-                                    <MenuItem value="staff3">Staff 3</MenuItem>
+                                    <MenuItem value="staff1">{dynamicField} 1</MenuItem>
+                                    <MenuItem value="staff2">{dynamicField} 2</MenuItem>
+                                    <MenuItem value="staff3">{dynamicField} 3</MenuItem>
                                 </Select>
                             </FormControl>
                         </Grid>
