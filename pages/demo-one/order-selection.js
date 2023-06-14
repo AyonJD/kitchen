@@ -7,7 +7,7 @@ import useSettings from 'src/hooks/useSettings';
 // components
 import Page from 'src/components/Page';
 // Config
-import demoOneSidebarConfig from './demoOneSidebarConfig';
+import demoOneSidebarConfig from '../../src/layouts/config/demoOneSidebarConfig';
 import TableWithChairs from 'src/components/_external-pages/table-with-chair';
 import SelectionForm from 'src/components/_external-pages/selection-form';
 import CustomCard from 'src/components/card/CustomCard';

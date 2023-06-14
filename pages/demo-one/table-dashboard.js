@@ -1,5 +1,5 @@
 import DashboardLayout from "src/layouts/dashboard";
-import demoOneSidebarConfig from "./demoOneSidebarConfig";
+import demoOneSidebarConfig from "../../src/layouts/config/demoOneSidebarConfig";
 import Page from "src/components/Page";
 import { Box, Container, Grid, Typography, alpha, useTheme } from "@mui/material";
 import useSettings from "src/hooks/useSettings";
@@ -96,7 +96,7 @@ export default function TableDashboard() {
                                                 </Typography>
                                                 <TableWithChairs status={table.status} tableStyles={tableStyles} tableBackground={table.background} />
                                             </Grid>
-                                            <Grid item xs={12} sx={{ marginLeft: 2, textAlign: 'center' }}>
+                                            <Grid item xs={12} sx={{ marginLeft: 2, marginTop: 2, textAlign: 'center' }}>
                                                 <p>Id: {table.id}</p>
                                                 <p>Order Time: {table.orderTime}</p>
                                                 <p>

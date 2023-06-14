@@ -1,5 +1,5 @@
 import DashboardLayout from "src/layouts/dashboard";
-import demoOneSidebarConfig from "./demoOneSidebarConfig";
+import demoOneSidebarConfig from "../../src/layouts/config/demoOneSidebarConfig";
 import useSettings from "src/hooks/useSettings";
 import { Box, Button, Container, FormControl, Grid, InputLabel, MenuItem, Select, TextField, Typography, alpha, useTheme } from "@mui/material";
 import CustomCard from "src/components/card/CustomCard";
