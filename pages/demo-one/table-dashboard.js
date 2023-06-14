@@ -11,9 +11,6 @@ export default function TableDashboard() {
     const theme = useTheme();
     const isLight = theme.palette.mode === 'light';
 
-    const tableBackground = (theme) =>
-        `${alpha(isLight ? theme.palette.common.black : theme.palette.grey[500], 0.12)}`;
-
     const tableData = [
         {
             id: 'DDMMYY000',
