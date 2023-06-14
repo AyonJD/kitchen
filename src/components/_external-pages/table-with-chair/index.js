@@ -1,20 +1,34 @@
 import { Box, Paper, Typography } from '@mui/material';
 import { useTheme, alpha } from '@mui/material/styles';
 
-export default function TableWithChairs({ tableBackground }) {
+export default function TableWithChairs({ status, tableStyles, tableBackground }) {
+    const {
+        boxHeight,
+        boxWidth,
+        tableHeight,
+        tableWidth,
+        chairHorizontalPosition,
+        chairVerticalPosition,
+        chairPosition,
+        chairVerticalHeight,
+        chairVerticalWidth,
+        chairHorizontalHeight,
+        chairHorizontalWidth
+    } = tableStyles;
+
     const theme = useTheme();
     const isLight = theme.palette.mode === 'light';
 
     return (
-        <Box sx={{ position: 'relative', height: 400, width: 400}}>
+        <Box sx={{ position: 'relative', height: boxHeight, width: boxWidth, margin: 'auto' }}>
             <Box
                 sx={{
                     position: 'absolute',
                     top: '50%',
                     left: '50%',
                     transform: 'translate(-50%, -50%)',
-                    width: 200,
-                    height: 200,
+                    width: tableWidth,
+                    height: tableHeight,
                     display: 'flex',
                     justifyContent: 'center',
                     alignItems: 'center',
@@ -33,11 +47,13 @@ export default function TableWithChairs({ tableBackground }) {
                         display: 'flex',
                         justifyContent: 'center',
                         alignItems: 'center',
-                        background: tableBackground,
+                        background: tableBackground
                     }}
                     elevation={3}
                 >
-                    <Typography variant="h5">Table</Typography>
+                    <Typography variant="h4"  >
+                        {status ? status : 'Table'}
+                    </Typography>
                 </Paper>
             </Box>
             <Box
@@ -53,15 +69,14 @@ export default function TableWithChairs({ tableBackground }) {
                     alignItems: 'center',
                 }}
             >
-                <Paper sx={{ width: 100, height: 100 }} elevation={3} />
                 <Box
                     sx={{
                         position: 'absolute',
-                        top: 60,
+                        top: chairVerticalPosition,
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        width: 100,
-                        height: 30,
+                        width: chairVerticalWidth,
+                        height: chairVerticalHeight,
                     }}
                 >
                     <Paper sx={{
@@ -73,11 +88,11 @@ export default function TableWithChairs({ tableBackground }) {
                 <Box
                     sx={{
                         position: 'absolute',
-                        bottom: 60,
+                        bottom: chairVerticalPosition,
                         left: '50%',
                         transform: 'translateX(-50%)',
-                        width: 100,
-                        height: 30,
+                        width: chairVerticalWidth,
+                        height: chairVerticalHeight,
                     }}
                 >
                     <Paper sx={{
@@ -90,10 +105,10 @@ export default function TableWithChairs({ tableBackground }) {
                     sx={{
                         position: 'absolute',
                         top: '50%',
-                        left: 60,
+                        left: chairHorizontalPosition,
                         transform: 'translateY(-50%)',
-                        width: 30,
-                        height: 100,
+                        width: chairHorizontalWidth,
+                        height: chairHorizontalHeight,
                     }}
                 >
                     <Paper sx={{
@@ -106,10 +121,10 @@ export default function TableWithChairs({ tableBackground }) {
                     sx={{
                         position: 'absolute',
                         top: '50%',
-                        right: 60,
+                        right: chairHorizontalPosition,
                         transform: 'translateY(-50%)',
-                        width: 30,
-                        height: 100,
+                        width: chairHorizontalWidth,
+                        height: chairHorizontalHeight,
                     }}
                 >
                     <Paper sx={{

@@ -28,88 +28,90 @@ export default function SelectionForm() {
             <Typography variant="h5" mb={4}>
                 Form
             </Typography>
-            <form >
-                <Grid container spacing={2}>
-                    <Grid item xs={12}>
-                        <FormControl fullWidth>
-                            <InputLabel>Category</InputLabel>
-                            <Select
-                                name="category"
-                                label="Category"
-                                value={formData.category}
-                                onChange={handleChange}
-                            >
-                                <MenuItem value="category1">Category 1</MenuItem>
-                                <MenuItem value="category2">Category 2</MenuItem>
-                                <MenuItem value="category3">Category 3</MenuItem>
-                            </Select>
-                        </FormControl>
+            <Box sx={{ maxWidth: '100%' }}>
+                <form onSubmit={handleSubmit}>
+                    <Grid container spacing={2}>
+                        <Grid item xs={12}>
+                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                <InputLabel>Category</InputLabel>
+                                <Select
+                                    name="category"
+                                    label="Category"
+                                    value={formData.category}
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value="category1">Category 1</MenuItem>
+                                    <MenuItem value="category2">Category 2</MenuItem>
+                                    <MenuItem value="category3">Category 3</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                <InputLabel>Product</InputLabel>
+                                <Select
+                                    name="product"
+                                    label="Product"
+                                    value={formData.product}
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value="product1">Product 1</MenuItem>
+                                    <MenuItem value="product2">Product 2</MenuItem>
+                                    <MenuItem value="product3">Product 3</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12} sm={6}>
+                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                <InputLabel>Number</InputLabel>
+                                <Select
+                                    name="number"
+                                    label="Number"
+                                    value={formData.number}
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value="1">1</MenuItem>
+                                    <MenuItem value="2">2</MenuItem>
+                                    <MenuItem value="3">3</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                <InputLabel>Staff</InputLabel>
+                                <Select
+                                    name="staff"
+                                    value={formData.staff}
+                                    onChange={handleChange}
+                                    label="Staff"
+                                >
+                                    <MenuItem value="staff1">Staff 1</MenuItem>
+                                    <MenuItem value="staff2">Staff 2</MenuItem>
+                                    <MenuItem value="staff3">Staff 3</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
+                        <Grid item xs={12}>
+                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                <InputLabel>Number of Customers</InputLabel>
+                                <Select
+                                    name="numCustomers"
+                                    label="Number of Customers"
+                                    value={formData.numCustomers}
+                                    onChange={handleChange}
+                                >
+                                    <MenuItem value="1">1</MenuItem>
+                                    <MenuItem value="2">2</MenuItem>
+                                    <MenuItem value="3">3</MenuItem>
+                                </Select>
+                            </FormControl>
+                        </Grid>
                     </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <FormControl fullWidth>
-                            <InputLabel>Product</InputLabel>
-                            <Select
-                                name="product"
-                                label="Product"
-                                value={formData.product}
-                                onChange={handleChange}
-                            >
-                                <MenuItem value="product1">Product 1</MenuItem>
-                                <MenuItem value="product2">Product 2</MenuItem>
-                                <MenuItem value="product3">Product 3</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={12} sm={6}>
-                        <FormControl fullWidth>
-                            <InputLabel>Number</InputLabel>
-                            <Select
-                                name="number"
-                                label="Number"
-                                value={formData.number}
-                                onChange={handleChange}
-                            >
-                                <MenuItem value="1">1</MenuItem>
-                                <MenuItem value="2">2</MenuItem>
-                                <MenuItem value="3">3</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <FormControl fullWidth>
-                            <InputLabel>Staff</InputLabel>
-                            <Select
-                                name="staff"
-                                value={formData.staff}
-                                onChange={handleChange}
-                                label="Staff"
-                            >
-                                <MenuItem value="staff1">Staff 1</MenuItem>
-                                <MenuItem value="staff2">Staff 2</MenuItem>
-                                <MenuItem value="staff3">Staff 3</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                    <Grid item xs={12}>
-                        <FormControl fullWidth>
-                            <InputLabel>Number of Customers</InputLabel>
-                            <Select
-                                name="numCustomers"
-                                label="Number of Customers"
-                                value={formData.numCustomers}
-                                onChange={handleChange}
-                            >
-                                <MenuItem value="1">1</MenuItem>
-                                <MenuItem value="2">2</MenuItem>
-                                <MenuItem value="3">3</MenuItem>
-                            </Select>
-                        </FormControl>
-                    </Grid>
-                </Grid>
-                <Button type="submit" variant="contained" color="primary" sx={{ marginTop: 4 }}>
-                    Submit
-                </Button>
-            </form>
+                    <Button type="submit" variant="contained" color="primary" sx={{ marginTop: 4 }}>
+                        Submit
+                    </Button>
+                </form>
+            </Box>
         </Paper>
     )
 }

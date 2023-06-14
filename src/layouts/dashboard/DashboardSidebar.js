@@ -96,7 +96,6 @@ DashboardSidebar.propTypes = {
 };
 
 export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onCloseSidebar }) {
-  console.log('--------------')
   const { pathname } = useRouter();
   const {
     isCollapse,
