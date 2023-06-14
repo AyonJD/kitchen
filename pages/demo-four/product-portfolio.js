@@ -1,5 +1,6 @@
 import { Container, Typography } from "@mui/material";
 import { styled } from '@mui/material/styles';
+import NextLink from 'next/link';
 import Page from "src/components/Page";
 import MainNavbar from "src/layouts/main/MainNavbar";
 
