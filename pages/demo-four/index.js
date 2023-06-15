@@ -4,12 +4,13 @@ import MainNavbar from 'src/layouts/main/MainNavbar';
 import { Box, Button, Container, Typography } from '@mui/material';
 import { styled } from '@mui/material/styles';
 import Slider from "react-slick";
-import "slick-carousel/slick/slick.css";
-import "slick-carousel/slick/slick-theme.css";
-import { varFadeInUp, MotionInView } from '../../src/components/animate';
+import { varFadeInUp, MotionInView, ButtonAnimate, varFadeInLeft } from '../../src/components/animate';
 import CustomCard from 'src/components/card/CustomCard';
 import Page from 'src/components/Page';
 import { useRouter } from 'next/router';
+
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -107,13 +108,17 @@ export default function DemoFour() {
                             </Slider>
                         </MotionInView>
 
-                        <MotionInView variants={varFadeInUp}>
-                            <Button
-                                onClick={handleRedirect}
-                                sx={{ marginTop: 5, marginBottom: 2 }}
-                                variant='contained'>
-                                See Demo
-                            </Button>
+                        <MotionInView variants={varFadeInLeft}>
+                            <ButtonAnimate mediumClick={true}>
+                                <NextLink href="/demo-four/landing-slider" passHref>
+                                    <Button
+                                        // onClick={handleRedirect}
+                                        sx={{ marginTop: 5, marginBottom: 2 }}
+                                        variant='contained'>
+                                        See Demo
+                                    </Button>
+                                </NextLink>
+                            </ButtonAnimate>
                         </MotionInView>
                     </Container>
                 </RootStyle>

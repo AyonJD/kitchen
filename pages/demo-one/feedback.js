@@ -8,6 +8,7 @@ import TableWithChairs from "src/components/_external-pages/table-with-chair";
 import { useState } from "react";
 
 import dynamic from 'next/dynamic';
+import { ButtonAnimate, MotionInView, varFadeInLeft, varFadeInRight, varFadeInUp } from "src/components/animate";
 
 const DynamicRating = dynamic(() => import('@mui/material/Rating'), { ssr: false });
 
@@ -82,7 +83,7 @@ export default function Feedback() {
                             },
                         }}
                     >
-                        <Box >
+                        <MotionInView variants={varFadeInLeft}>
                             <Typography variant="h6" sx={{ textAlign: 'center', marginBottom: '-30px' }}>
                                 Table One
                             </Typography>
@@ -103,75 +104,74 @@ export default function Feedback() {
                                     </span>
                                 ))}
                             </Typography>
-                        </Box>
+                        </MotionInView>
 
-                        <CustomCard sx={{
-                            width: {
-                                xs: '100%', // Set width to 100% on small devices
-                                sm: '60%', // Set width to 100% on small devices
-                                md: '40%', // Reset width to 40% on medium and larger devices
-                            },
-                            marginTop: {
-                                sm: 5, // Set marginTop to 2 on small devices
-                                md: 0, // Reset marginTop on medium and larger devices
-                            },
-                        }}>
-                            <Typography variant="h6" gutterBottom>
-                                Rate Your Experience
-                            </Typography>
+                        <MotionInView variants={varFadeInRight}>
+                            <CustomCard sx={{
+                                marginTop: {
+                                    sm: 5, // Set marginTop to 2 on small devices
+                                    md: 0, // Reset marginTop on medium and larger devices
+                                },
+                            }}>
+                                <Typography variant="h6" gutterBottom>
+                                    Rate Your Experience
+                                </Typography>
 
-                            <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, marginBottom: 3 }}>
-                                <div>
-                                    <DynamicRating
-                                        name="feedback-rating"
-                                        value={formData.rating}
-                                        onChange={handleRatingChange}
-                                        size="large"
-                                    />
-                                </div>
-                                <Typography variant="h6">{formData.rating || 0}</Typography>
-                            </Box>
+                                <Box sx={{ display: 'flex', alignItems: 'center', gap: 2, marginBottom: 3 }}>
+                                    <div>
+                                        <DynamicRating
+                                            name="feedback-rating"
+                                            value={formData.rating}
+                                            onChange={handleRatingChange}
+                                            size="large"
+                                        />
+                                    </div>
+                                    <Typography variant="h6">{formData.rating || 0}</Typography>
+                                </Box>
 
-                            <Grid container spacing={2}>
-                                {
-                                    tableData.items.map((item, index) => (
-                                        <Grid item xs={12} key={index}>
-                                            <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                                                <InputLabel>{item}</InputLabel>
-                                                <Select
-                                                    name={item}
-                                                    label={item}
-                                                    value={formData.category || ''}
-                                                    onChange={handleChange}
-                                                >
-                                                    <MenuItem value="Not Satisfied"> Not Satisfied</MenuItem>
-                                                    <MenuItem value="Not Bad"> Not Bad</MenuItem>
-                                                    <MenuItem value="Managable"> Managable</MenuItem>
-                                                    <MenuItem value="Fully Satisfied"> Fully Satisfied</MenuItem>
-                                                </Select>
-                                            </FormControl>
-                                        </Grid>
-                                    ))
-                                }
-                            </Grid>
+                                <Grid container spacing={2}>
+                                    {
+                                        tableData.items.map((item, index) => (
+                                            <Grid item xs={12} key={index}>
+                                                <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                                                    <InputLabel>{item}</InputLabel>
+                                                    <Select
+                                                        name={item}
+                                                        label={item}
+                                                        value={formData[item] || ''}
+                                                        onChange={handleChange}
+                                                    >
+                                                        <MenuItem value="Not Satisfied"> Not Satisfied</MenuItem>
+                                                        <MenuItem value="Not Bad"> Not Bad</MenuItem>
+                                                        <MenuItem value="Managable"> Managable</MenuItem>
+                                                        <MenuItem value="Fully Satisfied"> Fully Satisfied</MenuItem>
+                                                    </Select>
+                                                </FormControl>
+                                            </Grid>
+                                        ))
+                                    }
+                                </Grid>
 
-                            <TextField
-                                label="Comment"
-                                multiline
-                                rows={4}
-                                name="comment"
-                                value={formData.comment}
-                                onChange={handleChange}
-                                fullWidth
-                                margin="normal"
-                                variant="outlined"
-                            />
+                                <TextField
+                                    label="Comment"
+                                    multiline
+                                    rows={4}
+                                    name="comment"
+                                    value={formData.comment}
+                                    onChange={handleChange}
+                                    fullWidth
+                                    margin="normal"
+                                    variant="outlined"
+                                />
 
-                            <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ marginTop: 1 }}>
-                                Submit Feedback
-                            </Button>
+                                <ButtonAnimate mediumClick={true}>
+                                    <Button variant="contained" color="primary" onClick={handleSubmit} sx={{ marginTop: 1 }}>
+                                        Submit Feedback
+                                    </Button>
+                                </ButtonAnimate>
 
-                        </CustomCard>
+                            </CustomCard>
+                        </MotionInView>
                     </Box>
                 </Container>
             </Page>

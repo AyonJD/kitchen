@@ -11,6 +11,7 @@ import demoOneSidebarConfig from '../../src/layouts/config/demoOneSidebarConfig'
 import TableWithChairs from 'src/components/_external-pages/table-with-chair';
 import SelectionForm from 'src/components/_external-pages/selection-form';
 import CustomCard from 'src/components/card/CustomCard';
+import { MotionInView, varFadeInLeft, varFadeInRight } from 'src/components/animate';
 // ----------------------------------------------------------------------
 
 export default function OrderSelection() {
@@ -50,7 +51,7 @@ export default function OrderSelection() {
                             },
                         }}
                     >
-                        <Box >
+                        <MotionInView variants={varFadeInLeft}>
                             <Typography variant="h6" sx={{ textAlign: 'center', marginBottom: '-30px' }}>
                                 Table One
                             </Typography>
@@ -64,9 +65,9 @@ export default function OrderSelection() {
                                 Order Time: {new Date().toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
                             </Typography>
 
-                        </Box>
+                        </MotionInView>
 
-                        <CustomCard sx={{
+                        <MotionInView variants={varFadeInRight} sx={{
                             width: {
                                 xs: '100%', // Set width to 100% on small devices
                                 sm: '60%', // Set width to 100% on small devices
@@ -77,8 +78,10 @@ export default function OrderSelection() {
                                 md: 0, // Reset marginTop on medium and larger devices
                             },
                         }}>
-                            <SelectionForm dynamicField="Staff" />
-                        </CustomCard>
+                            <CustomCard >
+                                <SelectionForm dynamicField="Staff" />
+                            </CustomCard>
+                        </MotionInView>
                     </Box>
                 </Container>
             </Page>
