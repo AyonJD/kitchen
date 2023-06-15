@@ -13,9 +13,9 @@ import { Box, Typography } from "@mui/material";
 
 export default function SwiperCardSlider({ sliderBackground, cardData }) {
     return (
-        <Swiper effect={"cards"} grabCursor={true} modules={[EffectCards]} className="mySwiper">
+        <Swiper effect={"cards"} grabCursor={true} modules={[EffectCards]} className="mySwiper card_swiper">
             {cardData.map((card, index) => (
-                <SwiperSlide key={index}>
+                <SwiperSlide className="card_swiper-slide" key={index}>
                     <Box sx={{ background: sliderBackground, height: '100%' }}>
                         <Box sx={{ display: 'flex', flexDirection: 'column' }}>
                             <Typography variant="h6" sx={{ textAlign: 'center', marginBottom: 2, marginTop: 2 }}>

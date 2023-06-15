@@ -1,9 +1,10 @@
-import { Button, Container, Typography } from "@mui/material";
+import { Box, Button, Container, Typography } from "@mui/material";
 import NextLink from 'next/link';
 import { styled } from '@mui/material/styles';
 import Page from "src/components/Page";
 import MainNavbar from "src/layouts/main/MainNavbar";
 import { useRouter } from "next/router";
+import SwiperAutoSlider from "src/components/Sider/SwiperAutoSlider";
 
 const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -40,21 +41,21 @@ export default function LandingSlider() {
             <Page title="Kitchen | Landing Slider">
                 <RootStyle>
                     <Container>
-                        <Typography variant="h3" sx={{ mb: 5 }}>
-                            Landing Slider
-                        </Typography>
+                        <SwiperAutoSlider />
 
-                        <Button onClick={handleRedirect} variant="contained" color="primary" sx={{ mr: 2 }}>
-                            Product Portfolio
-                        </Button>
-
-                        <NextLink href="/demo-four/" passHref>
-                            <Button
-                                // onClick={handleGoBack}
-                                variant="contained" color="primary" sx={{ mr: 2 }}>
-                                Go Back
+                        <Box sx={{ mt: 5 }}>
+                            <Button onClick={handleRedirect} variant="contained" color="primary" sx={{ mr: 2 }}>
+                                Product Portfolio
                             </Button>
-                        </NextLink>
+
+                            <NextLink href="/demo-four/" passHref>
+                                <Button
+                                    // onClick={handleGoBack}
+                                    variant="contained" color="primary" sx={{ mr: 2 }}>
+                                    Go Back
+                                </Button>
+                            </NextLink>
+                        </Box>
                     </Container>
                 </RootStyle>
             </Page>
