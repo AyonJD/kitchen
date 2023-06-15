@@ -6,7 +6,7 @@ import { alpha, useTheme, styled } from '@mui/material/styles';
 import Slider from "react-slick";
 import "slick-carousel/slick/slick.css";
 import "slick-carousel/slick/slick-theme.css";
-import { varFadeInUp, MotionInView } from '../../src/components/animate';
+import { varFadeInUp, MotionInView, varFadeInLeft, ButtonAnimate } from '../../src/components/animate';
 import CustomCard from 'src/components/card/CustomCard';
 import Page from 'src/components/Page';
 
@@ -97,14 +97,16 @@ export default function DemoOne() {
                             </Slider>
                         </MotionInView>
 
-                        <MotionInView variants={varFadeInUp}>
-                            <NextLink href='/demo-one/order-selection' passHref>
-                                <Button
-                                    sx={{ marginTop: 5, marginBottom: 2 }}
-                                    variant='contained'>
-                                    See Demo
-                                </Button>
-                            </NextLink>
+                        <MotionInView variants={varFadeInLeft}>
+                            <ButtonAnimate mediumClick={true}>
+                                <NextLink href='/demo-one/order-selection' passHref>
+                                    <Button
+                                        sx={{ marginTop: 5, marginBottom: 2 }}
+                                        variant='contained'>
+                                        See Demo
+                                    </Button>
+                                </NextLink>
+                            </ButtonAnimate>
                         </MotionInView>
                     </Container>
                 </RootStyle>

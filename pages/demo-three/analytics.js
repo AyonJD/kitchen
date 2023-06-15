@@ -8,6 +8,7 @@ import demoThreeSidebarConfig from "src/layouts/config/demoThreeSidebarConfig";
 import DashboardLayout from "src/layouts/dashboard";
 import ChartLine from "src/components/chart/ChartLine";
 import ChartPie from "src/components/chart/ChartPie";
+import { MotionInView, varFadeInLeft, varFadeInRight, varFadeInUp } from "src/components/animate";
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
     [`&.${tableCellClasses.head}`]: {
@@ -39,36 +40,44 @@ export default function Analytics() {
                         mb: 3, display: 'flex', justifyContent: 'space-between', gap: 5,
                         flexDirection: { xs: 'column', md: 'row' }
                     }}>
-                        <CustomCard>
-                            <TableContainer component={Paper}>
-                                <Table sx={{ minWidth: 300 }} size="small">
-                                    <TableHead>
-                                        <TableRow >
-                                            <TableCell style={{ borderBottom: 'none' }}>Item</TableCell>
-                                            <TableCell align="right" style={{ borderBottom: 'none' }}>Volume</TableCell>
-                                        </TableRow>
-                                    </TableHead>
-                                    <TableBody>
-                                        {tableData.map((item, index) => (
-                                            <TableRow key={index}>
-                                                <StyledTableCell component="th" scope="row">
-                                                    {item.product}
-                                                </StyledTableCell>
-                                                <StyledTableCell align="right">{item.unit}</StyledTableCell>
+                        <MotionInView variants={varFadeInLeft}>
+                            <CustomCard>
+                                <TableContainer component={Paper}>
+                                    <Table sx={{ minWidth: 300 }} size="small">
+                                        <TableHead>
+                                            <TableRow >
+                                                <TableCell style={{ borderBottom: 'none' }}>Item</TableCell>
+                                                <TableCell align="right" style={{ borderBottom: 'none' }}>Volume</TableCell>
                                             </TableRow>
-                                        ))}
-                                    </TableBody>
-                                </Table>
-                            </TableContainer>
-                        </CustomCard>
-                        <CustomCard sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
-                            <ChartPie />
-                        </CustomCard>
+                                        </TableHead>
+                                        <TableBody>
+                                            {tableData.map((item, index) => (
+                                                <TableRow key={index}>
+                                                    <StyledTableCell component="th" scope="row">
+                                                        {item.product}
+                                                    </StyledTableCell>
+                                                    <StyledTableCell align="right">{item.unit}</StyledTableCell>
+                                                </TableRow>
+                                            ))}
+                                        </TableBody>
+                                    </Table>
+                                </TableContainer>
+                            </CustomCard>
+                        </MotionInView>
+
+                        <MotionInView variants={varFadeInRight}>
+                            <CustomCard sx={{ display: 'flex', justifyContent: 'center', alignItems: 'center' }}>
+                                <ChartPie />
+                            </CustomCard>
+                        </MotionInView>
                     </Box>
+
                     <CustomCard>
-                        <Box sx={{ width: '60%', margin: 'auto' }}>
-                            <ChartLine />
-                        </Box>
+                        <MotionInView variants={varFadeInUp}>
+                            <Box sx={{ width: '60%', margin: 'auto' }}>
+                                <ChartLine />
+                            </Box>
+                        </MotionInView>
                     </CustomCard>
                 </Container>
             </Page>

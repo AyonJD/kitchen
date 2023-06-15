@@ -2,6 +2,7 @@ import { Box, Container, Typography, alpha, useTheme } from "@mui/material";
 import Page from "src/components/Page";
 import SwiperCardSlider from "src/components/Sider/SwiperCardSlider";
 import SelectionForm from "src/components/_external-pages/selection-form";
+import { MotionInView, varFadeInLeft, varFadeInRight, varFadeInUp } from "src/components/animate";
 import CustomCard from "src/components/card/CustomCard";
 import useSettings from "src/hooks/useSettings";
 import demoTwoSidebarConfig from "src/layouts/config/demoTowSidebarConfig";
@@ -43,21 +44,28 @@ export default function OrderInput() {
             <Page title="Kitchen | Order Input">
                 <Container maxWidth={themeStretch ? false : 'xl'}>
                     <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
-                        <Typography variant="small" >
-                            Order Id: 123456
-                        </Typography>
-                        <Typography variant="small" >
-                            Staff Id: AER342
-                        </Typography>
+                        <MotionInView variants={varFadeInLeft}>
+                            <Typography variant="small" >
+                                Order Id: 123456
+                            </Typography>
+                        </MotionInView>
+
+                        <MotionInView variants={varFadeInRight}>
+                            <Typography variant="small" >
+                                Staff Id: AER342
+                            </Typography>
+                        </MotionInView>
                     </Box>
 
-                    <CustomCard sx={{ marginTop: 2 }}>
-                        <SelectionForm header="Select order" dynamicField="Table Number" />
-                    </CustomCard>
+                    <MotionInView variants={varFadeInUp}>
+                        <CustomCard sx={{ marginTop: 2 }}>
+                            <SelectionForm header="Select order" dynamicField="Table Number" />
+                        </CustomCard>
+                    </MotionInView>
 
-                    <CustomCard sx={{ marginTop: 2 }}>
-                        <SwiperCardSlider sliderBackground={sliderBackground} cardData={cardData} />
-                    </CustomCard>
+                        <CustomCard sx={{ marginTop: 2 }}>
+                            <SwiperCardSlider sliderBackground={sliderBackground} cardData={cardData} />
+                        </CustomCard>
                 </Container>
             </Page>
         </DashboardLayout>

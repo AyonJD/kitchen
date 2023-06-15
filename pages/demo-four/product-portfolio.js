@@ -4,7 +4,7 @@ import NextLink from 'next/link';
 import { useRouter } from "next/router";
 import Page from "src/components/Page";
 import MainNavbar from "src/layouts/main/MainNavbar";
-import { varFadeInUp, MotionInView, varFadeInDown, ButtonAnimate } from '../../src/components/animate';
+import { varFadeInUp, MotionInView, varFadeInDown, ButtonAnimate, varFadeInLeft } from '../../src/components/animate';
 import Slider from "react-slick";
 import CustomCard from "src/components/card/CustomCard";
 
@@ -94,8 +94,8 @@ export default function ProductPortfolio() {
                                 ))}
                             </Slider>
                         </MotionInView>
-                        <MotionInView variants={varFadeInDown}>
-                            <Box sx={{ mt: 5 }}>
+                        <Box sx={{ mt: 5 }}>
+                            <MotionInView variants={varFadeInLeft}>
                                 <ButtonAnimate mediumClick={true}>
                                     <NextLink href="/demo-four/gallery" passHref>
                                         <Button
@@ -106,6 +106,7 @@ export default function ProductPortfolio() {
                                     </NextLink>
                                 </ButtonAnimate>
 
+
                                 <ButtonAnimate mediumClick={true}>
                                     <NextLink href="/demo-four/landing-slider" passHref>
                                         <Button
@@ -115,8 +116,9 @@ export default function ProductPortfolio() {
                                         </Button>
                                     </NextLink>
                                 </ButtonAnimate>
-                            </Box>
-                        </MotionInView>
+                            </MotionInView>
+                        </Box>
+
                     </Container>
                 </RootStyle>
             </Page>
