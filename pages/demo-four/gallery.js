@@ -2,7 +2,7 @@ import { Container, Typography } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Page from "src/components/Page";
 import SwiperGallery from "src/components/Sider/SwiperGallery";
-import { TextAnimate } from "src/components/animate";
+import { MotionInView, TextAnimate, varFadeInDown, varFadeInUp } from "src/components/animate";
 import MainNavbar from "src/layouts/main/MainNavbar";
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -41,11 +41,15 @@ export default function Gallery() {
             <Page title="Kitchen | Gallery">
                 <RootStyle>
                     <Container>
-                        <Typography variant="h3" sx={{ mb: 4, textAlign: 'center', fontFamily: 'cursive' }}>
-                            Visit Our Gallery
-                        </Typography>
+                        <MotionInView variants={varFadeInDown}>
+                            <Typography variant="h3" sx={{ mb: 4, textAlign: 'center', fontFamily: 'cursive' }}>
+                                Visit Our Gallery
+                            </Typography>
+                        </MotionInView>
 
-                        <SwiperGallery cardData={cardData} />
+                        <MotionInView variants={varFadeInUp}>
+                            <SwiperGallery cardData={cardData} />
+                        </MotionInView>
                     </Container>
                 </RootStyle>
             </Page>
