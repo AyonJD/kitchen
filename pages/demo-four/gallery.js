@@ -1,6 +1,8 @@
 import { Container, Typography } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import Page from "src/components/Page";
+import SwiperGallery from "src/components/Sider/SwiperGallery";
+import { TextAnimate } from "src/components/animate";
 import MainNavbar from "src/layouts/main/MainNavbar";
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -14,15 +16,36 @@ const RootStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function Gallery() {
+    const cardData = [
+        {
+            title: 'Demo One',
+            image: '/static/mock-images/slider-1.jpg',
+        },
+        {
+            title: 'Demo Two',
+            image: '/static/mock-images/slider-2.jpg',
+        },
+        {
+            title: 'Demo Three',
+            image: '/static/mock-images/slider-3.jpg',
+        },
+        {
+            title: 'Demo Four',
+            image: '/static/mock-images/slider-4.jpg',
+        }
+    ]
+
     return (
         <>
             <MainNavbar />
             <Page title="Kitchen | Gallery">
                 <RootStyle>
                     <Container>
-                        <Typography variant="h3" sx={{ mb: 5 }}>
-                            Gallery
+                        <Typography variant="h3" sx={{ mb: 4, textAlign: 'center', fontFamily: 'cursive' }}>
+                            Visit Our Gallery
                         </Typography>
+
+                        <SwiperGallery cardData={cardData} />
                     </Container>
                 </RootStyle>
             </Page>

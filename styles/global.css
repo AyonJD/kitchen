@@ -69,3 +69,15 @@
     font-weight: bold;
     color: #fff;
 }
+
+.galary_swiper-slide {
+    background-position: center center !important;
+    background-size: cover !important;
+    width: 300px !important;
+    height: 300px !important;
+}
+
+.galary_swiper-slide img {
+    display: block;
+    width: 100%;
+}
