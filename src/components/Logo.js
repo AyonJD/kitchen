@@ -3,6 +3,7 @@ import PropTypes from 'prop-types';
 // material
 import { useTheme } from '@mui/material/styles';
 import { Box } from '@mui/material';
+import NextLink from 'next/link';
 
 // ----------------------------------------------------------------------
 
@@ -14,7 +15,9 @@ const Logo = forwardRef(({ sx }, ref) => {
 
   return (
     <Box ref={ref} sx={{ width: 40, height: 40, cursor: 'pointer', ...sx }}>
-      <img src="/static/brand/logo.png" alt="" />
+      <NextLink href="/" passHref>
+        <img src="/static/brand/logo.png" alt="" />
+      </NextLink>
     </Box>
   );
 });

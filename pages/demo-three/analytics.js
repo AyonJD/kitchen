@@ -1,4 +1,4 @@
-import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow, useTheme } from "@mui/material";
+import { Box, Container, Paper, Table, TableBody, TableCell, TableContainer, TableHead, TableRow } from "@mui/material";
 import { styled } from '@mui/material/styles';
 import { tableCellClasses } from '@mui/material/TableCell';
 import Page from "src/components/Page";
@@ -6,7 +6,6 @@ import CustomCard from "src/components/card/CustomCard";
 import useSettings from "src/hooks/useSettings";
 import demoThreeSidebarConfig from "src/layouts/config/demoThreeSidebarConfig";
 import DashboardLayout from "src/layouts/dashboard";
-import { PieChart, Pie, Cell, LineChart, Line } from "recharts";
 import ChartLine from "src/components/chart/ChartLine";
 import ChartPie from "src/components/chart/ChartPie";
 
@@ -22,8 +21,6 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 export default function Analytics() {
     const { themeStretch } = useSettings();
-    const theme = useTheme();
-    const isLight = theme.palette.mode === 'light';
 
     const PRODUCT = ['Product 1', 'Product 2', 'Product 3', 'Product 4', 'Product 5', 'Product 6', 'Product 7', 'Product 8']
     const UNIT = ['1 Unit', '2 Unit', '3 Unit', '4 Unit', '5 Unit', '6 Unit', '7 Unit', '8 Unit']

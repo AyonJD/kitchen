@@ -3,6 +3,7 @@ import NextLink from 'next/link';
 import { styled } from '@mui/material/styles';
 import Page from "src/components/Page";
 import MainNavbar from "src/layouts/main/MainNavbar";
+import { useRouter } from "next/router";
 
 const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -15,6 +16,24 @@ const RootStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function LandingSlider() {
+    const router = useRouter();
+
+    const handleRedirect = () => {
+        router.push('/demo-four/product-portfolio');
+
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    }
+
+    const handleGoBack = () => {
+        router.push('/demo-four');
+
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    }
+
     return (
         <>
             <MainNavbar />
@@ -24,13 +43,15 @@ export default function LandingSlider() {
                         <Typography variant="h3" sx={{ mb: 5 }}>
                             Landing Slider
                         </Typography>
-                        <NextLink href="/demo-four/product-portfolio">
-                            <Button variant="contained" color="primary" sx={{ mr: 2 }}>
-                                Product Portfolio
-                            </Button>
-                        </NextLink>
-                        <NextLink href="/demo-four">
-                            <Button variant="contained" color="primary" sx={{ mr: 2 }}>
+
+                        <Button onClick={handleRedirect} variant="contained" color="primary" sx={{ mr: 2 }}>
+                            Product Portfolio
+                        </Button>
+
+                        <NextLink href="/demo-four/" passHref>
+                            <Button
+                                // onClick={handleGoBack}
+                                variant="contained" color="primary" sx={{ mr: 2 }}>
                                 Go Back
                             </Button>
                         </NextLink>

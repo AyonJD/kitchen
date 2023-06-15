@@ -9,6 +9,7 @@ import "slick-carousel/slick/slick-theme.css";
 import { varFadeInUp, MotionInView } from '../../src/components/animate';
 import CustomCard from 'src/components/card/CustomCard';
 import Page from 'src/components/Page';
+import { useRouter } from 'next/router';
 
 const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
@@ -21,6 +22,7 @@ const RootStyle = styled('div')(({ theme }) => ({
 }));
 
 export default function DemoFour() {
+    const router = useRouter();
     const [slidesToShow, setSlidesToShow] = useState(3);
 
     const settings = {
@@ -76,6 +78,14 @@ export default function DemoFour() {
         };
     }, []);
 
+    const handleRedirect = () => {
+        router.push('/demo-four/landing-slider');
+
+        setTimeout(() => {
+            location.reload();
+        }, 1000);
+    }
+
     return (
         <>
             <MainNavbar />
@@ -98,13 +108,12 @@ export default function DemoFour() {
                         </MotionInView>
 
                         <MotionInView variants={varFadeInUp}>
-                            <NextLink href='/demo-four/landing-slider' passHref>
-                                <Button
-                                    sx={{ marginTop: 5, marginBottom: 2 }}
-                                    variant='contained'>
-                                    See Demo
-                                </Button>
-                            </NextLink>
+                            <Button
+                                onClick={handleRedirect}
+                                sx={{ marginTop: 5, marginBottom: 2 }}
+                                variant='contained'>
+                                See Demo
+                            </Button>
                         </MotionInView>
                     </Container>
                 </RootStyle>
