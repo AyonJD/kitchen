@@ -32,15 +32,6 @@ export default function LandingPage() {
       >
         <LandingHero />
         <ContentStyle>
-          {/* <LandingMinimal />
-          <LandingHugePackElements />
-          <LandingDarkMode />
-          <LandingThemeColor />
-          <LandingCleanInterfaces /> */}
-
-          {/* <LandingPricingPlans />
-          <LandingAdvertisement /> */}
-
           <LandingOfferedSolutions />
         </ContentStyle>
       </RootStyle>

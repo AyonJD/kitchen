@@ -26,17 +26,22 @@ import {
     varFadeInDown,
 } from '../../animate';
 import CustomCard from 'src/components/card/CustomCard';
+import RestaurantIcon from '@mui/icons-material/Restaurant';
+import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
+import RamenDiningIcon from '@mui/icons-material/RamenDining';
+import TapasIcon from '@mui/icons-material/Tapas';
 
 // ----------------------------------------------------------------------
 
 const SOLUTIONTITLE = ['Demo One', 'Demo Two', 'Demo Three', 'Demo Four'];
-const SOLUTIONICON = ['/static/brand/logo.png', '/static/brand/logo.png', '/static/brand/logo.png', '/static/brand/logo.png',];
 const SOLUTION_URL = ['/demo-one', '/demo-two', '/demo-three', '/demo-four'];
+const SOLUTION_ICON = [RestaurantIcon, RestaurantMenuIcon, RamenDiningIcon, TapasIcon];
 
 const SOLUtION_ITEMS = [...Array(4)].map((_, index) => ({
     title: SOLUTIONTITLE[index],
-    icon: SOLUTIONICON[index],
+    icon: SOLUTION_ICON[index],
     url: SOLUTION_URL[index],
+
 }));
 
 const RootStyle = styled('div')(({ theme }) => ({
@@ -111,86 +116,101 @@ export default function LandingOfferedSolutions() {
 
     return (
         <RootStyle>
-            <Container>
-                <Box style={{ display: 'flex', justifyContent: 'flex-start' }}>
-                    <LeftLogoStyle
-                        style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
-                    >
-                        {/* Logo */}
-                        <MotionInView variants={varZoomIn}>
-                            <img
-                                style={{ width: 200, height: 200, cursor: 'pointer' }}
-                                src='/static/brand/logo.png'
-                                alt='hero'
-                            />
-                        </MotionInView>
-
-                        {/* Main heading */}
-                        <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                            <Typography variant='h1' >
-                                Kitchen
-                            </Typography>
-                        </MotionInView>
-
-                        {/* Sub heaing */}
-                        <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                            <Typography variant='h4'>
-                                Cafe & Restaurant
-                            </Typography>
-                        </MotionInView>
-
-                    </LeftLogoStyle>
-                </Box>
-
-            </Container>
-
-            <Container>
-                <Box sx={{ mb: 5, textAlign: 'center' }}>
-                    <MotionInView variants={varFadeInDown}>
-                        <Typography variant='h2' sx={{ mb: 3 }}>
-                            Offered Solutions
-                        </Typography>
-                    </MotionInView>
-                    <MotionInView variants={varFadeInDown}>
-                        <Typography
-                            sx={{
-                                color: (theme) =>
-                                    theme.palette.mode === 'light'
-                                        ? 'text.secondary'
-                                        : 'text.primary',
-                            }}
+            <Container sx={{
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: {
+                    xs: 'column',
+                    sm: 'column',
+                    md: 'row'
+                }
+            }}>
+                <Box sx={{
+                    width: {
+                        xs: '100%',
+                        sm: '80%',
+                        md: '50%'
+                    }
+                }}>
+                    <Box style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                        <LeftLogoStyle
+                            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                         >
-                            Choose the perfect demo for your needs.
-                        </Typography>
-                    </MotionInView>
+                            {/* Logo */}
+                            <MotionInView variants={varZoomIn}>
+                                <img
+                                    style={{ width: 200, height: 200, cursor: 'pointer' }}
+                                    src='/static/brand/logo.png'
+                                    alt='hero'
+                                />
+                            </MotionInView>
+
+                            {/* Main heading */}
+                            <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
+                                <Typography variant='h1' >
+                                    Kitchen
+                                </Typography>
+                            </MotionInView>
+
+                            {/* Sub heaing */}
+                            <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
+                                <Typography variant='h4'>
+                                    Cafe & Restaurant
+                                </Typography>
+                            </MotionInView>
+
+                        </LeftLogoStyle>
+                    </Box>
+
                 </Box>
 
-                <Grid container spacing={5}>
-                    {SOLUtION_ITEMS.map((item, index) => (
-                        <NextLink href={item.url} passHref key={index}>
-                            <Grid item xs={12} md={6}>
-                                <MotionInView
-                                    variants={index === 0 || index === 1 ? varFadeInDown : varFadeInUp}
-                                >
-                                    <CustomCard cardIndex={index}>
-                                        <Stack spacing={5}>
-                                            <div>
-                                                <Typography
-                                                    variant='overline'
-                                                    sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
-                                                >
-                                                    Iocn here
-                                                </Typography>
-                                                <Typography variant='h4'>{item.title}</Typography>
-                                            </div>
-                                        </Stack>
-                                    </CustomCard>
-                                </MotionInView>
-                            </Grid>
-                        </NextLink>
-                    ))}
-                </Grid>
+                <Box sx={{
+                    width: {
+                        xs: '100%',
+                        sm: '80%',
+                        md: '50%'
+                    }
+                }} >
+                    <Box sx={{ mb: 5, textAlign: 'center' }}>
+                        <MotionInView variants={varFadeInDown}>
+                            <Typography variant='h2' sx={{ mb: 3 }}>
+                                Offered Solutions
+                            </Typography>
+                        </MotionInView>
+                        <MotionInView variants={varFadeInDown}>
+                            <Typography
+                                sx={{
+                                    color: (theme) =>
+                                        theme.palette.mode === 'light'
+                                            ? 'text.secondary'
+                                            : 'text.primary',
+                                }}
+                            >
+                                Choose the perfect demo for your needs.
+                            </Typography>
+                        </MotionInView>
+                    </Box>
+
+                    <Grid container spacing={5}>
+                        {SOLUtION_ITEMS.map((item, index) => (
+                            <NextLink href={item.url} passHref key={index}>
+                                <Grid item xs={12} md={6}>
+                                    <MotionInView
+                                        variants={index === 0 || index === 1 ? varFadeInDown : varFadeInUp}
+                                    >
+                                        <CustomCard cardIndex={index}>
+                                            <Stack spacing={5}>
+                                                <div style={{ display: 'flex', flexDirection: 'column', justifyContent: 'center', alignItems: 'center' }}>
+                                                    <item.icon style={{ fontSize: 50, mb: 2 }} />
+                                                    <Typography variant='h4'>{item.title}</Typography>
+                                                </div>
+                                            </Stack>
+                                        </CustomCard>
+                                    </MotionInView>
+                                </Grid>
+                            </NextLink>
+                        ))}
+                    </Grid>
+                </Box>
             </Container>
-        </RootStyle>
+        </RootStyle >
     );
 }
