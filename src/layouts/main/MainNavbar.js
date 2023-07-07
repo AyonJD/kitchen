@@ -3,7 +3,7 @@ import NextLink from 'next/link';
 import { useRouter } from 'next/router';
 // material
 import { styled } from '@mui/material/styles';
-import { Box, Button, AppBar, Toolbar, Container, Typography } from '@mui/material';
+import { Box, Button, AppBar, Toolbar, Container, Typography, alpha } from '@mui/material';
 // hooks
 import useOffSetTop from '../../hooks/useOffSetTop';
 // components
@@ -29,6 +29,11 @@ const ToolbarStyle = styled(Toolbar)(({ theme }) => ({
     [theme.breakpoints.up('md')]: {
         height: APP_BAR_DESKTOP,
     },
+    boxShadow: 'rgba(0, 0, 0, 0.05) 0px 4px 5px',
+    paddingBottom: theme.spacing(1),
+    backdropFilter: 'blur(4px)',
+    WebkitBackdropFilter: 'blur(4px)', // Fix on Mobile
+    backgroundColor: alpha(theme.palette.background.default, 0.72),
 }));
 
 const ToolbarShadowStyle = styled('div')(({ theme }) => ({
