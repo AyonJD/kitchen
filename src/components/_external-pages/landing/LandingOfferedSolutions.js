@@ -30,14 +30,15 @@ import RestaurantIcon from '@mui/icons-material/Restaurant';
 import RestaurantMenuIcon from '@mui/icons-material/RestaurantMenu';
 import RamenDiningIcon from '@mui/icons-material/RamenDining';
 import TapasIcon from '@mui/icons-material/Tapas';
+import MenuBookIcon from '@mui/icons-material/MenuBook';
 
 // ----------------------------------------------------------------------
 
-const SOLUTIONTITLE = ['Demo One', 'Demo Two', 'Demo Three', 'Demo Four'];
-const SOLUTION_URL = ['/demo-one', '/demo-two', '/demo-three', '/demo-four'];
-const SOLUTION_ICON = [RestaurantIcon, RestaurantMenuIcon, RamenDiningIcon, TapasIcon];
+const SOLUTIONTITLE = ['Demo One', 'Demo Two', 'Demo Three', 'Demo Four', 'Demo Five'];
+const SOLUTION_URL = ['/demo-one', '/demo-two', '/demo-three', '/demo-four', '/demo-five'];
+const SOLUTION_ICON = [RestaurantIcon, RestaurantMenuIcon, RamenDiningIcon, TapasIcon, MenuBookIcon];
 
-const SOLUtION_ITEMS = [...Array(4)].map((_, index) => ({
+const SOLUtION_ITEMS = [...Array(5)].map((_, index) => ({
     title: SOLUTIONTITLE[index],
     icon: SOLUTION_ICON[index],
     url: SOLUTION_URL[index],
@@ -48,7 +49,7 @@ const RootStyle = styled('div')(({ theme }) => ({
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingTop: theme.spacing(15),
+    paddingTop: theme.spacing(5),
     [theme.breakpoints.up('md')]: {
         paddingBottom: theme.spacing(15),
     },
@@ -61,7 +62,6 @@ const LeftLogoStyle = styled((props) => <Stack spacing={5} {...props} />)(
         margin: 'auto',
         textAlign: 'center',
         position: 'relative',
-        paddingTop: theme.spacing(15),
         paddingBottom: theme.spacing(15),
         [theme.breakpoints.up('md')]: {
             margin: 'unset',
@@ -70,58 +70,12 @@ const LeftLogoStyle = styled((props) => <Stack spacing={5} {...props} />)(
     })
 );
 
-// ----------------------------------------------------------------------
-
-// function SolutionsCard({ solution, cardIndex }) {
-//     const theme = useTheme();
-//     const { title, icon } = solution;
-
-//     const isLight = theme.palette.mode === 'light';
-
-//     return (
-//         <Card
-//             sx={{
-//                 cursor: 'pointer',
-//                 p: 5,
-//                 boxShadow: (theme) =>
-//                     `0px 48px 80px ${alpha(
-//                         isLight ? theme.palette.grey[500] : theme.palette.common.black,
-//                         0.12
-//                     )}`,
-//                 ...(cardIndex === 1 && {
-//                     boxShadow: (theme) =>
-//                         `0px 48px 80px ${alpha(
-//                             isLight ? theme.palette.grey[500] : theme.palette.common.black,
-//                             0.48
-//                         )}`,
-//                 }),
-//             }}
-//         >
-//             <Stack spacing={5}>
-//                 <div>
-//                     <Typography
-//                         variant='overline'
-//                         sx={{ mb: 2, color: 'text.disabled', display: 'block' }}
-//                     >
-//                         LICENSE
-//                     </Typography>
-//                     <Typography variant='h4'>{title}</Typography>
-//                 </div>
-//             </Stack>
-//         </Card>
-//     );
-// }
-
 export default function LandingOfferedSolutions() {
 
     return (
         <RootStyle>
             <Container sx={{
-                display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: {
-                    xs: 'column',
-                    sm: 'column',
-                    md: 'row'
-                }
+                display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexDirection: 'column', width: '100%',
             }}>
                 <Box sx={{
                     width: {
@@ -130,14 +84,14 @@ export default function LandingOfferedSolutions() {
                         md: '50%'
                     }
                 }}>
-                    <Box style={{ display: 'flex', justifyContent: 'flex-start' }}>
+                    <Box >
                         <LeftLogoStyle
                             style={{ display: 'flex', flexDirection: 'column', alignItems: 'center' }}
                         >
                             {/* Logo */}
                             <MotionInView variants={varZoomIn}>
                                 <img
-                                    style={{ width: 200, height: 200, cursor: 'pointer' }}
+                                    style={{ width: 130, height: 130, cursor: 'pointer' }}
                                     src='/static/brand/logo.png'
                                     alt='hero'
                                 />
@@ -145,14 +99,14 @@ export default function LandingOfferedSolutions() {
 
                             {/* Main heading */}
                             <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                                <Typography variant='h1' >
+                                <Typography variant='h3' sx={{color: 'primary.main',  fontFamily: 'Saira Condensed, sans-serif'}} >
                                     Kitchen
                                 </Typography>
                             </MotionInView>
 
                             {/* Sub heaing */}
                             <MotionInView variants={varFadeInUp} style={{ marginTop: 0 }}>
-                                <Typography variant='h4'>
+                                <Typography variant='h6' sx={{ fontFamily: 'Saira Condensed, sans-serif'}}>
                                     Cafe & Restaurant
                                 </Typography>
                             </MotionInView>
@@ -166,7 +120,6 @@ export default function LandingOfferedSolutions() {
                     width: {
                         xs: '100%',
                         sm: '80%',
-                        md: '50%'
                     }
                 }} >
                     <Box sx={{ mb: 5, textAlign: 'center' }}>
@@ -192,7 +145,7 @@ export default function LandingOfferedSolutions() {
                     <Grid container spacing={5}>
                         {SOLUtION_ITEMS.map((item, index) => (
                             <NextLink href={item.url} passHref key={index}>
-                                <Grid item xs={12} md={6}>
+                                <Grid item xs={12} md={(index === 0 || index === 1) ? 6 : 4}>
                                     <MotionInView
                                         variants={index === 0 || index === 1 ? varFadeInDown : varFadeInUp}
                                     >

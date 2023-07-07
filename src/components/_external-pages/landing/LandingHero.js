@@ -49,13 +49,6 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(
   })
 );
 
-const HeroOverlayStyle = styled(motion.img)({
-  zIndex: 9,
-  width: '100%',
-  height: '100%',
-  objectFit: 'cover',
-  position: 'absolute',
-});
 
 // ----------------------------------------------------------------------
 
@@ -63,117 +56,13 @@ export default function LandingHero() {
   return (
     <>
       <RootStyle initial='initial' animate='animate' variants={varWrapEnter}>
-        <HeroOverlayStyle
-          alt='overlay'
-          src='/static/overlay.svg'
-          variants={varFadeIn}
-        />
-
-        {/* Background Image---------------------- */}
-
-        {/* <HeroImgStyle
-          alt='hero'
-          src='/static/home/hero.png'
-          variants={varFadeInUp}
-        /> */}
-
-        {/* Landing page content------------------> */}
-
-        {/* <Container maxWidth='lg'>
-          <ContentStyle>
-            <motion.div variants={varFadeInRight}>
-              <Typography variant='h1' sx={{ color: 'common.white' }}>
-                Start a <br />
-                new project <br /> with
-                <Typography
-                  component='span'
-                  variant='h1'
-                  sx={{ color: 'primary.main' }}
-                >
-                  &nbsp;Minimal
-                </Typography>
-              </Typography>
-            </motion.div>
-
-            <motion.div variants={varFadeInRight}>
-              <Typography sx={{ color: 'common.white' }}>
-                The starting point for your next project based on
-                easy-to-customize Material-UI © helps you build apps faster and
-                better.
-              </Typography>
-            </motion.div>
-
-            <Stack
-              component={motion.div}
-              variants={varFadeInRight}
-              direction='row'
-              spacing={1}
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-            >
-              <img
-                alt='sketch icon'
-                src='/static/home/ic_sketch_small.svg'
-                width={20}
-                height={20}
-              />
-              <Link
-                underline='always'
-                href='https://www.sketch.com/s/0fa4699d-a3ff-4cd5-a3a7-d851eb7e17f0'
-                target='_blank'
-                sx={{ color: 'common.white' }}
-              >
-                Preview in Sketch Cloud
-              </Link>
-            </Stack>
-
-            <motion.div variants={varFadeInRight}>
-              <NextLink href={PATH_DASHBOARD.root}>
-                <Button
-                  size='large'
-                  variant='contained'
-                  startIcon={<Icon icon={flashFill} width={20} height={20} />}
-                >
-                  Live Preview
-                </Button>
-              </NextLink>
-            </motion.div>
-
-            <Stack
-              direction='row'
-              spacing={1.5}
-              justifyContent={{ xs: 'center', md: 'flex-start' }}
-            >
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_sketch.svg'
-              />
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_figma.svg'
-              />
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_material.svg'
-              />
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_react.svg'
-              />
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_js.svg'
-              />
-              <motion.img
-                variants={varFadeInRight}
-                src='/static/home/ic_ts.svg'
-              />
-            </Stack>
-          </ContentStyle>
-        </Container> */}
+       <div className='carousel'>
+          <div className={`heroOverlay carousel slide_one`}></div>
+      </div>
 
         <Container>
           <ContentStyle
-            style={{ display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+            style={{ display: 'flex', textAlign: 'center', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
           >
             {/* Logo */}
             <motion.img
@@ -191,9 +80,29 @@ export default function LandingHero() {
             </motion.div>
 
             {/* Sub heaing */}
-            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
+            <motion.div variants={varFadeInUp} style={{marginTop: '-10px'}}>
               <Typography variant='h4' sx={{ color: 'common.white' }}>
                 Cafe & Restaurant
+              </Typography>
+            </motion.div>
+
+            {/* Slogan */}
+            <motion.div variants={varFadeInUp} style={{marginTop: 10}}>
+              <Typography variant='body2' sx={{
+                color: 'common.white',
+                width: {
+                  xs: '100%',
+                  sm: '70%',
+                },
+                textAlign: 'center',
+                marginLeft: 'auto',
+                marginRight: 'auto',
+                fontFamily: 'Saira Condensed, sans-serif',
+                fontWeight: 500,
+                fontSize: '1.05rem',
+                wordSpacing: '0.1rem',
+              }}>
+                CMS is a platform that allows you to place orders, book orders and deliver orders.
               </Typography>
             </motion.div>
 
