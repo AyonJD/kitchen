@@ -64,7 +64,9 @@ function Recipe({ classes }) {
       <Page title="Kitchen | Recipe">
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <Box sx={{ mb: 5, textAlign: 'center' }}>
-            <Typography mb={1} variant="h4">Recipe List</Typography>
+            <Typography mb={1} variant="h4">
+              Recipe List
+            </Typography>
             {cardData.map((item, index) => (
               <Button
                 sx={{
@@ -116,22 +118,6 @@ function Recipe({ classes }) {
                   },
                 }}
               >
-                {/* <TableContainer>
-                                    <Table>
-                                        <TableHead>
-                                            <TableRow>
-                                                <TableCell> Recipe List</TableCell>
-                                            </TableRow>
-                                        </TableHead>
-                                        <TableBody>
-                                            {cardData.map((item, index) => (
-                                                <TableRow onClick={() => setSelectedIndex(index)} key={index}>
-                                                    <TableCell className={classes.hoverCell}> {item.title}</TableCell>
-                                                </TableRow>
-                                            ))}
-                                        </TableBody>
-                                    </Table>
-                                </TableContainer> */}
                 <Typography
                   variant="body"
                   style={{ display: 'inline-block', textAlign: 'justify' }}

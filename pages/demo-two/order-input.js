@@ -61,8 +61,6 @@ export default function OrderInput() {
     console.log(formData)
   }
 
-  console.log(formData)
-
   const sliderBackground = isLight ? '#1CCAFF' : '#1CCAFF'
 
   // Extract the selected product from formData

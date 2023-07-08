@@ -98,7 +98,7 @@ export default function DemoTwo() {
                 variant="h3"
                 sx={{ textAlign: 'center', paddingTop: 0 }}
               >
-                Demo One Heading
+                Demo Two Heading
               </Typography>
             </MotionInView>
             <Box
