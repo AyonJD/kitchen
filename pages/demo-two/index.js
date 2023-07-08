@@ -41,29 +41,6 @@ export default function DemoTwo() {
     cssEase: 'linear',
   }
 
-  const cardData = [
-    {
-      title: 'Demo One',
-      image: '/static/mock-images/demo-one-1.png',
-    },
-    {
-      title: 'Demo Two',
-      image: '/static/mock-images/demo-one-2.png',
-    },
-    {
-      title: 'Demo Three',
-      image: '/static/mock-images/demo-one-3.png',
-    },
-    {
-      title: 'Demo Four',
-      image: '/static/mock-images/demo-one-4.png',
-    },
-    {
-      title: 'Demo Five',
-      image: '/static/mock-images/demo-one-5.png',
-    },
-  ]
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 600) {
@@ -178,7 +155,10 @@ export default function DemoTwo() {
                 }}
               >
                 <MotionInView variants={varFadeInLeft}>
-                  <Typography variant="body" style={{ textAlign: 'justify' }}>
+                  <Typography
+                    variant="body"
+                    style={{ display: 'inline-block', textAlign: 'justify' }}
+                  >
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Nesciunt expedita facere, alias distinctio quasi obcaecati,
                     qui nisi ullam aut accusamus sed corporis officiis

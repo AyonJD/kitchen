@@ -125,7 +125,10 @@ export default function DemoOne() {
                 }}
               >
                 <MotionInView variants={varFadeInLeft}>
-                  <Typography variant="body" style={{ textAlign: 'justify' }}>
+                  <Typography
+                    variant="body"
+                    style={{ display: 'inline-block', textAlign: 'justify' }}
+                  >
                     Lorem ipsum dolor sit amet consectetur, adipisicing elit.
                     Nesciunt expedita facere, alias distinctio quasi obcaecati,
                     qui nisi ullam aut accusamus sed corporis officiis
