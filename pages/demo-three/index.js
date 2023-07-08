@@ -128,25 +128,6 @@ export default function DemoThree() {
                     md: '48%',
                   },
                   height: '100%',
-                }}
-              >
-                <MotionInView variants={varFadeInLeft}>
-                  <img
-                    style={{ width: '100%' }}
-                    src="/static/home/restaurant.jpg"
-                    alt=""
-                  />
-                </MotionInView>
-              </CustomCard>
-
-              <CustomCard
-                sx={{
-                  width: {
-                    xs: '100%',
-                    sm: '100%',
-                    md: '48%',
-                  },
-                  height: '100%',
                   marginBottom: {
                     xs: 2,
                     sm: 2,
@@ -174,6 +155,25 @@ export default function DemoThree() {
                     natus ea labore neque, eos similique minima! Nostrum, eum
                     quos.
                   </Typography>
+                </MotionInView>
+              </CustomCard>
+              
+              <CustomCard
+                sx={{
+                  width: {
+                    xs: '100%',
+                    sm: '100%',
+                    md: '48%',
+                  },
+                  height: '100%',
+                }}
+              >
+                <MotionInView variants={varFadeInLeft}>
+                  <img
+                    style={{ width: '100%' }}
+                    src="/static/home/restaurant.jpg"
+                    alt=""
+                  />
                 </MotionInView>
               </CustomCard>
             </Box>

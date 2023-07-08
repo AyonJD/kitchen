@@ -9,10 +9,10 @@ import 'slick-carousel/slick/slick-theme.css'
 import {
   varFadeInUp,
   MotionInView,
-  ButtonAnimate,
   varFadeInLeft,
-  varFadeInRight,
+  ButtonAnimate,
   varFadeInDown,
+  varFadeInRight,
 } from '../../src/components/animate'
 import CustomCard from 'src/components/card/CustomCard'
 import Page from 'src/components/Page'
@@ -27,11 +27,11 @@ const RootStyle = styled('div')(({ theme }) => ({
   },
 }))
 
-export default function DemoFour() {
+export default function DemoFive() {
   return (
     <>
       <MainNavbar />
-      <Page title="Kitchen | Demo Four">
+      <Page title="Kitchen | Demo Five">
         <RootStyle>
           <Container>
             <MotionInView variants={varFadeInDown}>
@@ -39,7 +39,7 @@ export default function DemoFour() {
                 variant="h3"
                 sx={{ textAlign: 'center', paddingTop: 0 }}
               >
-                Demo Four Heading
+                Demo Five Heading
               </Typography>
             </MotionInView>
             <Box
@@ -69,25 +69,6 @@ export default function DemoFour() {
                     md: '48%',
                   },
                   height: '100%',
-                }}
-              >
-                <MotionInView variants={varFadeInRight}>
-                  <img
-                    style={{ width: '100%' }}
-                    src="/static/home/restaurant.jpg"
-                    alt=""
-                  />
-                </MotionInView>
-              </CustomCard>
-
-              <CustomCard
-                sx={{
-                  width: {
-                    xs: '100%',
-                    sm: '100%',
-                    md: '48%',
-                  },
-                  height: '100%',
                   marginBottom: {
                     xs: 2,
                     sm: 2,
@@ -95,7 +76,7 @@ export default function DemoFour() {
                   },
                 }}
               >
-                <MotionInView variants={varFadeInLeft}>
+                <MotionInView variants={varFadeInRight}>
                   <Typography
                     variant="body"
                     style={{ display: 'inline-block', textAlign: 'justify' }}
@@ -117,12 +98,31 @@ export default function DemoFour() {
                   </Typography>
                 </MotionInView>
               </CustomCard>
+
+              <CustomCard
+                sx={{
+                  width: {
+                    xs: '100%',
+                    sm: '100%',
+                    md: '48%',
+                  },
+                  height: '100%',
+                }}
+              >
+                <MotionInView variants={varFadeInLeft}>
+                  <img
+                    style={{ width: '100%' }}
+                    src="/static/home/restaurant.jpg"
+                    alt=""
+                  />
+                </MotionInView>
+              </CustomCard>
             </Box>
 
             <Box sx={{ marginTop: 5, marginBottom: 2, textAlign: 'center' }}>
               <MotionInView variants={varFadeInUp}>
                 <ButtonAnimate mediumClick={true}>
-                  <NextLink href="/demo-four/landing-slider" passHref>
+                  <NextLink href="/demo-five/digital-menu" passHref>
                     <Button sx={{ width: '200px' }} variant="contained">
                       See Demo
                     </Button>
