@@ -34,7 +34,7 @@ export default function OrderSelection() {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(formData) // You can perform further actions here, such as submitting the form data
+    console.log(formData) 
   }
 
   const tableStyles = {

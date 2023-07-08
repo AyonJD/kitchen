@@ -1,9 +1,25 @@
-import { Box, Button, FormControl, Grid, InputLabel, MenuItem, Paper, Select, TextField, Typography } from '@mui/material';
-import { useState } from 'react';
+import {
+  Box,
+  Button,
+  FormControl,
+  Grid,
+  InputLabel,
+  MenuItem,
+  Paper,
+  Select,
+  TextField,
+  Typography,
+} from '@mui/material'
+import { useState } from 'react'
 
-export default function SelectionForm({ dynamicField, header, formData, setFormData, handleSubmit }) {
-  
-
+export default function SelectionForm({
+  renderExtraField,
+  dynamicField,
+  header,
+  formData,
+  setFormData,
+  handleSubmit,
+}) {
   const handleChange = event => {
     const { name, value } = event.target
     setFormData(prevFormData => ({
@@ -65,7 +81,19 @@ export default function SelectionForm({ dynamicField, header, formData, setFormD
                 </Select>
               </FormControl>
             </Grid>
-            <Grid item xs={12}>
+            {renderExtraField && (
+              <Grid item xs={12} sm={6}>
+                <FormControl fullWidth sx={{ maxWidth: '100%' }}>
+                  <TextField
+                    name="note"
+                    label="Note"
+                    value={formData.note}
+                    onChange={handleChange}
+                  />
+                </FormControl>
+              </Grid>
+            )}
+            <Grid item xs={renderExtraField ? 6 : 12}>
               <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                 <InputLabel>{dynamicField}</InputLabel>
                 <Select
