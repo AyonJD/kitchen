@@ -158,7 +158,7 @@ export default function DemoOne() {
               >
                 <MotionInView variants={varFadeInRight}>
                   <img
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', borderRadius: '8px' }}
                     src="/static/home/restaurant.jpg"
                     alt=""
                   />

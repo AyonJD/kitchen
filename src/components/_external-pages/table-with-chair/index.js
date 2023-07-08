@@ -69,7 +69,9 @@ export default function TableWithChairs({
           }}
           elevation={3}
         >
-          <Typography variant="h4">{status ? status : 'Table'}</Typography>
+          <Typography color="#fff" variant="h4">
+            {status ? status : 'Table'}
+          </Typography>
         </Paper>
       </Box>
       <Box

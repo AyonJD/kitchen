@@ -157,7 +157,7 @@ export default function DemoThree() {
                   </Typography>
                 </MotionInView>
               </CustomCard>
-              
+
               <CustomCard
                 sx={{
                   width: {
@@ -170,7 +170,7 @@ export default function DemoThree() {
               >
                 <MotionInView variants={varFadeInLeft}>
                   <img
-                    style={{ width: '100%' }}
+                    style={{ width: '100%', borderRadius: '8px' }}
                     src="/static/home/restaurant.jpg"
                     alt=""
                   />
