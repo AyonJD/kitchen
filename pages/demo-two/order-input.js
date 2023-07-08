@@ -1,7 +1,13 @@
-import { Box, Container, Typography, alpha, useTheme } from '@mui/material'
+import {
+  Box,
+  Container,
+  Grid,
+  Typography,
+  alpha,
+  useTheme,
+} from '@mui/material'
 import { useState } from 'react'
 import Page from 'src/components/Page'
-import SwiperCardSlider from 'src/components/Sider/SwiperCardSlider'
 import SelectionForm from 'src/components/_external-pages/selection-form'
 import {
   MotionInView,
@@ -28,35 +34,39 @@ export default function OrderInput() {
     note: '',
   })
 
+  const imageArray = [
+    '/static/mock-images/image_1.jpg',
+    '/static/mock-images/image_2.jpg',
+    '/static/mock-images/image_3.jpg',
+    '/static/mock-images/image_4.jpg',
+    '/static/mock-images/image_5.jpg',
+  ]
+
+  const getProductImages = product => {
+    let images = []
+
+    if (product === 'product1') {
+      images = [imageArray[0], imageArray[1]]
+    } else if (product === 'product2') {
+      images = [imageArray[2], imageArray[3]]
+    } else if (product === 'product3') {
+      images = [imageArray[4], imageArray[0]]
+    }
+
+    return images
+  }
+
   const handleSubmit = event => {
     event.preventDefault()
     console.log(formData)
   }
 
+  console.log(formData)
+
   const sliderBackground = isLight ? '#1CCAFF' : '#1CCAFF'
 
-  const cardData = [
-    {
-      title: 'Demo One',
-      image: '/static/mock-images/demo-one-1.png',
-    },
-    {
-      title: 'Demo Two',
-      image: '/static/mock-images/demo-one-2.png',
-    },
-    {
-      title: 'Demo Three',
-      image: '/static/mock-images/demo-one-3.png',
-    },
-    {
-      title: 'Demo Four',
-      image: '/static/mock-images/demo-one-4.png',
-    },
-    {
-      title: 'Demo Five',
-      image: '/static/mock-images/demo-one-5.png',
-    },
-  ]
+  // Extract the selected product from formData
+  const { product } = formData
 
   return (
     <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
@@ -85,12 +95,26 @@ export default function OrderInput() {
             </CustomCard>
           </MotionInView>
 
-          <CustomCard sx={{ marginTop: 2 }}>
-            <SwiperCardSlider
-              sliderBackground={sliderBackground}
-              cardData={cardData}
-            />
-          </CustomCard>
+          {product && (
+            <CustomCard sx={{ marginTop: 2 }}>
+              <Grid container spacing={2}>
+                <Grid item xs={12}>
+                  <Typography variant="h5" mb={2} align="center">
+                    Product Images
+                  </Typography>
+                </Grid>
+                {getProductImages(product).map((image, index) => (
+                  <Grid item xs={12} md={6} key={`product-image-${index + 1}`}>
+                    <img
+                      src={image}
+                      alt={`Product ${product} Image ${index + 1}`}
+                      style={{ borderRadius: '8px' }}
+                    />
+                  </Grid>
+                ))}
+              </Grid>
+            </CustomCard>
+          )}
         </Container>
       </Page>
     </DashboardLayout>
