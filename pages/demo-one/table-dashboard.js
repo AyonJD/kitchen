@@ -97,7 +97,6 @@ export default function TableDashboard() {
       setOpenPopup(true)
       updatedTables[tableIndex].status = 'Served'
       const selectedItems = [...formData.product]
-      console.log(selectedItems)
       updatedTables[tableIndex].items = selectedItems
       updatedTables[tableIndex].background = '#038003'
     }
@@ -108,8 +107,6 @@ export default function TableDashboard() {
     event.preventDefault()
     handleClick(dataIndex)
   }
-
-  console.log(formData)
 
   const tableStyles = {
     boxHeight: 166,
@@ -181,15 +178,16 @@ export default function TableDashboard() {
                         {table?.orderTime && (
                           <p>Order Time: {table.orderTime}</p>
                         )}
-                        {table?.items && (
+                        {dataIndex === index && formData.product && (
                           <p>
                             Items:{' '}
-                            {table.items.map((item, index) => (
+                            {/* {table.items.map((item, index) => (
                               <span key={index}>
                                 {item}
                                 {index !== table.items.length - 1 && ', '}
                               </span>
-                            ))}
+                            ))} */}
+                            {formData.product}
                           </p>
                         )}
                       </Grid>
