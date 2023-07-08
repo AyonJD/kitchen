@@ -57,43 +57,50 @@ export default function MainNavbar() {
     const isHome = pathname === '/';
 
     return (
-        <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
-            <ToolbarStyle
-                disableGutters
+      <AppBar sx={{ boxShadow: 0, bgcolor: 'transparent' }}>
+        <ToolbarStyle
+          disableGutters
+          sx={{
+            ...(isOffset && {
+              bgcolor: 'background.default',
+              height: { md: APP_BAR_DESKTOP - 16 },
+            }),
+          }}
+        >
+          <Container
+            maxWidth="lg"
+            sx={{
+              display: 'flex',
+              alignItems: 'center',
+              justifyContent: 'space-between',
+            }}
+          >
+            <Box>
+              <Typography variant="h4" color="primary.main">
+                Kitchen
+              </Typography>
+
+              <Typography
+                variant="span"
+                color="primary.main"
                 sx={{
-                    ...(isOffset && {
-                        bgcolor: 'background.default',
-                        height: { md: APP_BAR_DESKTOP - 16 },
-                    }),
+                  fontFamily: 'Saira Condensed, sans-serif',
+                  fontWeight: 'bold',
                 }}
-            >
-                <Container
-                    maxWidth='lg'
-                    sx={{
-                        display: 'flex',
-                        alignItems: 'center',
-                        justifyContent: 'space-between',
-                    }}
-                >
-                    <Box>
-                        <Typography variant='h4' >
-                            Kitchen
-                        </Typography>
+              >
+                Cafe & Restaurant
+              </Typography>
+            </Box>
 
-                        <Typography variant='span' sx={{ fontFamily: 'Saira Condensed, sans-serif', fontWeight: 'bold' }}>
-                            Cafe & Restaurant
-                        </Typography>
-                    </Box>
+            <Box sx={{ flexGrow: 1 }} />
 
-                    <Box sx={{ flexGrow: 1 }} />
+            <NextLink href="/">
+              <Logo sx={{ width: 80, height: 80 }} />
+            </NextLink>
+          </Container>
+        </ToolbarStyle>
 
-                    <NextLink href='/'>
-                        <Logo sx={{ width: 80, height: 80 }} />
-                    </NextLink>
-                </Container>
-            </ToolbarStyle>
-
-            {/* {isOffset && <ToolbarShadowStyle />} */}
-        </AppBar>
-    );
+        {/* {isOffset && <ToolbarShadowStyle />} */}
+      </AppBar>
+    )
 }
