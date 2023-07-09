@@ -20,7 +20,7 @@ import CustomCard from 'src/components/card/CustomCard'
 import TableWithChairs from 'src/components/_external-pages/table-with-chair'
 import { useState } from 'react'
 import Popup from 'src/components/popup/Popup'
-import SelectionForm from 'src/components/_external-pages/selection-form'
+import ClearIcon from '@mui/icons-material/Clear'
 
 const tableData = [
   {
@@ -106,6 +106,7 @@ export default function TableDashboard() {
   const handleSubmit = event => {
     event.preventDefault()
     handleClick(dataIndex)
+    setOpenPopup(false)
   }
 
   const tableStyles = {
@@ -200,8 +201,13 @@ export default function TableDashboard() {
         </Page>
       </DashboardLayout>
       {openPopup && (
-        <Popup setOpenPopup={setOpenPopup}>
-          <Paper sx={{ p: 0 }} className="menu_item_index">
+        <Popup openPopup={openPopup} setOpenPopup={setOpenPopup}>
+          <Paper sx={{ p: 4 }} className="menu_item_index">
+            <ClearIcon
+              onClick={() => setOpenPopup(false)}
+              color="#000"
+              className="cross_icon margin_bottom_16px"
+            />
             <Typography variant="h5" mb={4}>
               Form
             </Typography>
