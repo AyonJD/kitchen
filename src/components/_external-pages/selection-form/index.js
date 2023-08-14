@@ -10,7 +10,6 @@ import {
   TextField,
   Typography,
 } from '@mui/material'
-import { useState } from 'react'
 
 export default function SelectionForm({
   renderExtraField,
@@ -97,14 +96,22 @@ export default function SelectionForm({
               <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                 <InputLabel>{dynamicField}</InputLabel>
                 <Select
-                  name="staff"
-                  value={formData.staff}
+                  name={renderExtraField ? 'tableNumber' : 'staff'}
+                  value={
+                    renderExtraField ? formData.tableNumber : formData.staff
+                  }
                   onChange={handleChange}
                   label={dynamicField}
                 >
-                  <MenuItem value="staff1">{dynamicField} 1</MenuItem>
-                  <MenuItem value="staff2">{dynamicField} 2</MenuItem>
-                  <MenuItem value="staff3">{dynamicField} 3</MenuItem>
+                  <MenuItem value={renderExtraField ? 'Table 1' : 'Staff 1'}>
+                    {dynamicField} 1
+                  </MenuItem>
+                  <MenuItem value={renderExtraField ? 'Table 2' : 'Staff 2'}>
+                    {dynamicField} 2
+                  </MenuItem>
+                  <MenuItem value={renderExtraField ? 'Table 3' : 'Staff 3'}>
+                    {dynamicField} 3
+                  </MenuItem>
                 </Select>
               </FormControl>
             </Grid>

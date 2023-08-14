@@ -1,5 +1,15 @@
-import { Box, Container, Typography } from '@mui/material'
-import { useTheme, alpha } from '@mui/material/styles'
+import {
+  Box,
+  Container,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
+  Typography,
+} from '@mui/material'
+import { useTheme } from '@mui/material/styles'
 // layouts
 import DashboardLayout from 'src/layouts/dashboard'
 // hooks
@@ -13,10 +23,12 @@ import SelectionForm from 'src/components/_external-pages/selection-form'
 import CustomCard from 'src/components/card/CustomCard'
 import {
   MotionInView,
+  varFadeInDown,
   varFadeInLeft,
   varFadeInRight,
 } from 'src/components/animate'
 import { useState } from 'react'
+import { toast } from 'react-hot-toast'
 // ----------------------------------------------------------------------
 
 export default function OrderSelection() {
@@ -24,17 +36,38 @@ export default function OrderSelection() {
   const theme = useTheme()
   const isLight = theme.palette.mode === 'light'
 
+  const [allProducts, setAllProducts] = useState([])
   const [formData, setFormData] = useState({
     category: '',
     product: '',
     number: '',
     staff: '',
     numCustomers: '',
+    price: 0,
   })
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(formData) 
+    if (
+      !formData.category ||
+      !formData.product ||
+      !formData.number ||
+      !formData.staff ||
+      !formData.numCustomers
+    ) {
+      return toast.error('Please fill in all fields')
+    }
+    // Random price between 10 and 100
+    formData.price = Math.floor(Math.random() * 100) + 10
+    setAllProducts(prevProducts => [...prevProducts, formData])
+    setFormData({
+      category: '',
+      product: '',
+      number: '',
+      staff: '',
+      numCustomers: '',
+      price: 0,
+    })
   }
 
   const tableStyles = {
@@ -50,11 +83,71 @@ export default function OrderSelection() {
     chairHorizontalWidth: 30,
   }
 
-
   return (
     <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
       <Page title="Kitchen | Order Selection">
         <Container maxWidth={themeStretch ? false : 'xl'}>
+          {allProducts.length > 0 && (
+            <MotionInView variants={varFadeInDown}>
+              <CustomCard sx={{ mb: 3 }}>
+                <Typography variant="h3" component="h1" paragraph>
+                  Order List
+                </Typography>
+
+                <TableContainer
+                  sx={{
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderLeft: 0,
+                    borderRight: 0,
+                    borderTop: 0,
+                  }}
+                >
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Order Item</TableCell>
+                        <TableCell align="center">Item Category</TableCell>
+                        <TableCell align="center">Customers</TableCell>
+                        <TableCell align="center">Item Unit</TableCell>
+                        <TableCell align="center">Item Price</TableCell>
+                        <TableCell align="right">Total</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {allProducts.map((row, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{row.product}</TableCell>
+                          <TableCell align="center">{row.category}</TableCell>
+                          <TableCell align="center">
+                            {row.numCustomers}
+                          </TableCell>
+                          <TableCell align="center">{row.number}</TableCell>
+                          <TableCell align="center">{row.price}</TableCell>
+                          <TableCell align="right">
+                            {row.number * row.price}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+
+                <Typography
+                  sx={{ textAlign: 'right', marginRight: 2, marginTop: 2 }}
+                  variant="h6"
+                  component="h6"
+                  paragraph
+                >
+                  {`Subtotal: ${allProducts.reduce(
+                    (acc, cur) => acc + cur.number * cur.price,
+                    0
+                  )}`}
+                </Typography>
+              </CustomCard>
+            </MotionInView>
+          )}
+
           <Box
             sx={{
               display: 'flex',

@@ -2,6 +2,12 @@ import {
   Box,
   Container,
   Grid,
+  Table,
+  TableBody,
+  TableCell,
+  TableContainer,
+  TableHead,
+  TableRow,
   Typography,
   alpha,
   useTheme,
@@ -11,6 +17,7 @@ import Page from 'src/components/Page'
 import SelectionForm from 'src/components/_external-pages/selection-form'
 import {
   MotionInView,
+  varFadeInDown,
   varFadeInLeft,
   varFadeInRight,
   varFadeInUp,
@@ -25,13 +32,15 @@ export default function OrderInput() {
   const theme = useTheme()
   const isLight = theme.palette.mode === 'light'
 
+  const [allProducts, setAllProducts] = useState([])
   const [formData, setFormData] = useState({
     category: '',
     product: '',
     number: '',
-    staff: '',
+    tableNumber: null,
     numCustomers: '',
     note: '',
+    price: 0,
   })
 
   const imageArray = [
@@ -58,7 +67,27 @@ export default function OrderInput() {
 
   const handleSubmit = event => {
     event.preventDefault()
-    console.log(formData)
+    if (
+      !formData.category ||
+      !formData.product ||
+      !formData.number ||
+      !formData.tableNumber ||
+      !formData.numCustomers
+    ) {
+      return toast.error('Please fill in all fields')
+    }
+    // Random price between 10 and 100
+    formData.price = Math.floor(Math.random() * 100) + 10
+    setAllProducts(prevProducts => [...prevProducts, formData])
+    setFormData({
+      category: '',
+      product: '',
+      number: '',
+      staff: '',
+      numCustomers: '',
+      price: 0,
+      note: '',
+    })
   }
 
   const sliderBackground = isLight ? '#1CCAFF' : '#1CCAFF'
@@ -80,18 +109,70 @@ export default function OrderInput() {
             </MotionInView>
           </Box>
 
-          <MotionInView variants={varFadeInUp}>
-            <CustomCard sx={{ marginTop: 2 }}>
-              <SelectionForm
-                header="Select order"
-                dynamicField="Table Number"
-                setFormData={setFormData}
-                formData={formData}
-                handleSubmit={handleSubmit}
-                renderExtraField={true}
-              />
-            </CustomCard>
-          </MotionInView>
+          {allProducts.length > 0 && (
+            <MotionInView variants={varFadeInDown}>
+              <CustomCard sx={{ mb: 3, mt:2 }}>
+                <Typography variant="h3" component="h1" paragraph>
+                  Order List
+                </Typography>
+
+                <TableContainer
+                  sx={{
+                    borderWidth: 1,
+                    borderStyle: 'solid',
+                    borderLeft: 0,
+                    borderRight: 0,
+                    borderTop: 0,
+                  }}
+                >
+                  <Table>
+                    <TableHead>
+                      <TableRow>
+                        <TableCell>Order Item</TableCell>
+                        <TableCell align="center">Item Category</TableCell>
+                        <TableCell align="center">Customers</TableCell>
+                        <TableCell align="center">Item Unit</TableCell>
+                        <TableCell align="center">Item Price</TableCell>
+                        <TableCell align="center">Table</TableCell>
+                        <TableCell align="right">Total</TableCell>
+                      </TableRow>
+                    </TableHead>
+                    <TableBody>
+                      {allProducts.map((row, index) => (
+                        <TableRow key={index}>
+                          <TableCell>{row.product}</TableCell>
+                          <TableCell align="center">{row.category}</TableCell>
+                          <TableCell align="center">
+                            {row.numCustomers}
+                          </TableCell>
+                          <TableCell align="center">{row.number}</TableCell>
+                          <TableCell align="center">{row.price}</TableCell>
+                          <TableCell align="center">
+                            {row.tableNumber}
+                          </TableCell>
+                          <TableCell align="right">
+                            {row.number * row.price}
+                          </TableCell>
+                        </TableRow>
+                      ))}
+                    </TableBody>
+                  </Table>
+                </TableContainer>
+
+                <Typography
+                  sx={{ textAlign: 'right', marginRight: 2, marginTop: 2 }}
+                  variant="h6"
+                  component="h6"
+                  paragraph
+                >
+                  {`Subtotal: ${allProducts.reduce(
+                    (acc, cur) => acc + cur.number * cur.price,
+                    0
+                  )}`}
+                </Typography>
+              </CustomCard>
+            </MotionInView>
+          )}
 
           {product && (
             <CustomCard sx={{ marginTop: 2 }}>
@@ -113,6 +194,19 @@ export default function OrderInput() {
               </Grid>
             </CustomCard>
           )}
+
+          <MotionInView variants={varFadeInUp}>
+            <CustomCard sx={{ marginTop: 2 }}>
+              <SelectionForm
+                header="Select order"
+                dynamicField="Table Number"
+                setFormData={setFormData}
+                formData={formData}
+                handleSubmit={handleSubmit}
+                renderExtraField={true}
+              />
+            </CustomCard>
+          </MotionInView>
         </Container>
       </Page>
     </DashboardLayout>
