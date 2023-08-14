@@ -111,7 +111,7 @@ export default function OrderInput() {
 
           {allProducts.length > 0 && (
             <MotionInView variants={varFadeInDown}>
-              <CustomCard sx={{ mb: 3, mt:2 }}>
+              <CustomCard sx={{ mb: 3, mt: 2 }}>
                 <Typography variant="h3" component="h1" paragraph>
                   Order List
                 </Typography>
@@ -123,18 +123,33 @@ export default function OrderInput() {
                     borderLeft: 0,
                     borderRight: 0,
                     borderTop: 0,
+                    paddingBottom: 2,
                   }}
                 >
-                  <Table>
+                  <Table sx={{ background: '#B2BEB5' }}>
                     <TableHead>
                       <TableRow>
-                        <TableCell>Order Item</TableCell>
-                        <TableCell align="center">Item Category</TableCell>
-                        <TableCell align="center">Customers</TableCell>
-                        <TableCell align="center">Item Unit</TableCell>
-                        <TableCell align="center">Item Price</TableCell>
-                        <TableCell align="center">Table</TableCell>
-                        <TableCell align="right">Total</TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white'>
+                          Order Item
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                          Item Category
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                          Customers
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                          Item Unit
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                          Item Price
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                          Table
+                        </TableCell>
+                        <TableCell sx={{ background: '#000' }} className='text_white' align="right">
+                          Total
+                        </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>

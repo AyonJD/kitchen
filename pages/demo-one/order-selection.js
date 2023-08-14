@@ -101,17 +101,53 @@ export default function OrderSelection() {
                     borderLeft: 0,
                     borderRight: 0,
                     borderTop: 0,
+                    paddingBottom: 2
                   }}
                 >
-                  <Table>
+                  <Table sx={{ background: '#B2BEB5' }}>
                     <TableHead>
                       <TableRow>
-                        <TableCell>Order Item</TableCell>
-                        <TableCell align="center">Item Category</TableCell>
-                        <TableCell align="center">Customers</TableCell>
-                        <TableCell align="center">Item Unit</TableCell>
-                        <TableCell align="center">Item Price</TableCell>
-                        <TableCell align="right">Total</TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                        >
+                          Order Item
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
+                          Item Category
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
+                          Customers
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
+                          Item Unit
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
+                          Item Price
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="right"
+                        >
+                          Total
+                        </TableCell>
                       </TableRow>
                     </TableHead>
                     <TableBody>

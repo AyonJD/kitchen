@@ -147,13 +147,32 @@
   z-index: 200000 !important;
 }
 
+.css-xiyux3-MuiTableCell-root:first-of-type {
+  box-shadow: none !important;
+  border-top-left-radius: 8px !important;
+  border-bottom-left-radius: 0 !important;
+}
+.css-q6ab1t-MuiTableCell-root:last-of-type {
+  box-shadow: none !important;
+  border-top-right-radius: 8px !important;
+  border-bottom-right-radius: 0 !important;
+}
+
+.text_white {
+  color: #fff !important;
+}
+
+table {
+  border-radius: 8px !important;
+}
+
 ::-webkit-scrollbar {
   width: 10px;
 }
 ::-webkit-scrollbar-thumb {
-  background: linear-gradient(transparent, #47210C);
+  background: linear-gradient(transparent, #47210c);
   border-radius: 6px;
 }
 ::-webkit-scrollbar-thumb:hover {
-  background: linear-gradient(transparent, #FAC100);
+  background: linear-gradient(transparent, #fac100);
 }
