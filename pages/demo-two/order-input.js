@@ -90,8 +90,6 @@ export default function OrderInput() {
     })
   }
 
-  const sliderBackground = isLight ? '#1CCAFF' : '#1CCAFF'
-
   const { product } = formData
 
   return (
