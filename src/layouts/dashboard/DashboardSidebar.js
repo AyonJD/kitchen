@@ -8,10 +8,8 @@ import { alpha, styled } from '@mui/material/styles';
 import {
   Box,
   Stack,
-  Avatar,
   Drawer,
   Tooltip,
-  Typography,
   CardActionArea,
 } from '@mui/material';
 // hooks
@@ -35,14 +33,6 @@ const RootStyle = styled('div')(({ theme }) => ({
       duration: theme.transitions.duration.complex,
     }),
   },
-}));
-
-const AccountStyle = styled('div')(({ theme }) => ({
-  display: 'flex',
-  alignItems: 'center',
-  padding: theme.spacing(2, 2.5),
-  borderRadius: theme.shape.borderRadiusSm,
-  backgroundColor: theme.palette.grey[500_12],
 }));
 
 // ----------------------------------------------------------------------
