@@ -92,7 +92,6 @@ export default function OrderInput() {
 
   const sliderBackground = isLight ? '#1CCAFF' : '#1CCAFF'
 
-  // Extract the selected product from formData
   const { product } = formData
 
   return (
@@ -129,25 +128,52 @@ export default function OrderInput() {
                   <Table sx={{ background: '#B2BEB5' }}>
                     <TableHead>
                       <TableRow>
-                        <TableCell sx={{ background: '#000' }} className='text_white'>
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                        >
                           Order Item
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
                           Item Category
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
                           Customers
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
                           Item Unit
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
                           Item Price
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="center">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="center"
+                        >
                           Table
                         </TableCell>
-                        <TableCell sx={{ background: '#000' }} className='text_white' align="right">
+                        <TableCell
+                          sx={{ background: '#000' }}
+                          className="text_white"
+                          align="right"
+                        >
                           Total
                         </TableCell>
                       </TableRow>
