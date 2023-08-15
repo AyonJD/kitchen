@@ -66,33 +66,6 @@ export default function DemoTwo() {
       <Page title="Kitchen | Demo Two">
         <RootStyle>
           <Container>
-            {/* <MotionInView variants={varFadeInUp}>
-                            <Slider {...settings}>
-                                {cardData.map((item, index) => (
-                                    <CustomCard key={index} cardIndex={index} sx={{ margin: 2 }}>
-                                        <Box>
-                                            <Typography sx={{ textAlign: 'center' }} variant="h4">
-                                                {item.title}
-                                            </Typography>
-                                            <img src={item.image} alt="" />
-                                        </Box>
-                                    </CustomCard>
-                                ))}
-                            </Slider>
-                        </MotionInView>
-
-                        <MotionInView variants={varFadeInLeft}>
-                            <ButtonAnimate mediumClick={true}>
-                                <NextLink href='/demo-two/order-input' passHref>
-                                    <Button
-                                        sx={{ marginTop: 5, marginBottom: 2 }}
-                                        variant='contained'>
-                                        See Demo
-                                    </Button>
-                                </NextLink>
-                            </ButtonAnimate>
-                        </MotionInView> */}
-
             <MotionInView variants={varFadeInDown}>
               <Typography
                 variant="h3"
@@ -108,8 +81,8 @@ export default function DemoTwo() {
                 justifyContent: 'space-between',
                 alignItems: 'center',
                 height: {
-                  xs: '100%',
-                  sm: '100%',
+                  xs: 'auto',
+                  sm: 'auto',
                   md: '400px',
                 },
                 flexDirection: {
@@ -127,6 +100,7 @@ export default function DemoTwo() {
                     sm: '100%',
                     md: '48%',
                   },
+
                   height: '100%',
                 }}
               >
@@ -152,6 +126,7 @@ export default function DemoTwo() {
                     sm: 2,
                     md: 0,
                   },
+                  overflowY: 'auto',
                 }}
               >
                 <MotionInView variants={varFadeInLeft}>
@@ -159,20 +134,30 @@ export default function DemoTwo() {
                     variant="body"
                     style={{ display: 'inline-block', textAlign: 'justify' }}
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nesciunt expedita facere, alias distinctio quasi obcaecati,
-                    qui nisi ullam aut accusamus sed corporis officiis
-                    recusandae ipsam aspernatur fugit. Quasi a commodi,
-                    blanditiis ipsam totam quae explicabo quos eligendi sit est
-                    quisquam, et at harum ipsa. Consequatur cupiditate
-                    excepturi, ut placeat inventore iure, repellat porro enim
-                    quam sunt veritatis itaque ipsa. Tempora est quo, inventore
-                    culpa ex sequi tempore, ab aspernatur ad natus deserunt.
-                    Veniam cum sint deleniti. Laboriosam, at officiis. Dolorem
-                    nihil tenetur officia perferendis rem saepe ipsa animi,
-                    itaque assumenda eaque blanditiis laudantium unde temporibus
-                    natus ea labore neque, eos similique minima! Nostrum, eum
-                    quos.
+                    Welcome to our second concept demo, where we present three
+                    powerful features that will revolutionise restaurant
+                    operations and elevate the dining experience for staff:
+                    Streamlined Order Input, Kitchen Display, and Accessible
+                    Recipe Contents.We understand the importance of efficiency
+                    and accuracy in restaurant operations. Our Streamlined Order
+                    Input feature empowers your staff with a user-friendly and
+                    intuitive interface, making order taking a breeze. Equipped
+                    with handheld devices or tablets, waitstaff can easily
+                    navigate the digital menu, access real-time information, and
+                    effortlessly take customer orders at the table.In any
+                    successful restaurant, a well-coordinated kitchen is
+                    essential. Our Kitchen Display system ensures seamless
+                    communication between the front-of-house and the kitchen. As
+                    orders are placed, they are instantly transmitted to the
+                    kitchen display screens, eliminating the need for manual
+                    order transfers and minimising the risk of
+                    miscommunication.. Our Accessible Recipe Contents feature
+                    provides invaluable insights into the culinary creations
+                    crafted by your talented kitchen team. Accessible through
+                    staff tablets and the kitchen display, this repository of
+                    recipes enables the kitchen staff to refer to ingredient
+                    lists, cooking techniques, and plating instructions with
+                    ease
                   </Typography>
                 </MotionInView>
               </CustomCard>

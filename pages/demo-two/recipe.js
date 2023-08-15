@@ -1,16 +1,4 @@
-import {
-  Box,
-  Button,
-  Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
-  useTheme,
-} from '@mui/material'
+import { Box, Button, Container, Typography } from '@mui/material'
 import { withStyles } from '@mui/styles'
 import { useState } from 'react'
 import Page from 'src/components/Page'
@@ -20,6 +8,15 @@ import {
   varFadeInRight,
 } from 'src/components/animate'
 import CustomCard from 'src/components/card/CustomCard'
+import RecipeDetails, {
+  InstructionList,
+} from 'src/components/list/demo_two/recipeDetails'
+import {
+  RECIPE_ONE_INGREDIENTS,
+  RECIPE_ONE_INSTRUCTIONS,
+  RECIPE_TWO_INGREDIENTS,
+  RECIPE_TWO_INSTRUCTIONS,
+} from 'src/constant'
 import useSettings from 'src/hooks/useSettings'
 import demoTwoSidebarConfig from 'src/layouts/config/demoTowSidebarConfig'
 import DashboardLayout from 'src/layouts/dashboard'
@@ -36,12 +33,28 @@ const styles = {
 
 function Recipe({ classes }) {
   const { themeStretch } = useSettings()
-  const theme = useTheme()
   const [selectedIndex, setSelectedIndex] = useState(0)
 
+  const DEMO_TEXT = (
+    <Typography
+      variant="body"
+      style={{ display: 'inline-block', textAlign: 'justify' }}
+    >
+      Lorem ipsum dolor sit, amet consectetur adipisicing elit. Neque dicta
+      repudiandae tempore sint et quas cum recusandae quibusdam minima! Maiores
+      magni libero reiciendis nam sequi totam mollitia ipsum! Nemo magnam
+      corrupti nulla deserunt iste aut dolor odio eaque impedit dolores cum at
+      ducimus quos, eius voluptatum, repudiandae cupiditate non dolore odit
+      praesentium fugiat ipsum asperiores voluptates tempora. Nobis, odio sequi
+      dolorum quibusdam molestiae officia repudiandae voluptatum maxime nesciunt
+      accusamus pariatur fugit dolor harum, ab inventore facilis animi sed ut
+      voluptates.
+    </Typography>
+  )
+
   const DATA_TITLE = [
-    'Recipe One',
-    'Recipe Two',
+    'Creamy Garlic Parmesan Pasta',
+    'Refreshing Cucumber Mint Salad',
     'Recipe Three',
     'Recipe Four',
     'Recipe Five',
@@ -54,9 +67,24 @@ function Recipe({ classes }) {
     '/static/mock-images/demo-one-5.png',
   ]
 
+  const RENDER_DATA = [
+    {
+      ingredient: RECIPE_ONE_INGREDIENTS,
+      instruction: RECIPE_ONE_INSTRUCTIONS,
+    },
+    {
+      ingredient: RECIPE_TWO_INGREDIENTS,
+      instruction: RECIPE_TWO_INSTRUCTIONS,
+    },
+    DEMO_TEXT,
+    DEMO_TEXT,
+    DEMO_TEXT,
+  ]
+
   const cardData = Array.from({ length: 5 }, (_, index) => ({
     title: DATA_TITLE[index],
     image: DATA_IMAGE[index],
+    renderData: RENDER_DATA[index],
   }))
 
   return (
@@ -116,23 +144,18 @@ function Recipe({ classes }) {
                     xs: 'auto',
                     md: '429px',
                   },
+                  paddingLeft: '10px',
+                  paddingRight: '10px',
+                  overflowY: 'auto',
                 }}
               >
-                <Typography
-                  variant="body"
-                  style={{ display: 'inline-block', textAlign: 'justify' }}
-                >
-                  Lorem ipsum dolor sit, amet consectetur adipisicing elit.
-                  Neque dicta repudiandae tempore sint et quas cum recusandae
-                  quibusdam minima! Maiores magni libero reiciendis nam sequi
-                  totam mollitia ipsum! Nemo magnam corrupti nulla deserunt iste
-                  aut dolor odio eaque impedit dolores cum at ducimus quos, eius
-                  voluptatum, repudiandae cupiditate non dolore odit praesentium
-                  fugiat ipsum asperiores voluptates tempora. Nobis, odio sequi
-                  dolorum quibusdam molestiae officia repudiandae voluptatum
-                  maxime nesciunt accusamus pariatur fugit dolor harum, ab
-                  inventore facilis animi sed ut voluptates.
-                </Typography>
+                {selectedIndex === 0 || selectedIndex === 1 ? (
+                  <RecipeDetails
+                    ingredients={cardData[selectedIndex].renderData.ingredient}
+                  />
+                ) : (
+                  <>{cardData[selectedIndex].renderData}</>
+                )}
               </CustomCard>
             </MotionInView>
 
@@ -172,6 +195,29 @@ function Recipe({ classes }) {
               </CustomCard>
             </MotionInView>
           </Box>
+
+          {selectedIndex === 0 || selectedIndex === 1 ? (
+            <MotionInView
+              sx={{
+                width: {
+                  xs: '100%',
+                  sm: '95%',
+                },
+                margin: 'auto',
+              }}
+              variants={varFadeInRight}
+            >
+              <CustomCard
+                sx={{
+                  marginTop: 2,
+                }}
+              >
+                <InstructionList
+                  instructions={cardData[selectedIndex].renderData.instruction}
+                />
+              </CustomCard>
+            </MotionInView>
+          ) : null}
         </Container>
       </Page>
     </DashboardLayout>

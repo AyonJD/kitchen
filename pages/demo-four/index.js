@@ -87,7 +87,7 @@ export default function DemoFour() {
                     sm: '100%',
                     md: '48%',
                   },
-                  height: '100%',
+                  height: 'auto',
                   marginBottom: {
                     xs: 2,
                     sm: 2,
@@ -100,20 +100,12 @@ export default function DemoFour() {
                     variant="body"
                     style={{ display: 'inline-block', textAlign: 'justify' }}
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nesciunt expedita facere, alias distinctio quasi obcaecati,
-                    qui nisi ullam aut accusamus sed corporis officiis
-                    recusandae ipsam aspernatur fugit. Quasi a commodi,
-                    blanditiis ipsam totam quae explicabo quos eligendi sit est
-                    quisquam, et at harum ipsa. Consequatur cupiditate
-                    excepturi, ut placeat inventore iure, repellat porro enim
-                    quam sunt veritatis itaque ipsa. Tempora est quo, inventore
-                    culpa ex sequi tempore, ab aspernatur ad natus deserunt.
-                    Veniam cum sint deleniti. Laboriosam, at officiis. Dolorem
-                    nihil tenetur officia perferendis rem saepe ipsa animi,
-                    itaque assumenda eaque blanditiis laudantium unde temporibus
-                    natus ea labore neque, eos similique minima! Nostrum, eum
-                    quos.
+                    Welcome to the Product Portfolio Management System - an
+                    efficient solution to manage your company's diverse product
+                    portfolio with ease. This system enables you to maintain
+                    comprehensive details of each product, streamline inventory
+                    management, analyze performance, and make informed business
+                    decisions.
                   </Typography>
                 </MotionInView>
               </CustomCard>

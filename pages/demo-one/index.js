@@ -29,7 +29,6 @@ const RootStyle = styled('div')(({ theme }) => ({
 export default function DemoOne() {
   const [slidesToShow, setSlidesToShow] = useState(3)
 
-
   useEffect(() => {
     const handleResize = () => {
       if (window.innerWidth < 600) {
@@ -129,20 +128,18 @@ export default function DemoOne() {
                     variant="body"
                     style={{ display: 'inline-block', textAlign: 'justify' }}
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nesciunt expedita facere, alias distinctio quasi obcaecati,
-                    qui nisi ullam aut accusamus sed corporis officiis
-                    recusandae ipsam aspernatur fugit. Quasi a commodi,
-                    blanditiis ipsam totam quae explicabo quos eligendi sit est
-                    quisquam, et at harum ipsa. Consequatur cupiditate
-                    excepturi, ut placeat inventore iure, repellat porro enim
-                    quam sunt veritatis itaque ipsa. Tempora est quo, inventore
-                    culpa ex sequi tempore, ab aspernatur ad natus deserunt.
-                    Veniam cum sint deleniti. Laboriosam, at officiis. Dolorem
-                    nihil tenetur officia perferendis rem saepe ipsa animi,
-                    itaque assumenda eaque blanditiis laudantium unde temporibus
-                    natus ea labore neque, eos similique minima! Nostrum, eum
-                    quos.
+                    Welcome to our concept restaurant management system demo,
+                    showcasing three exciting features designed to enhance your
+                    dining experience: Table Order Selection, Table Dashboard,
+                    and Feedback. Imagine a world where ordering your favourite
+                    dishes is just a few taps away. With our Table Order
+                    Selection feature, customers can enjoy a seamless and
+                    contactless dining experience. Upon entering the restaurant,
+                    guests will be greeted by a digital table selection
+                    interface. We value your opinions and strive to create the
+                    best dining experience possible. With our Feedback System,
+                    customers can easily share their thoughts and suggestions,
+                    ensuring that your voice is heard and appreciated.
                   </Typography>
                 </MotionInView>
               </CustomCard>

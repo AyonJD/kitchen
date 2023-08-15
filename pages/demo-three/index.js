@@ -127,7 +127,7 @@ export default function DemoThree() {
                     sm: '100%',
                     md: '48%',
                   },
-                  height: '100%',
+                  height: 'auto',
                   marginBottom: {
                     xs: 2,
                     sm: 2,
@@ -140,20 +140,14 @@ export default function DemoThree() {
                     variant="body"
                     style={{ display: 'inline-block', textAlign: 'justify' }}
                   >
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit.
-                    Nesciunt expedita facere, alias distinctio quasi obcaecati,
-                    qui nisi ullam aut accusamus sed corporis officiis
-                    recusandae ipsam aspernatur fugit. Quasi a commodi,
-                    blanditiis ipsam totam quae explicabo quos eligendi sit est
-                    quisquam, et at harum ipsa. Consequatur cupiditate
-                    excepturi, ut placeat inventore iure, repellat porro enim
-                    quam sunt veritatis itaque ipsa. Tempora est quo, inventore
-                    culpa ex sequi tempore, ab aspernatur ad natus deserunt.
-                    Veniam cum sint deleniti. Laboriosam, at officiis. Dolorem
-                    nihil tenetur officia perferendis rem saepe ipsa animi,
-                    itaque assumenda eaque blanditiis laudantium unde temporibus
-                    natus ea labore neque, eos similique minima! Nostrum, eum
-                    quos.
+                    Welcome to the Restaurant Sales Management System - a
+                    comprehensive solution to manage restaurant sales, current
+                    accounts, order items, prices, units, and monthly analytics.
+                    you'll be greeted with a user-friendly dashboard that
+                    provides an overview of your restaurant's key metrics.
+                    You'll see graphs and charts displaying total sales, average
+                    order value, top-selling items, and a summary of current
+                    account balances.
                   </Typography>
                 </MotionInView>
               </CustomCard>
