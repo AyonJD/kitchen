@@ -122,7 +122,7 @@ export default function DemoFive() {
             <Box sx={{ marginTop: 5, marginBottom: 2, textAlign: 'center' }}>
               <MotionInView variants={varFadeInUp}>
                 <ButtonAnimate mediumClick={true}>
-                  <NextLink href="/demo-five/digital-menu" passHref>
+                  <NextLink href="/demo-five/digital-menu">
                     <Button sx={{ width: '200px' }} variant="contained">
                       See Demo
                     </Button>

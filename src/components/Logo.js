@@ -15,7 +15,7 @@ const Logo = forwardRef(({ sx }, ref) => {
 
   return (
     <Box ref={ref} sx={{ width: 40, height: 40, cursor: 'pointer', ...sx }}>
-      <NextLink href="/" passHref>
+      <NextLink href="/">
         <img src="/static/brand/logo.png" alt="" />
       </NextLink>
     </Box>

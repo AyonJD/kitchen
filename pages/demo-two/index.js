@@ -181,7 +181,7 @@ export default function DemoTwo() {
             <Box sx={{ marginTop: 5, marginBottom: 2, textAlign: 'center' }}>
               <MotionInView variants={varFadeInUp}>
                 <ButtonAnimate mediumClick={true}>
-                  <NextLink href="/demo-two/order-input" passHref>
+                  <NextLink href="/demo-two/order-input">
                     <Button sx={{ width: '200px' }} variant="contained">
                       See Demo
                     </Button>

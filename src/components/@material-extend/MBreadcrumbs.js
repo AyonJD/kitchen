@@ -22,7 +22,7 @@ function LinkItem({ link }) {
   const { href, name, icon } = link;
   return (
     <NextLink key={name} href={href} passHref>
-      <Link
+      <Box
         variant='body2'
         sx={{
           lineHeight: 2,
@@ -43,7 +43,7 @@ function LinkItem({ link }) {
           </Box>
         )}
         {name}
-      </Link>
+      </Box>
     </NextLink>
   );
 }

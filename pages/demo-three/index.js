@@ -181,7 +181,7 @@ export default function DemoThree() {
             <Box sx={{ marginTop: 5, marginBottom: 2, textAlign: 'center' }}>
               <MotionInView variants={varFadeInUp}>
                 <ButtonAnimate mediumClick={true}>
-                  <NextLink href="/demo-three/sales" passHref>
+                  <NextLink href="/demo-three/sales">
                     <Button sx={{ width: '200px' }} variant="contained">
                       See Demo
                     </Button>

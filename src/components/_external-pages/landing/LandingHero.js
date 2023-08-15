@@ -1,21 +1,9 @@
-import { Icon } from '@iconify/react';
-import { motion } from 'framer-motion';
-import flashFill from '@iconify/icons-eva/flash-fill';
-// next
-import NextLink from 'next/link';
+import { motion } from 'framer-motion'
 // material
-import { styled } from '@mui/material/styles';
-import { Box, Link, Stack, Button, Container, Typography } from '@mui/material';
-// routes
-import { PATH_DASHBOARD } from '../../../routes/paths';
+import { styled } from '@mui/material/styles'
+import { Box, Stack, Container, Typography } from '@mui/material'
 //
-import {
-  varFadeIn,
-  varFadeInUp,
-  varWrapEnter,
-  varFadeInRight,
-  varZoomIn,
-} from '../../animate';
+import { varFadeInUp, varWrapEnter, varZoomIn } from '../../animate'
 
 // ----------------------------------------------------------------------
 
@@ -31,9 +19,9 @@ const RootStyle = styled(motion.div)(({ theme }) => ({
     position: 'fixed',
     alignItems: 'center',
   },
-}));
+}))
 
-const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(
+const ContentStyle = styled(props => <Stack spacing={5} {...props} />)(
   ({ theme }) => ({
     zIndex: 10,
     maxWidth: '100%',
@@ -47,69 +35,77 @@ const ContentStyle = styled((props) => <Stack spacing={5} {...props} />)(
       textAlign: 'center',
     },
   })
-);
-
+)
 
 // ----------------------------------------------------------------------
 
 export default function LandingHero() {
   return (
     <>
-      <RootStyle initial='initial' animate='animate' variants={varWrapEnter}>
-       <div className='carousel'>
+      <RootStyle initial="initial" animate="animate" variants={varWrapEnter}>
+        <div className="carousel">
           <div className={`heroOverlay carousel slide_one`}></div>
-      </div>
+        </div>
 
         <Container>
           <ContentStyle
-            style={{ display: 'flex', textAlign: 'center', flexDirection: 'column', alignItems: 'center', justifyContent: 'center' }}
+            style={{
+              display: 'flex',
+              textAlign: 'center',
+              flexDirection: 'column',
+              alignItems: 'center',
+              justifyContent: 'center',
+            }}
           >
             {/* Logo */}
             <motion.img
               style={{ width: 200, height: 200, cursor: 'pointer' }}
               variants={varZoomIn}
-              src='/static/brand/logo.png'
-              alt='hero'
+              src="/static/brand/logo.png"
+              alt="hero"
             />
 
             {/* Main heading */}
-            <motion.div variants={varFadeInUp} style={{marginTop: 0}}>
-              <Typography variant='h1' sx={{ color: 'common.white' }}>
+            <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
+              <Typography variant="h1" sx={{ color: 'common.white' }}>
                 Kitchen
               </Typography>
             </motion.div>
 
             {/* Sub heaing */}
-            <motion.div variants={varFadeInUp} style={{marginTop: '-10px'}}>
-              <Typography variant='h4' sx={{ color: 'common.white' }}>
+            <motion.div variants={varFadeInUp} style={{ marginTop: '-10px' }}>
+              <Typography variant="h4" sx={{ color: 'common.white' }}>
                 Cafe & Restaurant
               </Typography>
             </motion.div>
 
             {/* Slogan */}
-            <motion.div variants={varFadeInUp} style={{marginTop: 10}}>
-              <Typography variant='body2' sx={{
-                color: 'common.white',
-                width: {
-                  xs: '100%',
-                  sm: '70%',
-                },
-                textAlign: 'center',
-                marginLeft: 'auto',
-                marginRight: 'auto',
-                fontFamily: 'Saira Condensed, sans-serif',
-                fontWeight: 500,
-                fontSize: '1.05rem',
-                wordSpacing: '0.1rem',
-              }}>
-                CMS is a platform that allows you to place orders, book orders and deliver orders.
+            <motion.div variants={varFadeInUp} style={{ marginTop: 10 }}>
+              <Typography
+                variant="body2"
+                sx={{
+                  color: 'common.white',
+                  width: {
+                    xs: '100%',
+                    sm: '70%',
+                  },
+                  textAlign: 'center',
+                  marginLeft: 'auto',
+                  marginRight: 'auto',
+                  fontFamily: 'Saira Condensed, sans-serif',
+                  fontWeight: 500,
+                  fontSize: '1.05rem',
+                  wordSpacing: '0.1rem',
+                }}
+              >
+                CMS is a platform that allows you to place orders, book orders
+                and deliver orders.
               </Typography>
             </motion.div>
-
           </ContentStyle>
         </Container>
       </RootStyle>
       <Box sx={{ height: { md: '100vh' } }} />
     </>
-  );
+  )
 }

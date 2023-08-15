@@ -47,7 +47,7 @@ export default function LandingSlider() {
                         <Box sx={{ mt: 5 }}>
                             {/* <MotionInView variants={}> */}
                             <ButtonAnimate>
-                                <NextLink href="/demo-four/product-portfolio" passHref>
+                                <NextLink href="/demo-four/product-portfolio" >
                                     <Button
                                         // onClick={handleRedirect}
                                         variant="contained" color="primary" sx={{ mr: 2 }}>
@@ -57,7 +57,7 @@ export default function LandingSlider() {
                             </ButtonAnimate>
 
                             <ButtonAnimate mediumClick={true}>
-                                <NextLink href="/demo-four/" passHref>
+                                <NextLink href="/demo-four/" >
                                     <Button
                                         // onClick={handleGoBack}
                                         variant="contained" color="primary" sx={{ mr: 2 }}>

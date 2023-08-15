@@ -122,7 +122,7 @@ export default function DemoFour() {
             <Box sx={{ marginTop: 5, marginBottom: 2, textAlign: 'center' }}>
               <MotionInView variants={varFadeInUp}>
                 <ButtonAnimate mediumClick={true}>
-                  <NextLink href="/demo-four/landing-slider" passHref>
+                  <NextLink href="/demo-four/landing-slider">
                     <Button sx={{ width: '200px' }} variant="contained">
                       See Demo
                     </Button>

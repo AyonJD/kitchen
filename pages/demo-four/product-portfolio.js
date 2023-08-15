@@ -97,7 +97,7 @@ export default function ProductPortfolio() {
                         <Box sx={{ mt: 5 }}>
                             <MotionInView variants={varFadeInLeft}>
                                 <ButtonAnimate mediumClick={true}>
-                                    <NextLink href="/demo-four/gallery" passHref>
+                                    <NextLink href="/demo-four/gallery" >
                                         <Button
                                             // onClick={handleRedirect}
                                             variant="contained" color="primary" sx={{ mr: 2 }}>
@@ -108,7 +108,7 @@ export default function ProductPortfolio() {
 
 
                                 <ButtonAnimate mediumClick={true}>
-                                    <NextLink href="/demo-four/landing-slider" passHref>
+                                    <NextLink href="/demo-four/landing-slider" >
                                         <Button
                                             // onClick={handleGoBack}
                                             variant="contained" color="primary" sx={{ mr: 2 }}>

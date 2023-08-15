@@ -165,13 +165,13 @@ export default function LandingOfferedSolutions() {
 
           <Grid container spacing={5}>
             {SOLUtION_ITEMS.map((item, index) => (
-              <NextLink href={item.url} passHref key={index}>
-                <Grid
-                  item
+              <Grid
+                item
                 //   xs={12}
-                  xs={index === 4 ? 12 : 6}
-                  md={index === 0 || index === 1 ? 6 : 4}
-                >
+                xs={index === 4 ? 12 : 6}
+                md={index === 0 || index === 1 ? 6 : 4}
+              >
+                <NextLink href={item.url} key={index}>
                   <MotionInView
                     variants={
                       index === 0 || index === 1 ? varFadeInDown : varFadeInUp
@@ -193,8 +193,8 @@ export default function LandingOfferedSolutions() {
                       </Stack>
                     </CustomCard>
                   </MotionInView>
-                </Grid>
-              </NextLink>
+                </NextLink>
+              </Grid>
             ))}
           </Grid>
         </Box>
