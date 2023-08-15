@@ -1,9 +1,8 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 import NextLink from 'next/link'
 import MainNavbar from 'src/layouts/main/MainNavbar'
 import { Box, Button, Container, Typography } from '@mui/material'
 import { styled } from '@mui/material/styles'
-import Slider from 'react-slick'
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
 import {
