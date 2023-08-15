@@ -2,7 +2,7 @@ import PropTypes from 'prop-types';
 // material
 import { alpha, styled } from '@mui/material/styles';
 
-// ----------------------------------------------------------------------
+// ---------------------------------------------------
 
 const RootStyle = styled('span')(({ theme, ownerState }) => {
   const isLight = theme.palette.mode === 'light';
