@@ -20,7 +20,7 @@ const ContentStyle = styled('div')(({ theme }) => ({
   backgroundColor: theme.palette.background.default,
 }))
 
-// ----------------------------------------------------------------------
+// --------------------------------------------------
 
 export default function LandingPage() {
   useEffect(() => {
