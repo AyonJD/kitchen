@@ -205,7 +205,7 @@ export default function LandingSolutionTwo() {
         </Box>
 
         <Box sx={{ width: '100%', mt: 0 }}>
-          <Box sx={{ mb: 5, mt: 20, textAlign: 'center' }}>
+          <Box sx={{ mb: 5, mt: 10, textAlign: 'center' }}>
             <MotionInView variants={varFadeInDown}>
               <Typography variant="h5" sx={{ mb: 3 }}>
                 Monitor purchase, inventory & sales with analytics
