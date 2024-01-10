@@ -68,14 +68,14 @@ export default function LandingHero() {
             {/* Main heading */}
             <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
               <Typography variant="h1" sx={{ color: 'common.white' }}>
-                Kitchen
+                Kitchen Wizard
               </Typography>
             </motion.div>
 
             {/* Sub heaing */}
             <motion.div variants={varFadeInUp} style={{ marginTop: '-10px' }}>
               <Typography variant="h4" sx={{ color: 'common.white' }}>
-                Cafe & Restaurant
+                Digitally manage Food Industry Activities
               </Typography>
             </motion.div>
 
@@ -98,8 +98,9 @@ export default function LandingHero() {
                   wordSpacing: '0.1rem',
                 }}
               >
-                CMS is a platform that allows you to place orders, book orders
-                and deliver orders.
+                Online solutions to streamline activities in kitchen management,
+                dine area management, material purchase & stock management,
+                order & booking management etc.
               </Typography>
             </motion.div>
           </ContentStyle>

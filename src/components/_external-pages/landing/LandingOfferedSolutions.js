@@ -1,7 +1,7 @@
 import NextLink from 'next/link'
 // material
 import { styled } from '@mui/material/styles'
-import { Box, Grid, Stack, Container, Typography } from '@mui/material'
+import { Box, Grid, Stack, Container, Typography, Card } from '@mui/material'
 //
 import {
   varZoomIn,
@@ -19,10 +19,10 @@ import MenuBookIcon from '@mui/icons-material/MenuBook'
 // ----------------------------------------------------------------------
 
 const SOLUTIONTITLE = [
-  'Demo One',
-  'Demo Two',
-  'Demo Three',
-  'Demo Four',
+  'Customer Order Management',
+  'Kitchen Display',
+  'Purchase & Sales',
+  'Inventory & Stock Management',
   'Demo Five',
 ]
 const SOLUTION_URL = [
@@ -118,7 +118,7 @@ export default function LandingOfferedSolutions() {
                     fontFamily: 'Saira Condensed, sans-serif',
                   }}
                 >
-                  Kitchen
+                  Kitchen Wizard
                 </Typography>
               </MotionInView>
 
@@ -128,7 +128,7 @@ export default function LandingOfferedSolutions() {
                   variant="h6"
                   sx={{ fontFamily: 'Saira Condensed, sans-serif' }}
                 >
-                  Cafe & Restaurant
+                  Digitally manage Food Industry Activities
                 </Typography>
               </MotionInView>
             </LeftLogoStyle>
@@ -139,7 +139,7 @@ export default function LandingOfferedSolutions() {
           sx={{
             width: {
               xs: '100%',
-              sm: '80%',
+              sm: '90%',
             },
           }}
         >
@@ -163,7 +163,7 @@ export default function LandingOfferedSolutions() {
             </MotionInView>
           </Box>
 
-          <Grid container spacing={5}>
+          <Grid container spacing={1}>
             {SOLUtION_ITEMS.map((item, index) => (
               <Grid
                 item
@@ -177,7 +177,10 @@ export default function LandingOfferedSolutions() {
                       index === 0 || index === 1 ? varFadeInDown : varFadeInUp
                     }
                   >
-                    <CustomCard cardIndex={index}>
+                    <Card
+                      sx={{ boxShadow: '0 4px 8px rgba(0, 0, 0, 0.45)', py: 5 }}
+                      cardIndex={index}
+                    >
                       <Stack spacing={5}>
                         <div
                           style={{
@@ -188,10 +191,12 @@ export default function LandingOfferedSolutions() {
                           }}
                         >
                           <item.icon style={{ fontSize: 50, mb: 2 }} />
-                          <Typography variant="h4">{item.title}</Typography>
+                          <Typography variant="h4" sx={{ textAlign: 'center' }}>
+                            {item.title}
+                          </Typography>
                         </div>
                       </Stack>
-                    </CustomCard>
+                    </Card>
                   </MotionInView>
                 </NextLink>
               </Grid>
