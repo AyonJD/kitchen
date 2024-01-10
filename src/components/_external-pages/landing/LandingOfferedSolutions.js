@@ -23,7 +23,7 @@ const SOLUTIONTITLE = [
   'Kitchen Display',
   'Purchase & Sales',
   'Inventory & Stock Management',
-  'Demo Five',
+  'Digital Menu',
 ]
 const SOLUTION_URL = [
   '/demo-one',
