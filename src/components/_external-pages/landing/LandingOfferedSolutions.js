@@ -26,11 +26,11 @@ const SOLUTIONTITLE = [
   'Digital Menu',
 ]
 const SOLUTION_URL = [
-  '/demo-one',
-  '/demo-two',
-  '/demo-three',
-  '/demo-four',
-  '/demo-five',
+  '/demo-one/order-selection',
+  '/demo-two/order-input',
+  '/demo-three/sales',
+  '/demo-four/landing-slider',
+  '/demo-five/digital-menu',
 ]
 const SOLUTION_ICON = [
   RestaurantIcon,
