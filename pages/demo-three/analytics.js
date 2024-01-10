@@ -26,7 +26,7 @@ import {
   varFadeInRight,
   varFadeInUp,
 } from 'src/components/animate'
-import AccountsAnalytics from 'src/components/_external-pages/AccountAnalytics'
+import AccountsCard from 'src/components/_external-pages/AccountsCard'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -72,7 +72,7 @@ export default function Analytics() {
     <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
       <Page title="Kitchen | Analytics">
         <Container maxWidth={themeStretch ? false : 'xl'}>
-          <AccountsAnalytics />
+          <AccountsCard />
 
           <Box
             sx={{

@@ -49,7 +49,7 @@ export default function Sales() {
           <MotionInView variants={varFadeInUp}>
             <CustomCard>
               <SelectionForm
-                dynamicField="Staff"
+                dynamicField="Assigned Staff"
                 header="Select Order"
                 setFormData={setFormData}
                 formData={formData}
