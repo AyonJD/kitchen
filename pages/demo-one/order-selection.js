@@ -1,3 +1,5 @@
+// Food Order
+
 import {
   Box,
   Container,
@@ -101,7 +103,7 @@ export default function OrderSelection() {
                     borderLeft: 0,
                     borderRight: 0,
                     borderTop: 0,
-                    paddingBottom: 2
+                    paddingBottom: 2,
                   }}
                 >
                   <Table sx={{ background: '#B2BEB5' }}>
@@ -187,7 +189,7 @@ export default function OrderSelection() {
           <Box
             sx={{
               display: 'flex',
-              justifyContent: 'space-between',
+              justifyContent: 'space-around',
               alignItems: 'center',
               flexDirection: {
                 xs: 'column', // Set flexDirection to column on small devices
@@ -201,12 +203,12 @@ export default function OrderSelection() {
                 variant="h6"
                 sx={{ textAlign: 'center', marginBottom: '-30px' }}
               >
-                Table One
+                Table 01
               </Typography>
 
               <TableWithChairs
                 tableStyles={tableStyles}
-                tableBackground="#815B40"
+                tableBackground="#a45430"
               />
 
               <Typography
@@ -216,6 +218,8 @@ export default function OrderSelection() {
                   textAlign: 'center',
                   marginTop: '-30px',
                   display: 'block',
+                  color: 'primary.main',
+                  fontWeight: 'bold',
                 }}
               >
                 Order Id: 123456
@@ -226,6 +230,8 @@ export default function OrderSelection() {
                   textAlign: 'center',
                   display: 'block',
                   marginBottom: 1,
+                  color: 'primary.main',
+                  fontWeight: 'bold',
                 }}
               >
                 Order Time:{' '}
@@ -252,7 +258,7 @@ export default function OrderSelection() {
             >
               <CustomCard>
                 <SelectionForm
-                  dynamicField="Staff"
+                  dynamicField="Assigned Staff"
                   setFormData={setFormData}
                   formData={formData}
                   handleSubmit={handleSubmit}

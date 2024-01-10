@@ -11,31 +11,50 @@ import CardContent from '@mui/material/CardContent'
 import TrendingUpIcon from '@mui/icons-material/TrendingUp'
 import AttachMoneyIcon from '@mui/icons-material/AttachMoney'
 import GroupsIcon from '@mui/icons-material/Groups'
+import CircleNotificationsIcon from '@mui/icons-material/CircleNotifications'
+import HourglassDisabledIcon from '@mui/icons-material/HourglassDisabled'
+
 import { TextField } from '@mui/material'
 import { useState } from 'react'
 
-const salesData = [
-  {
-    stats: '$10k',
-    title: 'Total Sales',
-    color: 'success',
-    icon: <AttachMoneyIcon sx={{ fontSize: '1.75rem' }} />,
-  },
-  {
-    stats: '8.5k',
-    title: 'Total Revinew Count',
-    color: 'primary',
-    icon: <TrendingUpIcon sx={{ fontSize: '1.75rem' }} />,
-  },
-  {
-    stats: '20.2k',
-    color: 'info',
-    title: 'Customer Per Day',
-    icon: <GroupsIcon sx={{ fontSize: '1.75rem' }} />,
-  },
-]
+const renderStats = tableData => {
+  const salesData = [
+    {
+      stats: 8,
+      title: 'Empty Tables',
+      color: 'primary',
+      icon: <HourglassDisabledIcon sx={{ fontSize: '1.75rem' }} />,
+    },
+    {
+      stats: 0,
+      title: 'Active Tables',
+      color: 'success',
+      icon: <CircleNotificationsIcon sx={{ fontSize: '1.75rem' }} />,
+    },
+    {
+      stats: 0,
+      color: 'info',
+      title: 'Served Tables',
+      icon: <GroupsIcon sx={{ fontSize: '1.75rem' }} />,
+    },
+  ]
 
-const renderStats = () => {
+  // Count the active tables whics status is !== 'Empty' and update the stats count
+  salesData[0].stats = tableData.filter(
+    table => table.status === 'Empty'
+  ).length
+
+  // Count the active tables whics status is === 'Empty' and update the stats count
+  salesData[1].stats = tableData.filter(
+    table => table.status === 'Active'
+  ).length
+
+  // Count the active tables whics status is === 'Served' and update the stats count
+  salesData[2].stats = tableData.filter(
+    table => table.status === 'Served'
+  ).length
+
+
   return salesData.map((item, index) => (
     <Grid item xs={12} sm={4} key={index}>
       <Box key={index} sx={{ display: 'flex', alignItems: 'center' }}>
@@ -61,7 +80,7 @@ const renderStats = () => {
   ))
 }
 
-const AccountsCard = () => {
+const AccountsAnalytics = ({ tableData }) => {
   const [selectedDate, setSelectedDate] = useState(new Date())
 
   const formatDate = date => {
@@ -75,49 +94,50 @@ const AccountsCard = () => {
 
   return (
     <>
-      <Card>
+      <Card sx={{ mb: 2 }}>
         <CardHeader
-          title="Shop Analytics"
-          subheader={
-            <>
-              <TextField
-                id="outlined-basic"
-                onChange={e => setSelectedDate(e.target.value)}
-                value={formatDate(selectedDate) || formatDate(new Date())}
-                label="Search Analytics"
-                variant="outlined"
-                size="small"
-                type="date"
-              />
-              <Typography
-                variant="body2"
-                sx={{ marginBottom: 2, marginTop: 2 }}
-              >
-                <Box
-                  component="span"
-                  sx={{ fontWeight: 600, color: 'text.primary' }}
-                >
-                  {new Date(selectedDate).toLocaleDateString('en-US', {
-                    year: 'numeric',
-                    month: 'long',
-                    day: 'numeric',
-                  })}
-                </Box>{' '}
-                summary
-              </Typography>
-            </>
-          }
+          title="Dine-in Analytics"
+          // subheader={
+          //   <>
+          //     <TextField
+          //       id="outlined-basic"
+          //       onChange={e => setSelectedDate(e.target.value)}
+          //       value={formatDate(selectedDate) || formatDate(new Date())}
+          //       label="Search Analytics"
+          //       variant="outlined"
+          //       size="small"
+          //       type="date"
+          //     />
+          //     <Typography
+          //       variant="body2"
+          //       sx={{ marginBottom: 2, marginTop: 2 }}
+          //     >
+          //       <Box
+          //         component="span"
+          //         sx={{ fontWeight: 600, color: 'text.primary' }}
+          //       >
+          //         {new Date(selectedDate).toLocaleDateString('en-US', {
+          //           year: 'numeric',
+          //           month: 'long',
+          //           day: 'numeric',
+          //         })}
+          //       </Box>{' '}
+          //       summary
+          //     </Typography>
+          //   </>
+          // }
           titleTypographyProps={{
             sx: {
               mb: 2.5,
               lineHeight: '2rem !important',
               letterSpacing: '0.15px !important',
+              textAlign: 'center',
             },
           }}
         />
         <CardContent sx={{ pt: theme => `${theme.spacing(3)} !important` }}>
           <Grid container spacing={[5, 0]}>
-            {renderStats()}
+            {renderStats(tableData)}
           </Grid>
         </CardContent>
       </Card>
@@ -125,4 +145,4 @@ const AccountsCard = () => {
   )
 }
 
-export default AccountsCard
+export default AccountsAnalytics

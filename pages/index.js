@@ -7,6 +7,7 @@ import Page from 'src/components/Page'
 import { LandingHero } from 'src/components/_external-pages/landing'
 import LandingOfferedSolutions from 'src/components/_external-pages/landing/LandingOfferedSolutions'
 import { useEffect } from 'react'
+import LandingSolutionTwo from 'src/components/_external-pages/landing/LandingSolutionTwo'
 
 // ----------------------------------------------------------------------
 
@@ -34,6 +35,7 @@ export default function LandingPage() {
         <LandingHero />
         <ContentStyle>
           <LandingOfferedSolutions />
+          <LandingSolutionTwo />
         </ContentStyle>
       </RootStyle>
     </MainLayout>

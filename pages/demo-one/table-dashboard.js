@@ -1,3 +1,5 @@
+// Dine-in Area
+
 import DashboardLayout from 'src/layouts/dashboard'
 import demoOneSidebarConfig from '../../src/layouts/config/demoOneSidebarConfig'
 import Page from 'src/components/Page'
@@ -15,61 +17,85 @@ import {
   alpha,
   useTheme,
 } from '@mui/material'
-import useSettings from 'src/hooks/useSettings'
 import CustomCard from 'src/components/card/CustomCard'
 import TableWithChairs from 'src/components/_external-pages/table-with-chair'
 import { useState } from 'react'
 import Popup from 'src/components/popup/Popup'
 import ClearIcon from '@mui/icons-material/Clear'
+import AccountsAnalytics from 'src/components/_external-pages/AccountAnalytics'
 
 const tableData = [
   {
     id: 'DDMMYY000',
-    name: 'Table 1',
+    name: 'Table: 1',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
   },
   {
     id: 'DDMMYY004',
-    name: 'Table 5',
+    name: 'Table: 5',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
   },
   {
     id: 'DDMMYY001',
-    name: 'Table 2',
+    name: 'Table: 2',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
   },
   {
     id: 'DDMMYY002',
-    name: 'Table 3',
+    name: 'Table: 3',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
   },
   {
     id: 'DDMMYY005',
-    name: 'Table 6',
+    name: 'Table: 6',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
   },
   {
     id: 'DDMMYY003',
-    name: 'Table 4',
+    name: 'Table: 4',
     status: 'Empty',
     orderTime: null,
+    servingTime: null,
     items: null,
-    background: '#9B4F2C',
+    background: '#a45430',
+  },
+  {
+    id: 'DDMMYY006',
+    name: 'Table: 7',
+    status: 'Empty',
+    orderTime: null,
+    servingTime: null,
+    items: null,
+    background: '#a45430',
+  },
+  {
+    id: 'DDMMYY007',
+    name: 'Table: 8',
+    status: 'Empty',
+    orderTime: null,
+    servingTime: null,
+    items: null,
+    background: '#a45430',
   },
 ]
 
@@ -96,6 +122,7 @@ export default function TableDashboard() {
     } else if (updatedTables[tableIndex].status === 'Active') {
       setOpenPopup(true)
       updatedTables[tableIndex].status = 'Served'
+      updatedTables[tableIndex].servingTime = new Date().toLocaleTimeString()
       const selectedItems = [...formData.product]
       updatedTables[tableIndex].items = selectedItems
       updatedTables[tableIndex].background = '#038003'
@@ -135,28 +162,33 @@ export default function TableDashboard() {
       <DashboardLayout sideBarConfig={demoOneSidebarConfig}>
         <Page title="Kitchen | Table Dashboard">
           <Container>
+            <AccountsAnalytics tableData={tableData} />
+
             <Grid container spacing={3}>
               {tables.map((table, index) => (
                 <Grid key={index} item xs={12} md={6}>
                   <CustomCard
                     sx={{
-                      marginBottom: 2,
+                      marginBottom: 0,
                       display: 'flex',
                       justifyContent: 'space-between',
-                      height: '410px',
+                      height: '425px',
                     }}
                   >
                     <Grid container spacing={2} sx={{ width: '100%' }}>
                       <Grid item xs={12} sx={{ textAlign: 'center' }}>
                         <Typography
-                          variant="h6"
+                          variant="h5"
                           sx={{
                             textAlign: 'center',
                             marginBottom: 4,
                             marginLeft: 2,
+                            border: '1px solid gray',
+                            padding: 1,
+                            borderRadius: 1,
                           }}
                         >
-                          {table.name}
+                          {table.status} {table.name}
                         </Typography>
                         <TableWithChairs
                           func={handleClick}
@@ -178,6 +210,9 @@ export default function TableDashboard() {
                         <p>Id: {table.id}</p>
                         {table?.orderTime && (
                           <p>Order Time: {table.orderTime}</p>
+                        )}
+                        {table?.servingTime && (
+                          <p>Serving Time: {table.servingTime}</p>
                         )}
                         {dataIndex === index && formData.product && (
                           <p>
@@ -216,31 +251,43 @@ export default function TableDashboard() {
                 <Grid container spacing={2}>
                   <Grid item xs={12}>
                     <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                      <InputLabel>Category</InputLabel>
+                      <InputLabel>Food Category</InputLabel>
                       <Select
                         name="category"
-                        label="Category"
+                        label="Food Category"
                         value={formData.category}
                         onChange={handleChange}
                       >
-                        <MenuItem value="category1">Category 1</MenuItem>
-                        <MenuItem value="category2">Category 2</MenuItem>
-                        <MenuItem value="category3">Category 3</MenuItem>
+                        <MenuItem value="Breakfast Items">
+                          Breakfast Items
+                        </MenuItem>
+                        <MenuItem value="Lunch Packages">
+                          Lunch Packages
+                        </MenuItem>
+                        <MenuItem value="Dinner Packages">
+                          Dinner Packages
+                        </MenuItem>
+                        <MenuItem value="Snacks">Snacks</MenuItem>
+                        <MenuItem value="Drinks">Drinks</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12} sm={6}>
                     <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                      <InputLabel>Product</InputLabel>
+                      <InputLabel>Food Item</InputLabel>
                       <Select
                         name="product"
-                        label="Product"
+                        label="Food Item"
                         value={formData.product}
                         onChange={handleChange}
                       >
-                        <MenuItem value="product1">Product 1</MenuItem>
-                        <MenuItem value="product2">Product 2</MenuItem>
-                        <MenuItem value="product3">Product 3</MenuItem>
+                        <MenuItem value="Sandwich">Sandwich</MenuItem>
+                        <MenuItem value="Cheese Cake">Cheese Cake</MenuItem>
+                        <MenuItem value="Chocolate Muffin">
+                          Chocolate Muffin
+                        </MenuItem>
+                        <MenuItem value="Pasta">Pasta</MenuItem>
+                        <MenuItem value="Corn Soup">Corn Soup</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
@@ -256,21 +303,23 @@ export default function TableDashboard() {
                         <MenuItem value="1">1</MenuItem>
                         <MenuItem value="2">2</MenuItem>
                         <MenuItem value="3">3</MenuItem>
+                        <MenuItem value="4">4</MenuItem>
+                        <MenuItem value="5">5</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>
                   <Grid item xs={12}>
                     <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                      <InputLabel>Staff</InputLabel>
+                      <InputLabel>Assigned Staff</InputLabel>
                       <Select
                         name="staff"
                         value={formData.staff}
                         onChange={handleChange}
-                        label="Staff"
+                        label="Assigned Staff"
                       >
-                        <MenuItem value="staff1">Staff 1</MenuItem>
-                        <MenuItem value="staff2">Staff 2</MenuItem>
-                        <MenuItem value="staff3">Staff 3</MenuItem>
+                        <MenuItem value="Mamun">Mamun</MenuItem>
+                        <MenuItem value="Rashed">Rashed</MenuItem>
+                        <MenuItem value="Shahin">Shahin</MenuItem>
                       </Select>
                     </FormControl>
                   </Grid>

@@ -37,31 +37,35 @@ export default function SelectionForm({
           <Grid container spacing={2}>
             <Grid item xs={12}>
               <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                <InputLabel>Category</InputLabel>
+                <InputLabel>Food Category</InputLabel>
                 <Select
                   name="category"
-                  label="Category"
+                  label="Food Category"
                   value={formData.category}
                   onChange={handleChange}
                 >
-                  <MenuItem value="category1">Category 1</MenuItem>
-                  <MenuItem value="category2">Category 2</MenuItem>
-                  <MenuItem value="category3">Category 3</MenuItem>
+                  <MenuItem value="Breakfast Items">Breakfast Items</MenuItem>
+                  <MenuItem value="Lunch Packages">Lunch Packages</MenuItem>
+                  <MenuItem value="Dinner Packages">Dinner Packages</MenuItem>
+                  <MenuItem value="Snacks">Snacks</MenuItem>
+                  <MenuItem value="Drinks">Drinks</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
             <Grid item xs={12} sm={6}>
               <FormControl fullWidth sx={{ maxWidth: '100%' }}>
-                <InputLabel>Product</InputLabel>
+                <InputLabel>Food Item</InputLabel>
                 <Select
                   name="product"
-                  label="Product"
+                  label="Food Item"
                   value={formData.product}
                   onChange={handleChange}
                 >
-                  <MenuItem value="product1">Product 1</MenuItem>
-                  <MenuItem value="product2">Product 2</MenuItem>
-                  <MenuItem value="product3">Product 3</MenuItem>
+                  <MenuItem value="Sandwich">Sandwich</MenuItem>
+                  <MenuItem value="Cheese Cake">Cheese Cake</MenuItem>
+                  <MenuItem value="Chocolate Muffin">Chocolate Muffin</MenuItem>
+                  <MenuItem value="Pasta">Pasta</MenuItem>
+                  <MenuItem value="Corn Soup">Corn Soup</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -77,6 +81,8 @@ export default function SelectionForm({
                   <MenuItem value="1">1</MenuItem>
                   <MenuItem value="2">2</MenuItem>
                   <MenuItem value="3">3</MenuItem>
+                  <MenuItem value="4">4</MenuItem>
+                  <MenuItem value="5">5</MenuItem>
                 </Select>
               </FormControl>
             </Grid>
@@ -103,14 +109,20 @@ export default function SelectionForm({
                   onChange={handleChange}
                   label={dynamicField}
                 >
-                  <MenuItem value={renderExtraField ? 'Table 1' : 'Staff 1'}>
-                    {dynamicField} 1
+                  <MenuItem value={renderExtraField ? 'Table 1' : 'Mamun'}>
+                    {dynamicField === 'Assigned Staff'
+                      ? 'Mamun'
+                      : dynamicField + ' 1'}
                   </MenuItem>
-                  <MenuItem value={renderExtraField ? 'Table 2' : 'Staff 2'}>
-                    {dynamicField} 2
+                  <MenuItem value={renderExtraField ? 'Table 2' : 'Rashed'}>
+                    {dynamicField === 'Assigned Staff'
+                      ? 'Rashed'
+                      : dynamicField + ' 2'}
                   </MenuItem>
-                  <MenuItem value={renderExtraField ? 'Table 3' : 'Staff 3'}>
-                    {dynamicField} 3
+                  <MenuItem value={renderExtraField ? 'Table 3' : 'Shahin'}>
+                    {dynamicField === 'Assigned Staff'
+                      ? 'Shahin'
+                      : dynamicField + ' 3'}
                   </MenuItem>
                 </Select>
               </FormControl>

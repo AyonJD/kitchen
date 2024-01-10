@@ -1,44 +1,34 @@
-import { useRef, useState } from 'react';
+import { useRef, useState } from 'react'
 // material
-import { alpha } from '@mui/material/styles';
-import { Box, MenuItem, ListItemIcon, ListItemText } from '@mui/material';
+import { alpha } from '@mui/material/styles'
+import { Box, MenuItem, ListItemIcon, ListItemText } from '@mui/material'
 // components
-import MenuPopover from '../../components/MenuPopover';
-import { MIconButton } from '../../components/@material-extend';
+import MenuPopover from '../../components/MenuPopover'
+import { MIconButton } from '../../components/@material-extend'
 
 // ----------------------------------------------------------------------
 
 const LANGS = [
   {
-    value: 'en',
-    label: 'English',
-    icon: '/static/icons/ic_flag_en.svg',
+    value: 'bd',
+    label: 'Bangla',
+    icon: '/static/icons/ic_flag_bd.svg',
   },
-  {
-    value: 'de',
-    label: 'German',
-    icon: '/static/icons/ic_flag_de.svg',
-  },
-  {
-    value: 'fr',
-    label: 'French',
-    icon: '/static/icons/ic_flag_fr.svg',
-  },
-];
+]
 
 // ----------------------------------------------------------------------
 
 export default function LanguagePopover() {
-  const anchorRef = useRef(null);
-  const [open, setOpen] = useState(false);
+  const anchorRef = useRef(null)
+  const [open, setOpen] = useState(false)
 
   const handleOpen = () => {
-    setOpen(true);
-  };
+    setOpen(true)
+  }
 
   const handleClose = () => {
-    setOpen(false);
-  };
+    setOpen(false)
+  }
 
   return (
     <>
@@ -50,7 +40,7 @@ export default function LanguagePopover() {
           width: 44,
           height: 44,
           ...(open && {
-            bgcolor: (theme) =>
+            bgcolor: theme =>
               alpha(
                 theme.palette.primary.main,
                 theme.palette.action.focusOpacity
@@ -58,7 +48,11 @@ export default function LanguagePopover() {
           }),
         }}
       >
-        <img src={LANGS[0].icon} alt={LANGS[0].label} />
+        <img
+          style={{ width: '30px' }}
+          src={LANGS[0].icon}
+          alt={LANGS[0].label}
+        />
       </MIconButton>
 
       <MenuPopover
@@ -67,15 +61,15 @@ export default function LanguagePopover() {
         anchorEl={anchorRef.current}
       >
         <Box sx={{ py: 1 }}>
-          {LANGS.map((option) => (
+          {LANGS.map(option => (
             <MenuItem
               key={option.value}
               selected={option.value === LANGS[0].value}
               onClick={handleClose}
-              sx={{ py: 1, px: 2.5 }}
+              sx={{ py: 1, px: 2 }}
             >
               <ListItemIcon>
-                <Box component='img' alt={option.label} src={option.icon} />
+                <Box component="img" alt={option.label} src={option.icon} />
               </ListItemIcon>
               <ListItemText primaryTypographyProps={{ variant: 'body2' }}>
                 {option.label}
@@ -85,5 +79,5 @@ export default function LanguagePopover() {
         </Box>
       </MenuPopover>
     </>
-  );
+  )
 }

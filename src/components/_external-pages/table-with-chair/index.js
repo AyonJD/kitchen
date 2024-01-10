@@ -70,7 +70,7 @@ export default function TableWithChairs({
           elevation={3}
         >
           <Typography color="#fff" variant="h4">
-            {status ? status : 'Table'}
+            {status ? status : 'Table 01'}
           </Typography>
         </Paper>
       </Box>
@@ -101,7 +101,7 @@ export default function TableWithChairs({
             sx={{
               width: '100%',
               height: '100%',
-              background: '#47210C',
+              background: '#3F0808',
             }}
             elevation={3}
           />
@@ -120,7 +120,7 @@ export default function TableWithChairs({
             sx={{
               width: '100%',
               height: '100%',
-              background: '#47210C',
+              background: '#3F0808',
             }}
             elevation={3}
           />
@@ -139,7 +139,7 @@ export default function TableWithChairs({
             sx={{
               width: '100%',
               height: '100%',
-              background: '#47210C',
+              background: '#3F0808',
             }}
             elevation={3}
           />
@@ -158,7 +158,7 @@ export default function TableWithChairs({
             sx={{
               width: '100%',
               height: '100%',
-              background: '#47210C',
+              background: '#3F0808',
             }}
             elevation={3}
           />
