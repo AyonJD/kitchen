@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   Button,
   Container,
@@ -22,74 +23,77 @@ import useSettings from 'src/hooks/useSettings'
 import demoTwoSidebarConfig from 'src/layouts/config/demoTowSidebarConfig'
 import DashboardLayout from 'src/layouts/dashboard'
 
+const tableData = [
+  {
+    id: 'DDMMYY000',
+    name: 'Table 1',
+    staff: 'Staff 1',
+    orderTime: '12:00 PM',
+    items: ['Hamburger (2 units)', 'Donuts (1 unit)'],
+    isServed: true,
+  },
+  {
+    id: 'DDMMYY004',
+    name: 'Table 5',
+    staff: 'Staff 2',
+    orderTime: '12:00 PM',
+    items: ['Muffin (1 unit)', 'Pizza (1 unit)'],
+    isCooking: true,
+  },
+  {
+    id: 'DDMMYY001',
+    name: 'Table 2',
+    staff: 'Staff 3',
+    orderTime: '12:00 PM',
+    items: ['Sausage (1 unit)', 'Fried chicken (1 unit)'],
+    isServed: true,
+  },
+  {
+    id: 'DDMMYY002',
+    name: 'Table 3',
+    staff: 'Staff 4',
+    orderTime: '12:00 PM',
+    items: ['Sandwich (3 units)', 'Pretzel (1 unit)'],
+    isCooking: true,
+  },
+  {
+    id: 'DDMMYY005',
+    name: 'Table 6',
+    staff: 'Staff 5',
+    orderTime: '12:00 PM',
+    items: ['Milkshake (1 unit)', 'Burrito (1 unit)'],
+    isCooking: true,
+  },
+  {
+    id: 'DDMMYY003',
+    name: 'Table 4',
+    staff: 'Staff 6',
+    orderTime: '12:00 PM',
+    items: ['Soft drink (2 units)', 'Baguette (1 unit)'],
+  },
+]
+
 export default function KitchenDisplay() {
+  const [tables, setTables] = useState(tableData)
+  const [dataIndex, setDataIndex] = useState(null)
   const { themeStretch } = useSettings()
   const theme = useTheme()
   const isLight = theme.palette.mode === 'light'
 
-  const tableData = [
-    {
-      id: 'DDMMYY000',
-      name: 'Table 1',
-      staff: 'Staff 1',
-      orderTime: '12:00 PM',
-      items: ['Hamburger (2 units)', 'Donuts (1 unit)'],
-      background: isLight ? '#F7B011' : '#FFD800',
-      isServed: true,
-    },
-    {
-      id: 'DDMMYY004',
-      name: 'Table 5',
-      staff: 'Staff 2',
-      orderTime: '12:00 PM',
-      items: ['Muffin (1 unit)', 'Pizza (1 unit)'],
-      background: isLight ? '#038003' : '#00FF00',
-      isCooking: true,
-    },
-    {
-      id: 'DDMMYY001',
-      name: 'Table 2',
-      staff: 'Staff 3',
-      orderTime: '12:00 PM',
-      items: ['Sausage (1 unit)', 'Fried chicken (1 unit)'],
-      background: isLight ? '#F7B011' : '#FFD800',
-      isServed: true,
-    },
-    {
-      id: 'DDMMYY002',
-      name: 'Table 3',
-      staff: 'Staff 4',
-      orderTime: '12:00 PM',
-      items: ['Sandwich (3 units)', 'Pretzel (1 unit)'],
-      background: theme =>
-        `${alpha(
-          isLight ? theme.palette.common.black : theme.palette.grey[500],
-          0.12
-        )}`,
-      isCooking: true,
-    },
-    {
-      id: 'DDMMYY005',
-      name: 'Table 6',
-      staff: 'Staff 5',
-      orderTime: '12:00 PM',
-      items: ['Milkshake (1 unit)', 'Burrito (1 unit)'],
-      background: theme =>
-        `${alpha(
-          isLight ? theme.palette.common.black : theme.palette.grey[500],
-          0.12
-        )}`,
-      isCooking: true,
-    },
-    {
-      id: 'DDMMYY003',
-      name: 'Table 4',
-      staff: 'Staff 6',
-      orderTime: '12:00 PM',
-      items: ['Soft drink (2 units)', 'Baguette (1 unit)'],
-      background: isLight ? '#F7B011' : '#FFD800',
-    },
-  ]
+  const handleClick = (tableIndex, condition) => {
+    setDataIndex(tableIndex)
+    const updatedTables = [...tables]
+
+    if (condition === 'isCooking') {
+      updatedTables[tableIndex].isCooking = true
+      updatedTables[tableIndex].isServed = false
+    } else if (condition === 'isServed') {
+      updatedTables[tableIndex].isServed = true
+      updatedTables[tableIndex].isCooking = false
+    }
+
+    setTables(updatedTables)
+  }
 
   return (
     <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
@@ -202,12 +206,18 @@ export default function KitchenDisplay() {
                       <FormControl sx={{ mt: 3, minWidth: '100%' }}>
                         <InputLabel>Order Progress</InputLabel>
                         <Select label="Order Progress">
-                          <MenuItem value="1">
+                          <MenuItem
+                            value="1"
+                            onClick={() => handleClick(index, 'isServed')}
+                          >
                             {/* <Button variant="contained" sx={{ width: '100%' }}> */}
                             Mark as Served
                             {/* </Button> */}
                           </MenuItem>
-                          <MenuItem value="2">
+                          <MenuItem
+                            value="2"
+                            onClick={() => handleClick(index, 'isCooking')}
+                          >
                             {/* <Button variant="contained" sx={{ width: '100%' }}> */}
                             Mark as Processing
                             {/* </Button> */}
