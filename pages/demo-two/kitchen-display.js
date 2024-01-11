@@ -93,7 +93,9 @@ export default function KitchenDisplay() {
           <Grid container spacing={3}>
             {tableData.map((table, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
-                <CustomCard sx={{ marginTop: 2 }}>
+                <CustomCard
+                  sx={{ marginTop: 2, background: 'rgba(255, 208, 155, 0.1)' }}
+                >
                   <Grid container spacing={1}>
                     <Grid
                       item
@@ -133,7 +135,11 @@ export default function KitchenDisplay() {
                       sx={{ borderWidth: 1.5, borderStyle: '', marginTop: 2 }}
                     >
                       <TableContainer component={Paper}>
-                        <Table size="small" aria-label="a dense table">
+                        <Table
+                          size="small"
+                          aria-label="a dense table"
+                          sx={{ background: 'rgba(255, 208, 155, 0.1)' }}
+                        >
                           <TableHead>
                             <TableRow>
                               <TableCell>Item</TableCell>
@@ -159,12 +165,12 @@ export default function KitchenDisplay() {
                         <Select label="Order Progress">
                           <MenuItem value="1">
                             {/* <Button variant="contained" sx={{ width: '100%' }}> */}
-                              Mark as Served
+                            Mark as Served
                             {/* </Button> */}
                           </MenuItem>
                           <MenuItem value="2">
                             {/* <Button variant="contained" sx={{ width: '100%' }}> */}
-                              Mark as Processing
+                            Mark as Processing
                             {/* </Button> */}
                           </MenuItem>
                         </Select>
