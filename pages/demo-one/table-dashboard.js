@@ -104,11 +104,11 @@ export default function TableDashboard() {
   const [openPopup, setOpenPopup] = useState(false)
   const [dataIndex, setDataIndex] = useState(null)
   const [formData, setFormData] = useState({
-    category: '',
-    product: '',
-    number: '',
-    staff: '',
-    numCustomers: '',
+    category: 'Breakfast Items',
+    product: 'Sandwich',
+    number: '1',
+    staff: 'Mamun',
+    numCustomers: '1',
   })
 
   const handleClick = tableIndex => {
@@ -116,15 +116,17 @@ export default function TableDashboard() {
     const updatedTables = [...tables]
 
     if (updatedTables[tableIndex].status === 'Empty') {
+      setOpenPopup(true)
+      const selectedItems = [...formData.product]
+      updatedTables[tableIndex].items = selectedItems
+
       updatedTables[tableIndex].status = 'Active'
       updatedTables[tableIndex].orderTime = new Date().toLocaleTimeString()
       updatedTables[tableIndex].background = '#F7B011'
     } else if (updatedTables[tableIndex].status === 'Active') {
-      setOpenPopup(true)
       updatedTables[tableIndex].status = 'Served'
       updatedTables[tableIndex].servingTime = new Date().toLocaleTimeString()
-      const selectedItems = [...formData.product]
-      updatedTables[tableIndex].items = selectedItems
+
       updatedTables[tableIndex].background = '#038003'
     }
     setTables(updatedTables)
