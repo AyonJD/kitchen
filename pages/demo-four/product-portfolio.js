@@ -16,6 +16,8 @@ import CustomCard from 'src/components/card/CustomCard'
 
 import 'slick-carousel/slick/slick.css'
 import 'slick-carousel/slick/slick-theme.css'
+import DashboardLayout from 'src/layouts/dashboard'
+import demoFourSidebarConfig from 'src/layouts/config/demoFourSidebarConfig'
 
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
@@ -42,23 +44,23 @@ export default function ProductPortfolio() {
 
   const cardData = [
     {
-      title: 'Demo One',
+      title: 'Creamy Garlic Parmesan Pasta',
       image: '/static/mock-images/demo-one-1.png',
     },
     {
-      title: 'Demo Two',
+      title: 'Refreshing Cucumber Mint Salad',
       image: '/static/mock-images/demo-one-2.png',
     },
     {
-      title: 'Demo Three',
+      title: 'Kung Pao Chicken',
       image: '/static/mock-images/demo-one-3.png',
     },
     {
-      title: 'Demo Four',
+      title: 'Sweet and Sour Pork',
       image: '/static/mock-images/demo-one-4.png',
     },
     {
-      title: 'Demo Five',
+      title: 'Peking Roast Duck',
       image: '/static/mock-images/demo-one-5.png',
     },
   ]
@@ -81,40 +83,42 @@ export default function ProductPortfolio() {
 
   return (
     <>
-      <MainNavbar />
-      <Page title="Kitchen | Product Portfolio">
-        <RootStyle>
-          <Container>
-            <Box
-              sx={{
-                mb: 5,
-                display: 'flex',
-                alignItems: 'center',
-                flexDirection: 'column',
-              }}
-            >
-              <Typography variant="h3">
-                Snacks
-              </Typography>
-              <Typography variant="h6" >
-                View our current snacks items
-              </Typography>
-            </Box>
-            <MotionInView variants={varFadeInUp}>
-              <Slider {...settings}>
-                {cardData.map((item, index) => (
-                  <CustomCard key={index} cardIndex={index} sx={{ margin: 2 }}>
-                    <Box>
-                      <Typography sx={{ textAlign: 'center' }} variant="h4">
-                        {item.title}
-                      </Typography>
-                      <img src={item.image} alt="" />
-                    </Box>
-                  </CustomCard>
-                ))}
-              </Slider>
-            </MotionInView>
-            {/* <Box sx={{ mt: 5 }}>
+      <DashboardLayout sideBarConfig={demoFourSidebarConfig}>
+        <Page title="Kitchen | Product Portfolio">
+          <RootStyle>
+            <Container>
+              <Box
+                sx={{
+                  mb: 5,
+                  display: 'flex',
+                  alignItems: 'center',
+                  flexDirection: 'column',
+                }}
+              >
+                <Typography variant="h3">Snacks</Typography>
+                <Typography variant="h6">
+                  View our current snacks items
+                </Typography>
+              </Box>
+              <MotionInView variants={varFadeInUp}>
+                <Slider {...settings}>
+                  {cardData.map((item, index) => (
+                    <CustomCard
+                      key={index}
+                      cardIndex={index}
+                      sx={{ margin: 2 }}
+                    >
+                      <Box>
+                        <Typography sx={{ textAlign: 'center' }} variant="h6">
+                          {item.title}
+                        </Typography>
+                        <img src={item.image} alt="" />
+                      </Box>
+                    </CustomCard>
+                  ))}
+                </Slider>
+              </MotionInView>
+              {/* <Box sx={{ mt: 5 }}>
               <MotionInView variants={varFadeInLeft}>
                 <ButtonAnimate mediumClick={true}>
                   <NextLink href="/demo-four/gallery">
@@ -143,9 +147,10 @@ export default function ProductPortfolio() {
                 </ButtonAnimate>
               </MotionInView>
             </Box> */}
-          </Container>
-        </RootStyle>
-      </Page>
+            </Container>
+          </RootStyle>
+        </Page>
+      </DashboardLayout>
     </>
   )
 }

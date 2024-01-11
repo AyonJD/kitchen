@@ -55,9 +55,9 @@ function Recipe({ classes }) {
   const DATA_TITLE = [
     'Creamy Garlic Parmesan Pasta',
     'Refreshing Cucumber Mint Salad',
-    'Recipe Three',
-    'Recipe Four',
-    'Recipe Five',
+    'Kung Pao Chicken',
+    'Sweet and Sour Pork',
+    'Peking Roast Duck',
   ]
   const DATA_IMAGE = [
     '/static/mock-images/demo-one-1.png',
@@ -91,7 +91,7 @@ function Recipe({ classes }) {
     <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
       <Page title="Kitchen | Recipe">
         <Container maxWidth={themeStretch ? false : 'xl'}>
-          <Box sx={{ mb: 5, textAlign: 'center' }}>
+          <Box sx={{ mb: 5 }}>
             <Typography mb={1} variant="h4">
               Recipe List
             </Typography>
@@ -164,7 +164,7 @@ function Recipe({ classes }) {
                 width: {
                   xs: '100%',
                   sm: '80%',
-                  md: '50%',
+                  md: '55%',
                 },
                 margin: 'auto',
               }}
@@ -189,7 +189,12 @@ function Recipe({ classes }) {
                   {' '}
                   {cardData[selectedIndex].title}
                 </Typography>
-                <Box sx={{ display: 'flex', justifyContent: 'center' }}>
+                <Box
+                  sx={{
+                    display: 'flex',
+                    justifyContent: 'center',
+                  }}
+                >
                   <img src={cardData[selectedIndex].image} alt="recipe" />
                 </Box>
               </CustomCard>

@@ -33,55 +33,60 @@ export default function KitchenDisplay() {
       name: 'Table 1',
       staff: 'Staff 1',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Hamburger (2 units)', 'Donuts (1 unit)'],
       background: isLight ? '#F7B011' : '#FFD800',
+      isServed: true,
     },
     {
       id: 'DDMMYY004',
       name: 'Table 5',
       staff: 'Staff 2',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Muffin (1 unit)', 'Pizza (1 unit)'],
       background: isLight ? '#038003' : '#00FF00',
+      isCooking: true,
     },
     {
       id: 'DDMMYY001',
       name: 'Table 2',
       staff: 'Staff 3',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Sausage (1 unit)', 'Fried chicken (1 unit)'],
       background: isLight ? '#F7B011' : '#FFD800',
+      isServed: true,
     },
     {
       id: 'DDMMYY002',
       name: 'Table 3',
       staff: 'Staff 4',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Sandwich (3 units)', 'Pretzel (1 unit)'],
       background: theme =>
         `${alpha(
           isLight ? theme.palette.common.black : theme.palette.grey[500],
           0.12
         )}`,
+      isCooking: true,
     },
     {
       id: 'DDMMYY005',
       name: 'Table 6',
       staff: 'Staff 5',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Milkshake (1 unit)', 'Burrito (1 unit)'],
       background: theme =>
         `${alpha(
           isLight ? theme.palette.common.black : theme.palette.grey[500],
           0.12
         )}`,
+      isCooking: true,
     },
     {
       id: 'DDMMYY003',
       name: 'Table 4',
       staff: 'Staff 6',
       orderTime: '12:00 PM',
-      items: ['Product 1 (2 units)', 'Product 2 (1 unit)'],
+      items: ['Soft drink (2 units)', 'Baguette (1 unit)'],
       background: isLight ? '#F7B011' : '#FFD800',
     },
   ]
@@ -90,11 +95,27 @@ export default function KitchenDisplay() {
     <DashboardLayout sideBarConfig={demoTwoSidebarConfig}>
       <Page title="Kitchen | Kitchen Display">
         <Container maxWidth={themeStretch ? false : 'xl'}>
+          <Typography variant="h3" sx={{ textAlign: 'center' }}>
+            Current Orders
+          </Typography>
+          <Typography
+            variant="h6"
+            sx={{ marginBottom: 2, textAlign: 'center' }}
+          >
+            All ordered items are shown here
+          </Typography>
           <Grid container spacing={3}>
             {tableData.map((table, index) => (
               <Grid item xs={12} sm={6} md={4} key={index}>
                 <CustomCard
-                  sx={{ marginTop: 2, background: 'rgba(255, 208, 155, 0.1)' }}
+                  sx={{
+                    background: table.isCooking
+                      ? 'rgba(255, 208, 155, 0.6)'
+                      : table.isServed
+                      ? 'rgba(0, 128, 0, 0.2)'
+                      : 'rgba(255, 208, 155, 0.1)',
+                    marginTop: 2,
+                  }}
                 >
                   <Grid container spacing={1}>
                     <Grid
@@ -108,7 +129,25 @@ export default function KitchenDisplay() {
                       }}
                     >
                       <Typography
-                        variant="small"
+                        variant="p"
+                        sx={{
+                          fontSize: 23,
+                          marginBottom: 0.5,
+                          color: table.isCooking
+                            ? 'rgb(255, 153, 0)'
+                            : table.isServed
+                            ? 'rgba(0, 128, 0, 1)'
+                            : 'rgba(0, 0, 0, .7)',
+                        }}
+                      >
+                        {table.isCooking
+                          ? 'In Cooking'
+                          : table.isServed
+                          ? 'Order Served to Staff'
+                          : 'In Queue'}
+                      </Typography>
+                      <Typography
+                        variant="h5"
                         sx={{ fontSize: 13, marginBottom: 0.5 }}
                       >
                         {table.name}

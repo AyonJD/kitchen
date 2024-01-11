@@ -105,6 +105,7 @@
   height: 100vh !important;
   backdrop-filter: blur(2px);
   background-color: rgba(0, 0, 0, 0.3);
+  background-color: rgb(255, 153, 0);
   /* fallback color */
   display: flex;
   justify-content: center;
