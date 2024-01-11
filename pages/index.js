@@ -38,7 +38,7 @@ export default function LandingPage() {
       <RootStyle title="Kitchen" id="move_top">
         <LandingHero />
         <ContentStyle>
-          <LandingOfferedSolutions />
+          {/* <LandingOfferedSolutions /> */}
           <LandingSolutionTwo />
         </ContentStyle>
       </RootStyle>

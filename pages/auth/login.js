@@ -4,6 +4,15 @@ import { Box, Button, Link, TextField, Typography } from '@mui/material'
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import { BiSolidLockOpen } from 'react-icons/bi'
+import { styled } from '@mui/material/styles'
+
+const RootStyle = styled('div')(({ theme }) => ({
+  backgroundImage: `url(/static/login_bg.png)`,
+  minHeight: '100vh',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}))
 
 export default function Login() {
   const [loginData, setLoginData] = useState({
@@ -46,25 +55,17 @@ export default function Login() {
   }
 
   return (
-    <Box
-      sx={{
-        minHeight: '100vh',
-        display: 'flex',
-        alignItems: 'center',
-        justifyContent: 'center',
-        background:
-          'linear-gradient(90deg, rgba(98, 52, 5, 1) 0%, rgba(156, 82, 8, 1) 100%)',
-      }}
-    >
+    <RootStyle>
       {/* LockOpen Icon */}
       <Box
         sx={{
           position: 'relative',
-          background: 'rgba(255,255,255,0.1)',
+          background: 'transparent',
           borderRadius: '10px',
           padding: '25px',
           width: '25rem',
-          backdropFilter: 'blur(10px)',
+          backdropFilter: 'blur(6px)',
+          border: '1px solid gray',
         }}
       >
         <BiSolidLockOpen
@@ -88,7 +89,6 @@ export default function Login() {
           varient="h1"
           sx={{
             textAlign: 'center',
-            color: 'white',
             marginTop: '30px',
             marginBottom: '20px',
             fontSize: '1.8rem',
@@ -135,7 +135,7 @@ export default function Login() {
           <Link
             href="/#"
             variant="body2"
-            sx={{ color: 'white', fontWeight: 'bold' }}
+            sx={{ fontWeight: 'bold' }}
             className="text-white font-bold"
           >
             Forgot Password
@@ -162,6 +162,6 @@ export default function Login() {
           )}
         </Button>
       </Box>
-    </Box>
+    </RootStyle>
   )
 }

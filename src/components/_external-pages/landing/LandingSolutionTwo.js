@@ -39,6 +39,15 @@ const SOLUTION_URL = [
   '/demo-five/digital-menu',
   '/demo-five/digital-menu',
 ]
+const SOLUTION_URL2 = [
+  '/demo-one/order-selection',
+  '/demo-two/kitchen-display',
+  '/demo-four/landing-slider',
+  '/demo-six/todays-purchase',
+  '/demo-seven/current-stock',
+  '/demo-eight/sales-status',
+  '/demo-three/analytics',
+]
 const SOLUTION_ICON = [
   RestaurantIcon,
   RestaurantMenuIcon,
@@ -55,6 +64,12 @@ const SOLUtION_ITEMS = [...Array(7)].map((_, index) => ({
   url: SOLUTION_URL[index],
 }))
 
+const SOLUtION_ITEMS2 = [...Array(7)].map((_, index) => ({
+  title: SOLUTIONTITLE[index],
+  icon: SOLUTION_ICON[index],
+  url: SOLUTION_URL2[index],
+}))
+
 const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
@@ -63,6 +78,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     paddingBottom: theme.spacing(15),
   },
+  backgroundImage: `url(/static/home/og_demo.png)`,
 }))
 
 const LeftLogoStyle = styled(props => <Stack spacing={5} {...props} />)(
@@ -72,7 +88,7 @@ const LeftLogoStyle = styled(props => <Stack spacing={5} {...props} />)(
     margin: 'auto',
     textAlign: 'center',
     position: 'relative',
-    paddingBottom: theme.spacing(15),
+    paddingBottom: theme.spacing(10),
     [theme.breakpoints.up('md')]: {
       margin: 'unset',
       textAlign: 'center',
@@ -162,7 +178,7 @@ export default function LandingSolutionTwo() {
 
           <Grid container spacing={2} justifyContent={'center'}>
             {/* The first 3 items of the array */}
-            {SOLUtION_ITEMS.slice(0, 3).map((item, index) => (
+            {SOLUtION_ITEMS2.slice(0, 3).map((item, index) => (
               <Grid
                 item
                 //   xs={12}
@@ -207,7 +223,7 @@ export default function LandingSolutionTwo() {
         <Box sx={{ width: '100%', mt: 0 }}>
           <Box sx={{ mb: 5, mt: 10, textAlign: 'center' }}>
             <MotionInView variants={varFadeInDown}>
-              <Typography variant="h5" sx={{ mb: 3 }}>
+              <Typography variant="h5" sx={{ mb: 3, color: 'white' }}>
                 Monitor purchase, inventory & sales with analytics
               </Typography>
             </MotionInView>
@@ -215,7 +231,7 @@ export default function LandingSolutionTwo() {
 
           <Grid container spacing={2} justifyContent={'center'}>
             {/* The last 4 items of the array */}
-            {SOLUtION_ITEMS.slice(3, 7).map((item, index) => (
+            {SOLUtION_ITEMS2.slice(3, 7).map((item, index) => (
               <Grid
                 item
                 //   xs={12}

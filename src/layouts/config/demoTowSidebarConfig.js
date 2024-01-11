@@ -17,22 +17,21 @@ const ICONS = {
     dashboard: getIcon("ic_dashboard"),
 };
 
-const demoTwoSidebarConfig =
-    [
-        {
-            title: "Order Input",
-            path: '/demo-two/order-input',
-            icon: ICONS.dashboard,
-        },
-        {
-            title: "Kitchen Display",
-            path: '/demo-two/kitchen-display',
-            icon: ICONS.ecommerce,
-        },
-        {
-            title: "Recipe",
-            path: '/demo-two/recipe',
-            icon: ICONS.analytics,
-        },
-    ]
+const demoTwoSidebarConfig = [
+  // {
+  //     title: "Order Input",
+  //     path: '/demo-two/order-input',
+  //     icon: ICONS.dashboard,
+  // },
+  {
+    title: 'Kitchen Display',
+    path: '/demo-two/kitchen-display',
+    icon: ICONS.ecommerce,
+  },
+  {
+    title: 'Recipe Guide',
+    path: '/demo-two/recipe',
+    icon: ICONS.analytics,
+  },
+]
 export default demoTwoSidebarConfig;

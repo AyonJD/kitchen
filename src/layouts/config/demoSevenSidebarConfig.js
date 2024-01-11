@@ -18,21 +18,16 @@ const ICONS = {
   dashboard: getIcon('ic_dashboard'),
 }
 
-const demoOneSidebarConfig = [
+const demoSevenSidebarConfig = [
   {
-    title: 'Food Order',
-    path: '/demo-one/order-selection',
+    title: 'Current Stock',
+    path: '/demo-seven/current-stock',
     icon: ICONS.dashboard,
   },
   {
-    title: 'Dine-in Area',
-    path: '/demo-one/table-dashboard',
+    title: 'Stock Records',
+    path: '/demo-seven/stock-records',
     icon: ICONS.ecommerce,
   },
-  // {
-  //   title: 'Customer Feedback',
-  //   path: '/demo-one/feedback',
-  //   icon: ICONS.feedback,
-  // },
 ]
-export default demoOneSidebarConfig
+export default demoSevenSidebarConfig

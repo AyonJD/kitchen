@@ -63,7 +63,7 @@ const LeftLogoStyle = styled(props => <Stack spacing={5} {...props} />)(
     margin: 'auto',
     textAlign: 'center',
     position: 'relative',
-    paddingBottom: theme.spacing(15),
+    paddingBottom: theme.spacing(10),
     [theme.breakpoints.up('md')]: {
       margin: 'unset',
       textAlign: 'center',
