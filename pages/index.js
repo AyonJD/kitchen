@@ -25,8 +25,12 @@ const ContentStyle = styled('div')(({ theme }) => ({
 
 export default function LandingPage() {
   useEffect(() => {
-    // clear the local storage one time
-    window.localStorage.clear()
+    if (typeof window !== 'undefined') {
+      const authenticated = window.localStorage.getItem('isAuthenticated')
+      if (!authenticated) {
+        window.location.href = '/auth/login'
+      }
+    }
   }, [])
 
   return (

@@ -74,7 +74,7 @@ export default function Analytics() {
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <AccountsCard />
 
-          <Box
+          {/* <Box
             sx={{
               mt: 3,
               mb: 3,
@@ -164,7 +164,7 @@ export default function Analytics() {
                 </Typography>
               </CustomCard>
             </MotionInView>
-          </Box>
+          </Box> */}
 
           <CustomCard>
             <CardHeader
