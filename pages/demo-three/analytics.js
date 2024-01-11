@@ -27,6 +27,7 @@ import {
   varFadeInUp,
 } from 'src/components/animate'
 import AccountsCard from 'src/components/_external-pages/AccountsCard'
+import ChartBar from 'src/components/chart/ChartBar'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
@@ -38,30 +39,43 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
   },
 }))
 
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}))
+
+//
+
+function createData(name, calories, fat, carbs, protein) {
+  return { name, calories, fat, carbs, protein }
+}
+
+const rows = [
+  createData('Frozen yoghurt', 159, 6.0, 24, 4.0),
+  createData('Ice cream sandwich', 237, 9.0, 37, 4.3),
+  createData('Eclair', 262, 16.0, 24, 6.0),
+  createData('Cupcake', 305, 3.7, 67, 4.3),
+  createData('Gingerbread', 356, 16.0, 49, 3.9),
+]
+//
+
 export default function Analytics() {
   const { themeStretch } = useSettings()
 
   const PRODUCT = [
-    'Product 1',
-    'Product 2',
-    'Product 3',
-    'Product 4',
-    'Product 5',
-    'Product 6',
-    'Product 7',
-    'Product 8',
+    'Sandwich',
+    'Cheese Cake',
+    'Chocolate Muffin',
+    'Pasta',
+    'Corn Soup',
   ]
-  const UNIT = [
-    '1 Unit',
-    '2 Unit',
-    '3 Unit',
-    '4 Unit',
-    '5 Unit',
-    '6 Unit',
-    '7 Unit',
-    '8 Unit',
-  ]
-  const tableData = Array.from(Array(8).keys()).map((_, index) => {
+  const UNIT = ['1 Unit', '2 Unit', '3 Unit', '4 Unit', '5 Unit']
+  const tableData = Array.from(Array(5).keys()).map((_, index) => {
     return {
       product: PRODUCT[index],
       unit: UNIT[index],
@@ -74,7 +88,7 @@ export default function Analytics() {
         <Container maxWidth={themeStretch ? false : 'xl'}>
           <AccountsCard />
 
-          {/* <Box
+          <Box
             sx={{
               mt: 3,
               mb: 3,
@@ -101,30 +115,23 @@ export default function Analytics() {
                   }}
                 />
                 <TableContainer component={Paper}>
-                  <Table size="small">
+                  <Table size="small" aria-label="customized table">
                     <TableHead>
-                      <TableRow>
-                        <TableCell style={{ borderBottom: 'none' }}>
-                          Item
-                        </TableCell>
-                        <TableCell
-                          align="right"
-                          style={{ borderBottom: 'none' }}
-                        >
-                          Volume
-                        </TableCell>
-                      </TableRow>
+                      <StyledTableRow>
+                        <StyledTableCell>Item</StyledTableCell>
+                        <StyledTableCell align="right">Volume</StyledTableCell>
+                      </StyledTableRow>
                     </TableHead>
                     <TableBody>
                       {tableData.map((item, index) => (
-                        <TableRow key={index}>
+                        <StyledTableRow key={index}>
                           <StyledTableCell component="th" scope="row">
                             {item.product}
                           </StyledTableCell>
                           <StyledTableCell align="right">
                             {item.unit}
                           </StyledTableCell>
-                        </TableRow>
+                        </StyledTableRow>
                       ))}
                     </TableBody>
                   </Table>
@@ -152,7 +159,7 @@ export default function Analytics() {
                     },
                   }}
                 />
-                <ChartPie />
+                <ChartBar />
                 <Typography
                   variant="body2"
                   sx={{ mt: 2, display: 'inline-block', textAlign: 'justify' }}
@@ -164,7 +171,7 @@ export default function Analytics() {
                 </Typography>
               </CustomCard>
             </MotionInView>
-          </Box> */}
+          </Box>
 
           <CustomCard>
             <CardHeader
