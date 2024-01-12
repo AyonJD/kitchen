@@ -39,6 +39,7 @@ import {
 import demoFourSidebarConfig from 'src/layouts/config/demoFourSidebarConfig'
 import { styled } from '@mui/material/styles'
 import Image from 'next/image'
+import toast from 'react-hot-toast'
 
 const DynamicRating = dynamic(() => import('@mui/material/Rating'), {
   ssr: false,
@@ -107,7 +108,7 @@ export default function Feedback() {
   const handleSubmit = event => {
     event.preventDefault()
 
-    console.log(formData)
+    toast.success('Thank you for your review!')
     // if (
     //   !formData.category ||
     //   !formData.product ||
@@ -154,26 +155,26 @@ export default function Feedback() {
                 </Typography>
 
                 <TableContainer>
-                  <Table sx={{ background: '#B2BEB5' }}>
+                  <Table sx={{ background: '#FDF6F2' }}>
                     <TableHead>
                       <TableRow>
                         <TableCell
-                          sx={{ background: '#000' }}
-                          className="text_white"
+                          sx={{ background: '#D3CDCC', color: '#000000' }}
+                          // className="text_white"
                         >
                           Order Item
                         </TableCell>
 
                         <TableCell
-                          sx={{ background: '#000' }}
-                          className="text_white"
+                          sx={{ background: '#D3CDCC', color: '#000000' }}
+                          // className="text_white"
                           align="center"
                         >
                           Review
                         </TableCell>
                         <TableCell
-                          sx={{ background: '#000' }}
-                          className="text_white"
+                          sx={{ background: '#D3CDCC', color: '#000000' }}
+                          // className="text_white"
                           align="center"
                         >
                           Rating

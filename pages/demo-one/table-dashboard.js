@@ -111,12 +111,18 @@ export default function TableDashboard() {
     numCustomers: '1',
   })
 
+  const handleOpenPopup = () => {
+    setTimeout(() => {
+      setOpenPopup(true)
+    }, 1000)
+  }
+
   const handleClick = tableIndex => {
     setDataIndex(tableIndex)
     const updatedTables = [...tables]
 
     if (updatedTables[tableIndex].status === 'Empty') {
-      setOpenPopup(true)
+      handleOpenPopup()
       const selectedItems = [...formData.product]
       updatedTables[tableIndex].items = selectedItems
 
@@ -348,6 +354,14 @@ export default function TableDashboard() {
                   sx={{ marginTop: 4 }}
                 >
                   Submit
+                </Button>
+                <Button
+                  onClick={() => setOpenPopup(false)}
+                  type="submit"
+                  variant="outlined"
+                  sx={{ marginTop: 4, ml: 2 }}
+                >
+                  No Change
                 </Button>
               </form>
             </Box>

@@ -3,7 +3,13 @@ import { motion } from 'framer-motion'
 import { styled } from '@mui/material/styles'
 import { Box, Stack, Container, Typography } from '@mui/material'
 //
-import { varFadeInUp, varWrapEnter, varZoomIn } from '../../animate'
+import {
+  varFadeInUp,
+  varFadeInUpSlow,
+  varWrapEnter,
+  varZoomIn,
+  varZoomInSlow,
+} from '../../animate'
 
 // ----------------------------------------------------------------------
 
@@ -59,28 +65,31 @@ export default function LandingHero() {
           >
             {/* Logo */}
             <motion.img
-              style={{ width: 200, height: 200, cursor: 'pointer' }}
-              variants={varZoomIn}
+              style={{ width: 150, height: 150, cursor: 'pointer' }}
+              variants={varZoomInSlow}
               src="/static/brand/logo.png"
               alt="hero"
             />
 
             {/* Main heading */}
-            <motion.div variants={varFadeInUp} style={{ marginTop: 0 }}>
-              <Typography variant="h1" sx={{ color: 'common.white' }}>
+            <motion.div variants={varFadeInUpSlow} style={{ marginTop: 0 }}>
+              <Typography variant="h3" sx={{ color: 'common.white' }}>
                 Kitchen Wizard
               </Typography>
             </motion.div>
 
             {/* Sub heaing */}
-            <motion.div variants={varFadeInUp} style={{ marginTop: '-10px' }}>
+            <motion.div
+              variants={varFadeInUpSlow}
+              style={{ marginTop: '-10px' }}
+            >
               <Typography variant="h4" sx={{ color: 'common.white' }}>
                 Digitally manage Food Industry Activities
               </Typography>
             </motion.div>
 
             {/* Slogan */}
-            <motion.div variants={varFadeInUp} style={{ marginTop: 10 }}>
+            <motion.div variants={varFadeInUpSlow} style={{ marginTop: 10 }}>
               <Typography
                 variant="body2"
                 sx={{

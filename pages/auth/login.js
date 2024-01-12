@@ -68,7 +68,7 @@ export default function Login() {
           border: '1px solid gray',
         }}
       >
-        <BiSolidLockOpen
+        {/* <BiSolidLockOpen
           size={62}
           color="#623405"
           style={{
@@ -83,15 +83,26 @@ export default function Login() {
             left: '50%',
             transform: 'translateX(-50%)',
           }}
-        />
+        /> */}
 
         <Typography
           varient="h1"
           sx={{
             textAlign: 'center',
-            marginTop: '30px',
-            marginBottom: '20px',
+            marginTop: '10px',
+            marginBottom: '10px',
             fontSize: '1.8rem',
+            fontWeight: 'bold',
+          }}
+        >
+          Kitchen Wizard
+        </Typography>
+        <Typography
+          varient="h5"
+          sx={{
+            textAlign: 'center',
+            marginBottom: '20px',
+            fontSize: '1.2rem',
             fontWeight: 'bold',
           }}
         >
