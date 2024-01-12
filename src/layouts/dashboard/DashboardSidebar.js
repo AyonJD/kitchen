@@ -5,7 +5,14 @@ import NextLink from 'next/link'
 import { useRouter } from 'next/router'
 // material
 import { alpha, styled } from '@mui/material/styles'
-import { Box, Stack, Drawer, Tooltip, CardActionArea } from '@mui/material'
+import {
+  Box,
+  Stack,
+  Drawer,
+  Tooltip,
+  CardActionArea,
+  Typography,
+} from '@mui/material'
 // hooks
 import useCollapseDrawer from '../../hooks/useCollapseDrawer'
 // components
@@ -104,7 +111,7 @@ export default function DashboardSidebar({
   const renderContent = (
     <Scrollbar
       sx={{
-        backgroundColor: '#D1D1D1',
+        backgroundColor: '#ffebd3',
         height: '100%',
         '& .simplebar-content': {
           height: '80%',
@@ -133,6 +140,9 @@ export default function DashboardSidebar({
             <Box sx={{ display: 'inline-flex' }}>
               <Logo />
             </Box>
+            <Typography variant="h6" sx={{ color: 'primary.main' }}>
+              Kitchen Wizard
+            </Typography>
           </NextLink>
 
           <MHidden width="lgDown">
