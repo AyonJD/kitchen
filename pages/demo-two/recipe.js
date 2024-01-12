@@ -97,16 +97,11 @@ function Recipe({ classes }) {
             </Typography>
             {cardData.map((item, index) => (
               <Button
+                className={`${selectedIndex === index ? 'button_bg' : '#fff'}`}
                 sx={{
                   margin: '10px',
-                  backgroundColor:
-                    selectedIndex === index ? 'primary.main' : '#fff',
                   color: selectedIndex === index ? '#fff' : '#000',
                   borderRadius: '5px',
-                  '&:hover': {
-                    backgroundColor: 'primary.dark',
-                    color: '#fff',
-                  },
                 }}
                 variant="outlined"
                 onClick={() => setSelectedIndex(index)}

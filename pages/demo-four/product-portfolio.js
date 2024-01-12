@@ -23,7 +23,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   display: 'flex',
   alignItems: 'center',
   justifyContent: 'space-between',
-  paddingTop: theme.spacing(15),
+  paddingTop: theme.spacing(0),
   [theme.breakpoints.up('md')]: {
     paddingBottom: theme.spacing(15),
   },

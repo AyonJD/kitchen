@@ -1,30 +1,24 @@
-import PropTypes from 'prop-types';
-import { useEffect } from 'react';
+import PropTypes from 'prop-types'
+import { useEffect } from 'react'
 // next
-import NextLink from 'next/link';
-import { useRouter } from 'next/router';
+import NextLink from 'next/link'
+import { useRouter } from 'next/router'
 // material
-import { alpha, styled } from '@mui/material/styles';
-import {
-  Box,
-  Stack,
-  Drawer,
-  Tooltip,
-  CardActionArea,
-} from '@mui/material';
+import { alpha, styled } from '@mui/material/styles'
+import { Box, Stack, Drawer, Tooltip, CardActionArea } from '@mui/material'
 // hooks
-import useCollapseDrawer from '../../hooks/useCollapseDrawer';
+import useCollapseDrawer from '../../hooks/useCollapseDrawer'
 // components
-import Logo from '../../components/Logo';
-import Scrollbar from '../../components/Scrollbar';
-import NavSection from '../../components/NavSection';
+import Logo from '../../components/Logo'
+import Scrollbar from '../../components/Scrollbar'
+import NavSection from '../../components/NavSection'
 //
-import { MHidden } from '../../components/@material-extend';
+import { MHidden } from '../../components/@material-extend'
 
 // ----------------------------------------------------------------------
 
-const DRAWER_WIDTH = 280;
-const COLLAPSE_WIDTH = 102;
+const DRAWER_WIDTH = 280
+const COLLAPSE_WIDTH = 102
 
 const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('lg')]: {
@@ -33,18 +27,18 @@ const RootStyle = styled('div')(({ theme }) => ({
       duration: theme.transitions.duration.complex,
     }),
   },
-}));
+}))
 
 // ----------------------------------------------------------------------
 
 IconCollapse.propTypes = {
   onToggleCollapse: PropTypes.func,
   collapseClick: PropTypes.bool,
-};
+}
 
 function IconCollapse({ onToggleCollapse, collapseClick }) {
   return (
-    <Tooltip title='Mini Menu'>
+    <Tooltip title="Mini Menu">
       <CardActionArea
         onClick={onToggleCollapse}
         sx={{
@@ -68,7 +62,7 @@ function IconCollapse({ onToggleCollapse, collapseClick }) {
             height: 8,
             borderRadius: '50%',
             bgcolor: 'currentColor',
-            transition: (theme) => theme.transitions.create('all'),
+            transition: theme => theme.transitions.create('all'),
             ...(collapseClick && {
               width: 0,
               height: 0,
@@ -77,16 +71,20 @@ function IconCollapse({ onToggleCollapse, collapseClick }) {
         />
       </CardActionArea>
     </Tooltip>
-  );
+  )
 }
 
 DashboardSidebar.propTypes = {
   isOpenSidebar: PropTypes.bool,
   onCloseSidebar: PropTypes.func,
-};
+}
 
-export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onCloseSidebar }) {
-  const { pathname } = useRouter();
+export default function DashboardSidebar({
+  sideBarConfig,
+  isOpenSidebar,
+  onCloseSidebar,
+}) {
+  const { pathname } = useRouter()
   const {
     isCollapse,
     collapseClick,
@@ -94,19 +92,20 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
     onToggleCollapse,
     onHoverEnter,
     onHoverLeave,
-  } = useCollapseDrawer();
+  } = useCollapseDrawer()
 
   useEffect(() => {
     if (isOpenSidebar) {
-      onCloseSidebar();
+      onCloseSidebar()
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [pathname]);
+  }, [pathname])
 
   const renderContent = (
     <Scrollbar
       sx={{
-        height: '80%',
+        backgroundColor: '#D1D1D1',
+        height: '100%',
         '& .simplebar-content': {
           height: '80%',
           display: 'flex',
@@ -126,17 +125,17 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
         }}
       >
         <Stack
-          direction='row'
-          alignItems='center'
-          justifyContent='space-between'
+          direction="row"
+          alignItems="center"
+          justifyContent="space-between"
         >
-          <NextLink href='/'>
+          <NextLink href="/">
             <Box sx={{ display: 'inline-flex' }}>
               <Logo />
             </Box>
           </NextLink>
 
-          <MHidden width='lgDown'>
+          <MHidden width="lgDown">
             {!isCollapse && (
               <IconCollapse
                 onToggleCollapse={onToggleCollapse}
@@ -149,7 +148,7 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
 
       <NavSection navConfig={sideBarConfig} isShow={!isCollapse} />
     </Scrollbar>
-  );
+  )
 
   return (
     <RootStyle
@@ -162,7 +161,7 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
         }),
       }}
     >
-      <MHidden width='lgUp'>
+      <MHidden width="lgUp">
         <Drawer
           open={isOpenSidebar}
           onClose={onCloseSidebar}
@@ -174,10 +173,10 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
         </Drawer>
       </MHidden>
 
-      <MHidden width='lgDown'>
+      <MHidden width="lgDown">
         <Drawer
           open
-          variant='persistent'
+          variant="persistent"
           onMouseEnter={onHoverEnter}
           onMouseLeave={onHoverLeave}
           PaperProps={{
@@ -191,9 +190,8 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
                 borderRight: 0,
                 backdropFilter: 'blur(6px)',
                 WebkitBackdropFilter: 'blur(6px)', // Fix on Mobile
-                boxShadow: (theme) => theme.customShadows.z20,
-                bgcolor: (theme) =>
-                  alpha(theme.palette.background.default, 0.88),
+                boxShadow: theme => theme.customShadows.z20,
+                bgcolor: theme => alpha(theme.palette.background.default, 0.88),
               }),
             },
           }}
@@ -202,5 +200,5 @@ export default function DashboardSidebar({ sideBarConfig, isOpenSidebar, onClose
         </Drawer>
       </MHidden>
     </RootStyle>
-  );
+  )
 }

@@ -9,6 +9,7 @@ import {
   Grid,
   InputLabel,
   MenuItem,
+  Paper,
   Select,
   Table,
   TableBody,
@@ -23,8 +24,8 @@ import {
 } from '@mui/material'
 import CustomCard from 'src/components/card/CustomCard'
 import Page from 'src/components/Page'
-import TableWithChairs from 'src/components/_external-pages/table-with-chair'
 import { useState } from 'react'
+import { tableCellClasses } from '@mui/material/TableCell'
 
 import dynamic from 'next/dynamic'
 import {
@@ -36,10 +37,32 @@ import {
   varFadeInUp,
 } from 'src/components/animate'
 import demoFourSidebarConfig from 'src/layouts/config/demoFourSidebarConfig'
+import { styled } from '@mui/material/styles'
+import Image from 'next/image'
 
 const DynamicRating = dynamic(() => import('@mui/material/Rating'), {
   ssr: false,
 })
+
+const StyledTableCell = styled(TableCell)(({ theme }) => ({
+  [`&.${tableCellClasses.head}`]: {
+    backgroundColor: theme.palette.common.black,
+    color: theme.palette.common.white,
+  },
+  [`&.${tableCellClasses.body}`]: {
+    fontSize: 14,
+  },
+}))
+
+const StyledTableRow = styled(TableRow)(({ theme }) => ({
+  '&:nth-of-type(odd)': {
+    backgroundColor: theme.palette.action.hover,
+  },
+  // hide last border
+  '&:last-child td, &:last-child th': {
+    border: 0,
+  },
+}))
 
 export default function Feedback() {
   const { themeStretch } = useSettings()
@@ -51,7 +74,11 @@ export default function Feedback() {
     name: 'Table 1',
     status: 'Served',
     orderTime: '12:00 PM',
-    items: ['Hamburger (2 units)', 'Sandwich (1 unit)'],
+    items: ['Hamburger (1 unit)', 'Noodle (1 unit)'],
+    images: [
+      '/static/mock-images/demo-one-5.png',
+      '/static/mock-images/demo-one-3.png',
+    ],
     background: isLight ? '#038003' : '#00FF00',
   }
 
@@ -188,7 +215,8 @@ export default function Feedback() {
             sx={{
               display: 'flex',
               justifyContent: 'space-around',
-              alignItems: 'center',
+              alignItems: 'flex-start',
+              gap: 2,
               flexDirection: {
                 xs: 'column', // Set flexDirection to column on small devices
                 sm: 'column', // Set flexDirection to column on small devices
@@ -196,7 +224,7 @@ export default function Feedback() {
               },
             }}
           >
-            <MotionInView variants={varFadeInLeft}>
+            {/* <MotionInView variants={varFadeInRight}>
               <Typography
                 variant="h6"
                 sx={{ textAlign: 'center', marginBottom: '-30px' }}
@@ -248,9 +276,9 @@ export default function Feedback() {
                   </span>
                 ))}
               </Typography>
-            </MotionInView>
+            </MotionInView> */}
 
-            <MotionInView variants={varFadeInRight}>
+            <MotionInView variants={varFadeInLeft}>
               <CustomCard
                 sx={{
                   marginTop: {
@@ -259,7 +287,11 @@ export default function Feedback() {
                   },
                 }}
               >
-                <Typography variant="h6" gutterBottom>
+                <Typography
+                  sx={{ textAlign: 'center', mb: 3 }}
+                  variant="h5"
+                  gutterBottom
+                >
                   Please Rate our Foods & Service
                 </Typography>
 
@@ -324,7 +356,7 @@ export default function Feedback() {
                 <ButtonAnimate mediumClick={true}>
                   <Button
                     variant="contained"
-                    color="primary"
+                    className="button_bg"
                     onClick={handleSubmit}
                     sx={{ marginTop: 1 }}
                   >
@@ -332,6 +364,58 @@ export default function Feedback() {
                   </Button>
                 </ButtonAnimate>
               </CustomCard>
+            </MotionInView>
+
+            <MotionInView variants={varFadeInRight}>
+              <TableContainer component={Paper}>
+                <Table size="small" aria-label="customized table">
+                  <TableHead>
+                    <StyledTableRow>
+                      <StyledTableCell>Table</StyledTableCell>
+                      <StyledTableCell align="center">Customer</StyledTableCell>
+                      <StyledTableCell className="no_wrap" align="center">
+                        Customer ID
+                      </StyledTableCell>
+                      <StyledTableCell align="center">Food</StyledTableCell>
+                      <StyledTableCell className="no_wrap" align="right">
+                        Food Image
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  </TableHead>
+                  <TableBody>
+                    <StyledTableRow>
+                      <StyledTableCell
+                        className="no_wrap"
+                        component="th"
+                        scope="row"
+                      >
+                        Table 01
+                      </StyledTableCell>
+                      <StyledTableCell align="center">Rashed</StyledTableCell>
+                      <StyledTableCell align="center">00101</StyledTableCell>
+                      <StyledTableCell className="no_wrap" align="center">
+                        {tableData.items.map((item, index) => (
+                          <Typography variant="body" key={index}>
+                            {item}
+                            <br />
+                          </Typography>
+                        ))}
+                      </StyledTableCell>
+                      <StyledTableCell className="no_wrap" align="center">
+                        {tableData.images.map((item, index) => (
+                          <Image
+                            src={item}
+                            alt="food"
+                            width={70}
+                            height={50}
+                            key={index}
+                          />
+                        ))}
+                      </StyledTableCell>
+                    </StyledTableRow>
+                  </TableBody>
+                </Table>
+              </TableContainer>
             </MotionInView>
           </Box>
         </Container>

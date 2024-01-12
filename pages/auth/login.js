@@ -142,14 +142,11 @@ export default function Login() {
           </Link>
         </Box>
         <Button
+          className="button_bg"
           onClick={handleLogin}
           sx={{
             width: '100%',
-            background: '#623405',
             color: 'white',
-            ':hover': {
-              background: 'gray',
-            },
           }}
           varient="contained"
         >

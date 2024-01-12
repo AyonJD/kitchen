@@ -42,7 +42,7 @@ const SOLUTION_URL = [
 const SOLUTION_URL2 = [
   '/demo-one/order-selection',
   '/demo-two/kitchen-display',
-  '/demo-four/product-portfolio',
+  '/demo-four/landing-slider',
   '/demo-six/todays-purchase',
   '/demo-seven/current-stock',
   '/demo-eight/sales-status',

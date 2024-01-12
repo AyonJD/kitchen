@@ -146,7 +146,7 @@ export default function SelectionForm({
           <Button
             type="submit"
             variant="contained"
-            color="primary"
+            className="button_bg"
             sx={{ marginTop: 4 }}
           >
             Submit
