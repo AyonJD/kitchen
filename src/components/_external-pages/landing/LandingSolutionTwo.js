@@ -153,7 +153,7 @@ export default function LandingSolutionTwo() {
                   variant="h6"
                   sx={{ fontFamily: 'Saira Condensed, sans-serif' }}
                 >
-                  Digitally manage Food Industry Activities
+                  Digitally manage Restaurant Activities
                 </Typography>
               </MotionInView>
             </LeftLogoStyle>

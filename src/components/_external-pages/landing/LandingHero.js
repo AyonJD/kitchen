@@ -84,7 +84,7 @@ export default function LandingHero() {
               style={{ marginTop: '-10px' }}
             >
               <Typography variant="h4" sx={{ color: 'common.white' }}>
-                Digitally manage Food Industry Activities
+                Digitally manage Restaurant Activities
               </Typography>
             </motion.div>
 

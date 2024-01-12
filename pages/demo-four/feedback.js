@@ -107,6 +107,9 @@ export default function Feedback() {
 
   const handleSubmit = event => {
     event.preventDefault()
+    if (allFeedback.length === 1) {
+      return toast.error('You have already submitted your review!')
+    }
 
     toast.success('Thank you for your review!')
     // if (
@@ -320,21 +323,21 @@ export default function Feedback() {
                     <Grid item xs={12} key={index}>
                       <FormControl fullWidth sx={{ maxWidth: '100%' }}>
                         <InputLabel>{item}</InputLabel>
+
                         <Select
                           name={item}
                           label={item}
                           value={formData[item] || ''}
                           onChange={handleChange}
                         >
-                          <MenuItem value="Not Satisfied">
-                            {' '}
-                            Not Satisfied
-                          </MenuItem>
-                          <MenuItem value="Not Bad"> Not Bad</MenuItem>
-                          <MenuItem value="Managable"> Managable</MenuItem>
                           <MenuItem value="Fully Satisfied">
                             {' '}
                             Fully Satisfied
+                          </MenuItem>
+                          <MenuItem value="Managable"> Managable</MenuItem>
+                          <MenuItem value="Not Satisfied">
+                            {' '}
+                            Not Satisfied
                           </MenuItem>
                         </Select>
                       </FormControl>
