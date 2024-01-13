@@ -17,6 +17,7 @@ const RootStyle = styled('div')(({ theme }) => ({
   [theme.breakpoints.up('md')]: {
     paddingBottom: theme.spacing(15),
   },
+  background: '#FEFCFC',
 }))
 
 export default function LandingSlider() {

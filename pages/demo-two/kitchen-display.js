@@ -30,7 +30,8 @@ const tableData = [
     staff: 'Staff 1',
     orderTime: '12:00 PM',
     items: ['Hamburger (2 units)', 'Donuts (1 unit)'],
-    isServed: true,
+ 
+    isCooking: true,
   },
   {
     id: 'DDMMYY004',
@@ -46,7 +47,7 @@ const tableData = [
     staff: 'Staff 3',
     orderTime: '12:00 PM',
     items: ['Sausage (1 unit)', 'Fried chicken (1 unit)'],
-    isServed: true,
+    isCooking: true,
   },
   {
     id: 'DDMMYY002',
@@ -54,7 +55,7 @@ const tableData = [
     staff: 'Staff 4',
     orderTime: '12:00 PM',
     items: ['Sandwich (3 units)', 'Pretzel (1 unit)'],
-    isCooking: true,
+    isCooking: false,
   },
   {
     id: 'DDMMYY005',
@@ -62,7 +63,7 @@ const tableData = [
     staff: 'Staff 5',
     orderTime: '12:00 PM',
     items: ['Milkshake (1 unit)', 'Burrito (1 unit)'],
-    isCooking: true,
+    isCooking: false,
   },
   {
     id: 'DDMMYY003',
@@ -114,7 +115,7 @@ export default function KitchenDisplay() {
                 <CustomCard
                   sx={{
                     background: table.isCooking
-                      ? 'rgba(255, 208, 155, 0.6)'
+                      ? '#FCF9BF'
                       : table.isServed
                       ? 'rgba(0, 128, 0, 0.2)'
                       : 'rgba(255, 208, 155, 0.1)',
