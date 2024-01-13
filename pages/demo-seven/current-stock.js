@@ -89,8 +89,21 @@ export default function CurrentStock() {
 
   return (
     <DashboardLayout sideBarConfig={demoSevenSidebarConfig}>
-      <Page title="Kitchen | Order Selection">
+      <Page title="Kitchen | Current Stock">
         <Container maxWidth={themeStretch ? false : 'xl'}>
+          <Typography
+            variant="h3"
+            sx={{ mb: 1, marginTop: '-35px', textAlign: 'center' }}
+          >
+            Current Stock
+          </Typography>
+          <Typography variant="h6" sx={{ mb: 2, textAlign: 'center' }}>
+            {new Date().toLocaleDateString('en-US', {
+              year: 'numeric',
+              month: 'long',
+              day: 'numeric',
+            })}
+          </Typography>
           <Box
             sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'flex-start' }}
           >

@@ -31,7 +31,7 @@ import ChartBar from 'src/components/chart/ChartBar'
 
 const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
-    backgroundColor: theme.palette.common.black,
+    backgroundColor: '#FDF6F2',
     color: theme.palette.common.white,
   },
   [`&.${tableCellClasses.body}`]: {
@@ -41,7 +41,7 @@ const StyledTableCell = styled(TableCell)(({ theme }) => ({
 
 const StyledTableRow = styled(TableRow)(({ theme }) => ({
   '&:nth-of-type(odd)': {
-    backgroundColor: theme.palette.action.hover,
+    backgroundColor: '#D3CDCC',
   },
   // hide last border
   '&:last-child td, &:last-child th': {
@@ -73,9 +73,19 @@ export default function Analytics() {
     'Chocolate Muffin',
     'Pasta',
     'Corn Soup',
+    'Burrito',
+    'Cupcake',
   ]
-  const UNIT = ['1 Unit', '2 Unit', '3 Unit', '4 Unit', '5 Unit']
-  const tableData = Array.from(Array(5).keys()).map((_, index) => {
+  const UNIT = [
+    '5 units',
+    '3 units',
+    '2 units',
+    '2 units',
+    '1 unit',
+    '1 unit',
+    '1 unit',
+  ]
+  const tableData = Array.from(Array(7).keys()).map((_, index) => {
     return {
       product: PRODUCT[index],
       unit: UNIT[index],
@@ -85,12 +95,14 @@ export default function Analytics() {
   return (
     <DashboardLayout sideBarConfig={demoThreeSidebarConfig}>
       <Page title="Kitchen | Analytics">
-        <Container maxWidth={themeStretch ? false : 'xl'}>
+        <Container
+          sx={{ marginTop: '-35px' }}
+          maxWidth={themeStretch ? false : 'xl'}
+        >
           <AccountsCard />
 
           <Box
             sx={{
-              mt: 3,
               mb: 3,
               display: 'flex',
               justifyContent: 'space-between',
@@ -103,7 +115,7 @@ export default function Analytics() {
                 sx={{ width: 380, marginLeft: 'auto', marginRight: 'auto' }}
               >
                 <CardHeader
-                  title="Todays Sales"
+                  title="Top Sales List"
                   titleTypographyProps={{
                     sx: {
                       mb: 2.5,
@@ -115,23 +127,30 @@ export default function Analytics() {
                   }}
                 />
                 <TableContainer component={Paper}>
-                  <Table size="small" aria-label="customized table">
+                  <Table sx={{ background: '#FDF6F2' }} size="small">
                     <TableHead>
-                      <StyledTableRow>
-                        <StyledTableCell>Item</StyledTableCell>
-                        <StyledTableCell align="right">Volume</StyledTableCell>
-                      </StyledTableRow>
+                      <TableRow>
+                        <TableCell
+                          sx={{ background: '#D3CDCC', color: '#000000' }}
+                        >
+                          Item
+                        </TableCell>
+                        <TableCell
+                          sx={{ background: '#D3CDCC', color: '#000000' }}
+                          align="right"
+                        >
+                          Volume
+                        </TableCell>
+                      </TableRow>
                     </TableHead>
                     <TableBody>
                       {tableData.map((item, index) => (
-                        <StyledTableRow key={index}>
-                          <StyledTableCell component="th" scope="row">
+                        <TableRow key={index}>
+                          <TableCell component="th" scope="row">
                             {item.product}
-                          </StyledTableCell>
-                          <StyledTableCell align="right">
-                            {item.unit}
-                          </StyledTableCell>
-                        </StyledTableRow>
+                          </TableCell>
+                          <TableCell align="right">{item.unit}</TableCell>
+                        </TableRow>
                       ))}
                     </TableBody>
                   </Table>
@@ -200,13 +219,11 @@ export default function Analytics() {
                 <ChartLine />
                 <Typography
                   variant="body2"
-                  sx={{ mt: 2, display: 'inline-block', textAlign: 'justify' }}
+                  sx={{ mt: 2, textAlign: 'center' }}
                 >
-                  Lorem ipsum sit amet, consectetur adipisicing elit.
-                  Perferendis culpa, modi nostrum vitae, ipsum, alias sapiente
-                  eligendi dolorem fuga beatae similique consequuntur! nim
-                  beatae similique beatae consequuntur modi nostrum! Consectetur
-                  nostrum
+                  High Rush Hour from 12pm to 3 pm
+                  <br />
+                  Medium Rush Hour from 7pm to 10 pm
                 </Typography>
               </Box>
             </MotionInView>

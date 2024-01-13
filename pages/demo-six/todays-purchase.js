@@ -3,13 +3,6 @@
 import {
   Box,
   Container,
-  Table,
-  TableBody,
-  TableCell,
-  TableContainer,
-  TableHead,
-  TableRow,
-  Typography,
 } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 // layouts
@@ -19,16 +12,7 @@ import useSettings from 'src/hooks/useSettings'
 // components
 import Page from 'src/components/Page'
 // Config
-import demoOneSidebarConfig from '../../src/layouts/config/demoOneSidebarConfig'
-import TableWithChairs from 'src/components/_external-pages/table-with-chair'
-import SelectionForm from 'src/components/_external-pages/selection-form'
-import CustomCard from 'src/components/card/CustomCard'
-import {
-  MotionInView,
-  varFadeInDown,
-  varFadeInLeft,
-  varFadeInRight,
-} from 'src/components/animate'
+
 import { useState } from 'react'
 import { toast } from 'react-hot-toast'
 import demoSixSidebarConfig from 'src/layouts/config/demoSixSidebarConfig'
@@ -88,13 +72,18 @@ export default function TodaysPurchase() {
 
   return (
     <DashboardLayout sideBarConfig={demoSixSidebarConfig}>
-      <Page title="Kitchen | Order Selection">
+      <Page title="Kitchen | Todays Purchase">
         <Container maxWidth={themeStretch ? false : 'xl'}>
-          <Box sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'center' }}>
-            <Box sx={{ width: '35%' }}>
+          <Box sx={{ pb: 2, display: 'flex', gap: 4, }}>
+            <Box sx={{ width: '30%', marginTop: '10px' }}>
+              <img
+                style={{ width: '100%', marginBottom: '50px' }}
+                src="/static/todays-purchase/bdt.png"
+                alt=""
+              />
               <img
                 style={{ width: '100%' }}
-                src="/static/todays-purchase/bdt.png"
+                src="/static/todays-purchase/card.png"
                 alt=""
               />
             </Box>
@@ -104,10 +93,15 @@ export default function TodaysPurchase() {
                 src="/static/todays-purchase/meat.png"
                 alt=""
               />
+              <img
+                style={{ width: '100%' }}
+                src="/static/todays-purchase/veg.png"
+                alt=""
+              />
             </Box>
           </Box>
-          <Box sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'center' }}>
-            <Box sx={{ width: '35%' }}>
+          {/* <Box sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'center' }}>
+            <Box sx={{ width: '30%' }}>
               <img
                 style={{ width: '100%' }}
                 src="/static/todays-purchase/card.png"
@@ -121,7 +115,7 @@ export default function TodaysPurchase() {
                 alt=""
               />
             </Box>
-          </Box>
+          </Box> */}
         </Container>
       </Page>
     </DashboardLayout>
