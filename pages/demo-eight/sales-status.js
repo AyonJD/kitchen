@@ -91,7 +91,10 @@ export default function SalesStatus() {
     <DashboardLayout sideBarConfig={demoEightSidebarConfig}>
       <Page title="Kitchen | Order Selection">
         <Container maxWidth={themeStretch ? false : 'xl'}>
-          <Typography variant="h3" sx={{ mb: 1,  marginTop: '-35px', textAlign: 'center' }}>
+          <Typography
+            variant="h3"
+            sx={{ mb: 1, marginTop: '-35px', textAlign: 'center' }}
+          >
             Sales Status
           </Typography>
           <Typography variant="h6" sx={{ mb: 3, textAlign: 'center' }}>
@@ -101,9 +104,7 @@ export default function SalesStatus() {
               day: 'numeric',
             })}
           </Typography>
-          <Box
-            sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'flex-start' }}
-          >
+          <Box sx={{ pb: 5, display: 'flex', gap: 4, alignItems: 'center' }}>
             <Box sx={{ width: '40%' }}>
               <img
                 style={{ width: '100%' }}

@@ -1,9 +1,6 @@
 // Food Order
 
-import {
-  Box,
-  Container,
-} from '@mui/material'
+import { Box, Container } from '@mui/material'
 import { useTheme } from '@mui/material/styles'
 // layouts
 import DashboardLayout from 'src/layouts/dashboard'
@@ -74,8 +71,8 @@ export default function TodaysPurchase() {
     <DashboardLayout sideBarConfig={demoSixSidebarConfig}>
       <Page title="Kitchen | Todays Purchase">
         <Container maxWidth={themeStretch ? false : 'xl'}>
-          <Box sx={{ pb: 2, display: 'flex', gap: 4, }}>
-            <Box sx={{ width: '30%', marginTop: '10px' }}>
+          <Box sx={{ pb: 2, display: 'flex', gap: 4, alignItems: 'center' }}>
+            <Box sx={{ width: '30%' }}>
               <img
                 style={{ width: '100%', marginBottom: '50px' }}
                 src="/static/todays-purchase/bdt.png"
